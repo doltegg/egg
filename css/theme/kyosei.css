@@ -1,0 +1,409 @@
+﻿/**
+ * Solarized Dark theme for reveal.js.
+ * Author: Achim Staebler
+ */
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+html * {
+  color-profile: sRGB;
+  rendering-intent: auto; }
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+
+html, body, .reveal {
+  background: #222730; }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #222730;
+  background-color: #222730; }
+
+.reveal {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, pingfang-tc, aktiv-grotesk, source-han-sans-traditional, Segoe UI, Roboto, Helvetica Neue, Microsoft JhengHei, Microsoft YaHei, Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+  color: #f3f3f3; }
+
+::selection {
+  color: #fff;
+  background: #d33682;
+  text-shadow: none; }
+
+::-moz-selection {
+  color: #fff;
+  background: #d33682;
+  text-shadow: none; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 1.3;
+  font-weight: inherit; }
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #0AB9BE;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, pingfang-tc, aktiv-grotesk, source-han-sans-traditional, Segoe UI, Roboto, Helvetica Neue, Microsoft JhengHei, Microsoft YaHei, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 3px;
+  text-transform: none;
+  text-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+  word-wrap: break-word; }
+
+.reveal h1 {
+  font-size: 3em; }
+
+.reveal h2 {
+  font-size: 1.8em; }
+
+.reveal h3 {
+  font-size: 1.2em; }
+
+.reveal h4 {
+  font-size: 1em; }
+
+.reveal h1 {
+  text-shadow: none; }
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 20px 0;
+  line-height: 1.5; }
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%; }
+
+.reveal strong,
+.reveal b {
+  font-weight: bold; }
+
+.reveal em {
+  font-style: italic; }
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em; }
+
+.reveal ol {
+  list-style-type: decimal; }
+
+.reveal ul {
+  list-style-type: disc; }
+
+.reveal ul ul {
+  list-style-type: square; }
+
+.reveal ul ul ul {
+  list-style-type: circle; }
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px; }
+
+.reveal dt {
+  font-weight: bold; }
+
+.reveal dd {
+  margin-left: 40px; }
+
+.reveal q,
+.reveal blockquote {
+  quotes: none; }
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 20px auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block; }
+
+.reveal q {
+  font-style: italic; }
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal; }
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.reveal table th {
+  font-weight: bold; }
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid; }
+
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center; }
+
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right; }
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none; }
+
+.reveal sup {
+  vertical-align: super; }
+
+.reveal sub {
+  vertical-align: sub; }
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top; }
+
+.reveal small * {
+  vertical-align: top; }
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #0AB9BE;
+  text-decoration: none;
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  transition: color .15s ease; }
+
+.reveal a:hover {
+  color: #39eff5;
+  text-shadow: none;
+  border: none; }
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #067275; }
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); }
+
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none; }
+
+.reveal a img {
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear; }
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #0AB9BE;
+  filter: brightness(1.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18); }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #0AB9BE; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #0AB9BE; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #0AB9BE; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #0AB9BE; }
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #39eff5; }
+
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #39eff5; }
+
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #39eff5; }
+
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #39eff5; }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: #0AB9BE;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+.reveal .reveal-slide-author {
+  font-size: 30px;
+  margin-bottom: 8px;
+  margin-top: 10px; }
+
+.reveal pre > code.hljs {
+  padding: 20px 20px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-weight: 400;
+  background: #10110e;
+  text-rendering: normal;
+  -webkit-font-smoothing: subpixel-antialiased; }
+
+.reveal pre > code.hljs * {
+  font-family: monospace;
+  font-weight: 400; }
+
+.reveal .reveal-slide-title {
+  font-weight: 400; }
+
+.reveal .reveal-slide-date {
+  color: #797d83;
+  margin-top: 8px;
+  font-size: 20px; }
+
+.reveal .controls .navigate-right:focus,
+.reveal .controls .navigate-left:focus,
+.reveal .controls .navigate-up:focus,
+.reveal .controls .navigate-down:focus {
+  outline: none; }
+
+.reveal .pdf-btn {
+  color: white;
+  background: #FF4949;
+  display: inline-block;
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-top: 2px;
+  font-weight: 500;
+  cursor: pointer; }
+
+.reveal .pdf-btn:hover {
+  color: white;
+  background: #cf3c3c; }
+
+.reveal img.brand-logo,
+.reveal section img.brand-logo {
+  background: none;
+  box-shadow: none;
+  height: 55px;
+  margin-bottom: 3px;
+  margin-top: 0; }
+
+.reveal .reveal-end-groups:after {
+  content: "";
+  display: block;
+  width: 100%;
+  clear: both; }
+
+.reveal .reveal-end-title {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 15px; }
+
+.reveal .reveal-end-group {
+  float: left;
+  text-align: left; }
+  .reveal .reveal-end-group:first-child {
+    position: relative;
+    margin-right: 20px; }
+    .reveal .reveal-end-group:first-child:after {
+      position: absolute;
+      content: "";
+      width: 1px;
+      height: 90%;
+      background: #f3f3f3;
+      display: block;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto 0; }
+
+.reveal .brand-link {
+  margin-top: 3px;
+  font-size: 20px;
+  line-height: 20px;
+  margin-left: 15px;
+  display: block;
+  position: relative;
+  top: -8px;
+  color: white; }
+  .reveal .brand-link:hover {
+    color: white; }
+
+.reveal .reveal-end-author {
+  font-size: 20px;
+  margin-bottom: 3px;
+  margin-top: 0; }
+
+.reveal table thead th {
+  border-color: #f3f3f3; }
+
+.reveal table tbody td, .reveal table td {
+  border-color: #797d83; }
+
+.reveal td, .reveal th {
+  color: #f3f3f3; }
