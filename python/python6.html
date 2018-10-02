@@ -1,0 +1,647 @@
+﻿<html>
+
+<head>
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/kyosei.css">
+    <!-- link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/sunburst.css" -->
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '/css/print/pdf.css' :
+            '/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <title>
+        [國泰金控] Python 與高效的工作術 第六課 -
+            Eugene&#39;s Blog
+    </title>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2 class="reveal-slide-title">
+                    [國泰金控] Python 與高效的工作術 第六課
+                </h2>
+                <p class="reveal-slide-author">
+                    Eugene Chang (張佑成)
+                </p>
+                <p class="reveal-slide-date">
+                    October 2nd 2018
+                </p>
+
+            </section>
+            <section data-markdown data-separator="^---$" data-separator-vertical="^----$">
+                # 課程社團
+
+### FB 社團：https://www.facebook.com/groups/cathayewapy/
+
+---
+# 一些 Python 的學習資源
+若你對資料科學有興趣：
+[Datacamp](https://www.datacamp.com/home)
+
+---
+# 一些 Python 的學習資源
+若你對資料科學有興趣：
+[CodeCademy](https://www.codecademy.com/catalog/language/python)
+
+---
+# Python 官網
+[Python 官方網站](https://www.python.org/)
+
+---
+# 今天來講一些簡單的影像處理
+
+---
+# Python 的影像處理套件非常多...
+
+- OpenCV
+- pillow
+
+---
+# OpenCV
+
+若今天你要做電腦視覺或影像分析方面的研究
+
+OpenCV 是個非常大的工具
+
+---
+# 請安裝 pillow 套件
+```bash
+pip install pillow
+```
+
+---
+## 接下來這堂課會用到的測試影像
+
+![](https://www.dropbox.com/s/jgtcqtdgctubtnb/lenna_resize.jpg?dl=1)
+
+Lenna 圖 [Wiki 連結](https://zh.wikipedia.org/wiki/%E8%90%8A%E5%A8%9C%E5%9C%96)
+
+[下載連結](https://www.dropbox.com/s/wso30w722raszj1/lenna_sharp.jpg?dl=1)
+
+---
+# PIL 牛刀小試
+
+```python
+# 引用 pillow 套件是 PIL, 而非 pillow
+from PIL import Image
+# 開影像檔
+lenna = Image.open(r&#39;你的影像檔的位置&#39;)
+# 取得影像檔案大小 (以像素計算)
+lenna.size
+# (512, 512)
+
+# 取得圖檔格式
+lenna.format
+# JPEG
+
+```
+
+---
+# 今天若想改變一張圖檔的大小
+
+```python
+from PIL import Image
+
+# 開原圖檔
+lenna = Image.open(r&#39;你的圖檔路徑&#39;)
+# 取得影像檔案大小 (以像素計算)
+width, height = lenna.size
+
+print(&#34;{} {}&#34;.format(width, height))
+
+# 輸入你想要的寬與高(以象素計算，記得放入整數)
+# 我們希望把圖縮小成原圖 1/2 的比例
+halfLenna = lenna.resize((int(width/2), int(height/2)))
+
+#最後別忘了將檔案存成一個圖檔
+halfLenna.save(r&#39;儲存檔案的路徑，加上檔案名稱與副檔名&#39;)
+
+```
+
+---
+# 完成圖
+
+![](https://www.dropbox.com/s/jgtcqtdgctubtnb/lenna_resize.jpg?dl=1)
+
+---
+# 旋轉圖檔
+
+```python
+from PIL import Image
+
+# 開原圖檔
+lenna = Image.open(r&#39;你的圖檔路徑&#39;)
+# 取得影像檔案大小 (以像素計算)
+width, height = lenna.size
+
+print(&#34;{} {}&#34;.format(width, height))
+
+# 輸入你想要的寬與高(以象素計算，記得放入整數)
+# 我們希望把圖縮小成原圖 1/2 的比例
+halfLenna = lenna.resize((int(width/2), int(height/2)))
+
+# .rotate(n) 是指把圖檔以逆時鐘方向轉 n 度
+halfLenna.rotate(90).save(r&#39;儲存檔案的路徑，加上檔案名稱與副檔名&#39;)
+```
+
+---
+# 完成圖
+
+![](https://www.dropbox.com/s/n07v9po6p0d9z97/lenna_half_rotate.jpg?dl=1)
+
+---
+## 今天若想截取影像檔的一部分
+
+我們必須先了解，PIL 表達圖檔的方式:
+![](https://www.dropbox.com/s/l47i3iy5327tm6w/000096.jpg?dl=1)
+
+有點類似 Excel 的概念，x 與 y 坐標從左上角開始算
+
+---
+## 今天若想截取影像檔的一部分
+
+所以要需要指定一個四方形的範圍去做修改
+PIL 是用一個 tuple 來表達範圍 (左上x, 左上y, 右下x, 右下y)
+![](https://www.dropbox.com/s/l47i3iy5327tm6w/000096.jpg?dl=1)
+
+這個範圍用 tuple 來表達就是 `(3, 1, 8, 5)`
+
+---
+# tuple (元組)
+
+這邊就很快介紹一下 python 的 tuple
+
+```python
+# (a, b, c, d) 在 python 的世界是 tuple，一種資料結構
+# 詳細的 xy 坐標可用小畫家查詢
+box = (106, 51, 406, 512)
+```
+
+---
+# tuple (元組)
+
+tuple (元組) 和 list 的功能幾乎一樣，只有兩處不同：
+1. tuple 在宣告時是用小括弧 `()` 而非中括弧 `[]`
+```python
+pets_tuple = (&#39;cat&#39;, &#39;dog&#39;, &#39;bird&#39;)
+# (&#39;cat&#39;, &#39;dog&#39;, &#39;bird&#39;)
+```
+2. 另外，tuple 是不可改變的，不支援新增，修改，刪除等功能
+```python
+pets_tuple = (&#39;cat&#39;, &#39;dog&#39;, &#39;bird&#39;)
+pets_tuple[0] = &#39;bat&#39;
+# 會回傳錯誤！
+```
+
+---
+# 今天若想截取影像檔的一部分
+
+```python
+from PIL import Image
+
+lenna = Image.open(r&#39;你的圖檔路徑&#39;)
+
+# 若想截取圖檔中的某一部分，可用 .crop 方法
+# 需要指定一個四方形的範圍，(左上x, 左上y, 右下x, 右下y)
+# (a, b, c, d) 在 python 的世界是 set，一種資料結構
+# 詳細的 xy 坐標可用小畫家查詢
+box = (106, 51, 406, 512)
+cropLenna = lenna.crop(box)
+cropLenna.save(r&#39;你希望存檔的路徑+檔名&#39;)
+```
+
+---
+# 濾鏡功能
+
+```
+from PIL import Image
+# 若要把 Lenna 的臉部模糊, 可用 pillow 的濾鏡功能
+from PIL import ImageFilter
+
+lenna = Image.open(r&#39;你的圖檔路徑&#39;)
+
+box = (106, 51, 406, 512)
+cropLenna = lenna.crop(box)
+# 將截取的部分用濾鏡模糊
+lennaBlurred = cropLenna.filter(ImageFilter.BLUR)
+lennaBlurred.save(r&#39;你希望存檔的路徑+檔名&#39;)
+
+# 若模糊的效果不夠，可用 for loop 把同樣的濾鏡套用很多次
+for i in range(10):
+	lennaBlurred = lennaBlurred.filter(ImageFilter.BLUR)
+
+box = (106, 51, 406, 512)
+# 用 .paste() 將模糊後的部分貼□原本的影像（用 box tuple 指定原圖要被貼上的位置）
+lenna.paste(lennaBlurred, box)
+lenna.save(r&#39;你希望存檔的路徑+檔名&#39;)
+```
+
+---
+# 完成圖
+
+![](https://www.dropbox.com/s/tya6pqudk054zkt/lenna3.jpg?dl=1)
+
+---
+# 幫圖檔加上浮水印
+
+[範例浮水印檔案](https://www.dropbox.com/s/j9vqq74g72apex1/cathay_logo.png?dl=1)
+
+---
+# 幫圖檔加上浮水印
+
+```python
+from PIL import Image
+
+# 開啟照片
+image = Image.open(r&#34;你要加上浮水印的圖檔路徑&#34;)
+image = image.convert(&#34;RGBA&#34;)
+
+#開啟浮水印
+watermark = Image.open(r&#34;你的浮水印圖檔路徑&#34;)
+watermark = watermark.convert(&#34;RGBA&#34;)
+
+#重設浮水印圖片大小為 256 x 100
+watermark_resize = watermark.resize((256, 100))
+
+# 將浮水印圖片貼到照片上，位置是 tuple 所指定的坐標 (0, 0)，也就是左上角
+image.paste(watermark_resize, (0,0))
+
+# 儲存新的照片
+image.save(r&#34;合成圖檔的路徑(包含檔名和副檔名)&#34;)
+```
+
+---
+## 但是...
+
+我們的浮水印是透明的，若沒有特別設定透明的地方:
+
+![](https://www.dropbox.com/s/6sp2xyif0mga88x/merge_image_fail.png?dl=1)
+
+---
+# 完整版程式碼
+
+[連結](https://gist.github.com/yuyueugene84/80efe66c28fb79c0bcdcbaafabad6388)
+
+---
+## 完成圖
+
+![](https://www.dropbox.com/s/cdqdl13cc2nkh0c/result.png?dl=1)
+
+
+---
+# 現代人的工作環境，除了 Excel，另外一個經常需要處理的檔案就是 PDF
+
+---
+# 用 Python 操作 PDF
+
+一般對pdf常見的問題是：
+
+- 讀取 PDF 的궇容
+- 利用現有的 pdf 產生出新的 pdf
+
+---
+# 請先安裝 PyPDF2
+
+```bash
+pip install PyPDF2
+```
+
+*注意套件的大小寫都很重要，`y` 需要小寫
+
+---
+# 下載範例 PDF
+
+[範例 PDF](https://www.dropbox.com/s/zedfl989ek0eemj/principles.pdf?dl=1)
+
+---
+### 先來試試看把第一頁的文字截取出來
+
+```python
+import PyPDF2
+import os
+
+os.chdir(r&#39;這放入你的 pdf 檔案所在的路徑&#39;)
+
+pdfFile = open(&#39;principles.pdf&#39;, &#39;rb&#39;)
+
+reader = PyPDF2.PdfFileReader(pdfFile)
+# 可以把 writer 想象成是被寫入궇容的暫存區
+writer = PyPDF2.PdfFileWriter()
+# 取得 ror.pdf 檔案的第一頁
+page1 = reader.getPage(0)
+# 取出該頁的文字
+pageText = page1.extractText()
+# 限制：如果你的 PDF 是中文，PyPDF2 讀取出的文字會產生亂碼
+print(pageText)
+```
+
+---
+### 截取第一頁，利用第一頁的궇容產生出一個新的 pdf
+
+```bash
+import PyPDF2
+import os
+
+os.chdir(r&#39;這放入你的 pdf 檔案所在的路徑&#39;)
+
+pdfFile = open(&#39;principles.pdf&#39;, &#39;rb&#39;)
+# 讀取出 PDF 黨的資料，寫入 reader 變數
+reader = PyPDF2.PdfFileReader(pdfFile)
+# 可以把 writer 想象成是被寫入궇容的暫存區
+writer = PyPDF2.PdfFileWriter()
+# 取得 ror.pdf 檔案的第一頁
+page1 = reader.getPage(0)
+# 注意 addPage 只能把一頁 pdf 放到新 pdf 檔的最後面
+writer.addPage(page1)
+# 開一個名為 ror1.pdf 的新 pdf 檔案
+outputPdf = open(&#39;principles1.pdf&#39;, &#39;wb&#39;)
+# 將目前 writer 物件的궇容寫入新的 pdf 檔궇
+writer.write(outputPdf)
+# 這個很重要！
+outputPdf.close()
+
+```
+
+---
+### 將多份 pdf 集合成一份
+
+```python
+import PyPDF2
+import os
+
+os.chdir(r&#39;這放入你的 pdf 檔案所在的路徑&#39;)
+
+pdfFile = open(&#39;principles.pdf&#39;, &#39;rb&#39;)
+# 讀取出 PDF 黨的資料，寫入 reader 變數
+reader = PyPDF2.PdfFileReader(pdfFile)
+# 可以把 writer 想象成是被寫入궇容的暫存區
+writer = PyPDF2.PdfFileWriter()
+# 將 ror.pdf 每一頁的궇容加入 writer
+for pageNum in range(reader.numPages):
+    pdfPage = reader.getPage(pageNum)
+    writer.addPage(pdfPage)
+# 將同樣的 ror.pdf 每一頁的궇容加入 writer
+for pageNum in range(reader.numPages):
+    pdfPage = reader.getPage(pageNum)
+    writer.addPage(pdfPage)
+
+outputPdf = open(&#39;principles_copy.pdf&#39;, &#39;wb&#39;)
+writer.write(outputPdf)
+outputPdf.close()
+
+```
+
+---
+### 今天若想要加浮水印在 pdf 封面上
+
+很遺憾，PyPDF2 的功能沒有你想象中大，它只可以做到
+
+**把兩個頁面像圖層一樣□起來**
+
+---
+# 先下載一下範例浮水印 pdf 檔
+
+[範例浮水印 PDF](https://www.dropbox.com/s/xzozumw5l17x617/cathay_logo.pdf?dl=1)
+
+---
+### 結合PDF第一頁與浮水印
+
+```python
+import PyPDF2
+import os
+
+os.chdir(r&#39;這放入你的 pdf 檔案所在的路徑&#39;)
+
+pdfFile = open(&#39;principles.pdf&#39;, &#39;rb&#39;)
+
+reader = PyPDF2.PdfFileReader(pdfFile)
+writer = PyPDF2.PdfFileWriter()
+
+watermarkReader = PyPDF2.PdfFileReader(open(&#39;cathay_logo.pdf&#39;, &#39;rb&#39;))
+# 取得 ror.pdf 第一頁
+firstPage = reader.getPage(0)
+# 取得浮水印
+watermark = watermarkReader.getPage(0)
+
+# 將浮水印以圖層的方式與 ror.pdf 第一頁結合
+firstPage.mergePage(watermark)
+# 把結合后的結果存入 writer 暫存區
+writer.addPage(firstPage)
+
+# 最後再將 writer 的궇容寫入新的 pdf 檔
+outputPdf = open(&#39;principles_watermark.pdf&#39;, &#39;wb&#39;)
+writer.write(outputPdf)
+outputPdf.close()
+
+```
+
+---
+# 回家作業
+
+將浮水印加到 PDF 檔案的每一頁上
+
+---
+## 如何用 Python 發送 Email?
+
+SMTP (簡單郵件傳輸協定)
+
+---
+## 如何用 Python 發送 Email?
+
+```python
+import smtplib
+# 連上 gmail 服務
+conn = smtplib.SMTP(&#39;smtp.gmail.com:587&#39;)
+```
+
+---
+## 如何用 Python 發送 Email?
+
+```python
+import smtplib
+# 連上 gmail 服務
+conn = smtplib.SMTP(&#39;smtp.gmail.com:587&#39;)
+# 開連
+conn.ehlo()
+# 加密連
+conn.starttls()
+```
+
+---
+## 我們需要將Google的兩步驟驗證機制開
+
+[連結](https://www.google.com/intl/zh-TW/landing/2step/#tab=how-it-works)
+
+---
+## 接下來我們需要一組 Google 的通行碼
+
+[申請連結](https://support.google.com/accounts/answer/185833)
+
+---
+## 進入頁面
+
+![](https://www.dropbox.com/s/h1xbcdt4aa6nk5k/google_auth.png?dl=1)
+
+---
+## 申請通行碼
+
+![](https://www.dropbox.com/s/vtyneuxfnjv6zpq/token_form.png?dl=1)
+
+---
+## 記下你申請到的通行碼
+
+![](https://www.dropbox.com/s/56xnzh290ke3ie7/get_token.png?dl=1)
+
+---
+## 接下來就可以用 Python 登入 gmail
+
+```python
+conn.login(&#39;你的 email&#39;, &#39;你的 Google 的通行碼&#39;)
+```
+
+*注意不要讓你的通行碼被別人看到
+
+---
+## 但是我們無法發送궇文有中文字的 Email...
+改良版：[連結](https://gist.github.com/yuyueugene84/cbdaa2f4e0834ebc0e7a932b670383dc)
+
+---
+# 發送 fb 訊息
+
+```python
+from fbchat import Client
+from fbchat.models import *
+
+thread_id = &#34;收訊者的 id / 聊天室的 id&#34;
+thread_type = ThreadType.GROUP # 若是要發給個人請改成 ThreadType.USER
+
+client = Client(&#34;你注冊 FB 的 email&#34;, &#34;你的 FB 密碼&#34;)
+
+# 發送文字訊息
+client.send(Message(text=&#39;所以我□那個醬汁呢？&#39;), thread_id=thread_id, thread_type=thread_type)
+
+# 發送 emoji
+client.sendEmoji(emoji=&#39;□&#39;, size=EmojiSize.LARGE, thread_id=thread_id, thread_type=thread_type)
+```
+
+---
+# 如何取得 thread_id?
+每一個聊天室、每一個私人對話的網址都有一個獨特 id:
+![](https://www.dropbox.com/s/2pefmpnlx31h9fw/find-group-id.png?dl=1)
+
+---
+# 若你找不到收訊者的 id
+```python
+from fbchat import Client
+from fbchat.models import *
+
+client = Client(&#34;你注冊 FB 的 email&#34;, &#34;你的 FB 密碼&#34;)
+
+users = client.searchForUsers(&#34;收訊者的 FB 使用者名&#34;)
+user = users[0]
+print(&#34;User&#39;s ID: {}&#34;.format(user.uid))
+print(&#34;User&#39;s name: {}&#34;.format(user.name))
+```
+
+---
+# 回家作業：
+將上周的爬蟲，改成透過 email 與 fb 發送訊息：
+
+[完整版程式碼](https://gist.github.com/yuyueugene84/e9663b63cd1de818544218e2a03335a7)
+
+---
+            </section>
+            <section>
+                <h2 class="reveal-end-title">
+                    Thanks for Watching
+                </h2>
+                <div class="reveal-end-groups">
+                    <div class="reveal-end-group">
+                        <a href="http://kyosei.ai/" target="_blank">
+                            <img class="brand-logo" src="/assets/images/logo-kyosei-full-default.svg" alt="kyosei-logo">
+                        </a>
+                        <a class="brand-link" href="http://kyosei.ai/" target="_blank">http://kyosei.ai</a>
+                    </div>
+                    <div class="reveal-end-group">
+                        <p class="reveal-end-author">
+                            <i class="fa fa-envelope" aria-hidden="true"></i> Contact:
+                            yuyueugene84@gmail.com
+                        </p>
+                        <a href="/assets/pdf/HJAapTLE7.pdf" class="pdf-btn">
+                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download PDF</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 800,
+            height: 600,
+            help: true,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            history: true,
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                {
+                    src: '../lib/js/classList.js',
+                    condition: function () {
+                        return !document.body.classList;
+                    }
+                },
+
+                // Interpret Markdown in <section> elements
+                {
+                    src: '../plugin/markdown/marked.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                {
+                    src: '../plugin/markdown/markdown.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+
+                // Syntax highlight for <code> elements
+                {
+                    src: '../plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+
+                // Zoom in and out with Alt+click
+                {
+                    src: '../plugin/zoom-js/zoom.js',
+                    async: true
+                },
+
+                // Speaker notes
+                {
+                    src: '../plugin/notes/notes.js',
+                    async: true
+                },
+
+                // MathJax
+                {
+                    src: '../plugin/math/math.js',
+                    async: true
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>
