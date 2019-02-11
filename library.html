@@ -339,8 +339,9 @@ pps {
 <!-- ************************************************************************************* -->
 <!--                                          抽籤                                         -->
 <!-- ************************************************************************************* -->
-<section data-menu-title="抽籤">
-	<h2>抽<span style="font-size:20px">下回爐主</span></h2>
+<section data-menu-title="抽籤" data-background="pink">
+	<!-- <h2>抽<span style="font-size:20px">下回爐主</span></h2> -->
+	<img src="others/egg/vd.png" height="100px">
 	<div class="result_box"><input type="text" id="oknum" name="oknum" readonly="readonly" placeholder="Outcome" /></div>
 	<p></p>
 	<div class="button_box">
@@ -360,7 +361,7 @@ pps {
 	<div class="more_box">
     	參選人：<span style="color:#AAAAAA;font-size:18px;">(用逗號隔開)</span>
     	<div class="more_form">
-		<input id="more_input" value="芷儀, 于庭, 峻銘, 晏羽, 慧伶, 林辰, 婷雅, 昱宏" /><button onclick="addData()">加入</button></div> <!-- 芷儀, 瑞宏, 慎淇, 于庭, 祐任, 芝萱, 峻銘, 晏羽, 慧伶, 智超, 鄭陳, 林辰, 婷雅, 昱宏-->
+		<input id="more_input" style="color:#EE717B" value="芷儀, 于庭, 峻銘, 晏羽, 慧伶, 林辰, 婷雅, 昱宏" /><button onclick="addData()">加入</button></div> <!-- 芷儀, 瑞宏, 慎淇, 于庭, 祐任, 芝萱, 峻銘, 晏羽, 慧伶, 智超, 鄭陳, 林辰, 婷雅, 昱宏-->
 	</div>
 </section>
 </section>
@@ -1002,12 +1003,132 @@ pps {
 	</small></ul>
 </section>
 
+<section data-menu-title="2 月班表">
+	<h4 id="dkmom">2 月點名表</h2>
+	<table class="bottomBorder" style="line-height:22px;">
+		<tr>
+			<th style="font-size:20px;">date</th>
+			<th style="font-size:20px;">1st</th>
+			<th style="font-size:20px;">11th</th>
+			<th style="font-size:20px;">12th</th>
+			<th style="font-size:20px;">13th</th>
+			<th style="font-size:20px;">14th</th>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">瑞宏</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">慎淇</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">于庭</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td style="font-size:22px;">莉婷</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">素秀</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">芷儀*</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">祐任*</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">芝萱*</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">峻銘*</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">昱宏*</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">婷雅*</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">晏羽</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td style="font-size:22px;">慧伶*</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+
+	</table>
+</section>
 
 
 
-<section data-menu-title="點名表">
-	<h4 id="dkmom">點名表</h2>
-
+<!--
+<section>
+	<h4 id="dkmom">1 月點名表</h2>
 	<table class="bottomBorder" style="line-height:22px;">
 		<tr>
 			<th style="font-size:22px;">date</th>
@@ -1066,13 +1187,6 @@ pps {
 			<td>08:41</td>
 		</tr>
 		<tr>
-			<td style="font-size:22px;">晏羽*</td>
-			<td>PASS</td>
-			<td>PASS</td>
-			<td>NA</td>
-			<td>PASS</td>
-		</tr>
-		<tr>
 			<td style="font-size:22px;">婷雅</td>
 			<td>08:34</td>
 			<td>PASS</td>
@@ -1084,6 +1198,13 @@ pps {
 			<td>PASS</td>
 			<td>PASS</td>
 			<td>PASS</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">晏羽*</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>NA</td>
 			<td>PASS</td>
 		</tr>
 		<tr>
@@ -1108,11 +1229,8 @@ pps {
 			<td>PASS</td>
 		</tr>
 	</table>
-
-
 </section>
-
-
+-->
 		
 </div>
 </div>
