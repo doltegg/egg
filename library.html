@@ -158,6 +158,9 @@ pps {
   }
 
 </style>
+
+
+
 </head>
 
 
@@ -172,7 +175,11 @@ pps {
 <section data-menu-title="整合行銷部圖書館">
 	<h1 style="font-size:4em;">圖書館<h1>
 	<h3 style="color="#C0C0C0">整合行銷部</h3>
-	<h5 style="color="#999999">2019.5.9</h5>
+	<h5 id="dddate" style="color="#999999"></h5>
+<script>
+var d = new Date();
+document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMonth()+1)+ "." + d.getDate();
+</script>
 </section>
 
 
@@ -358,7 +365,7 @@ pps {
 			<td>10/25</td>
 			<td>12/6</td>
 			<td>3/14</td>
-			<td style="color:tomato">5/9</td>
+			<td>5/9</td>
 		</tr>
 		<tr>
 			<td style="font-size:22px;">桔梗</td>
@@ -366,7 +373,7 @@ pps {
 			<td>─</td>
 			<td>─</td>
 			<td>3/21</td>
-			<td style="color:tomato">5/9</td>
+			<td>5/9</td>
 		</tr>
 	</table>
 
