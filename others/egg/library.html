@@ -1,0 +1,1756 @@
+﻿<!doctype html>
+
+<html lang="zh-Hant-TW">
+
+<head>
+	<link rel="icon" type="image/png" href="others/favicon.ico" />	
+	<title>整合行銷部圖書館</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">	
+	
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css" id="theme"> <!--black, white, league, sky, beige, simple, serif, blood, night, moon, solarized -->
+	
+	<!-- 文字搖晃 -->
+	<link rel="stylesheet" type="text/css" href="css/csshake.min.css">
+	
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+		
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		ink.href = window.location.search.match( /print-pdf/gi ) ? 'lib/reveal.js/css/print/pdf.css' : 'lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+<style>
+/** logo  **/
+.reveal .logo { background-image: url("demonstration/logo.png"); }
+/* 去圖片框 */
+.reveal section img { background:none; border:none; box-shadow:none; }
+/** h2 標題改為綠色 **/
+.reveal section h2 { color:#4CAF50; }
+/** 滑動 **/
+h6 {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+@keyframes slidein {
+  from {
+    padding-left: 100%;
+    width: 300%;
+  }
+  to {
+    padding-left: 0%;
+    width: 100%;
+  }
+}
+/* 移動 */
+pps {
+    width: 100px;
+    position: relative;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+  animation-iteration-count: infinite;
+    animation-duration: 4s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0%   {left:0px; top:0px;}
+    50%  {left:375px; top:0px;}
+    100% {left:0px; top:0px;}
+}
+/* Standard syntax */
+@keyframes example {
+    0%   {left:0px; top:0px;}
+    50%  {left:375px; top:0px;}
+    100% {left:0px; top:0px;}
+}
+<!-- 二欄 -->
+.parent{
+	position:absolute;
+}
+.left{
+	position: relative;
+	float:left;
+	height: 350px;
+	width: 750px;
+}
+.right{
+	position: relative;
+	float: right;
+	height: 350px;
+	width: 180px;	
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #AA2234;
+    color: MediumSeaGreen;
+    min-width: 360px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px 16px;
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+	
+<script>			
+	var link = document.createElement( 'link' );
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+	document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<style type="text/css">
+	body {font-family: 微軟正黑體;text-align:center}
+	.result_box {width:700px;text-align:center;background:#333; color:#F7BE81;}
+	.result_box #oknum {width:960px;color:darkorange;font-size:36pt;text-align:center;border:3px solid #888;background:#333;}
+	.button_box {margin-top:50px;}
+	.button_box .btn1 {cursor:pointer;padding:5px 30px;margin:0 10px;color:white;font-size:28px;background:#4CAF50;}
+	.button_box .btn2 {cursor:pointer;padding:5px 30px;margin:0 10px;color:white;font-size:28px;background:#880000;}
+	.button_box .btn3 {cursor:pointer;padding:5px 30px;margin:0 10px;color:white;font-size:28px;background:#2E64FE;}
+	.more_box {width:960px; overflow:hidden; text-align:left; font-size:20px;}
+	.more_form {position: relative; clear: both; line-height:36px;}
+	.more_form input, .more_form button {font-size:22px;}
+	.more_form input {width:835px; height:36px; padding:1px 55px 1px 5px; line-height:36px; background:#CEF6D8}
+	.more_form button {right:10; height:42px;background-color: #4CAF50;color:white;border:none;text-align:center;}
+	.more_box span.luck_select {font-size:24px; float:right; margin:0;line-height:36px;}
+	.name_list {overflow: hidden; padding:10px 1px 1px 1px; clear:both; border: 1px solid #40AA53;}  <!-- {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  -->
+	.name_list span, .luck_select {font-size:24px; display: inline-block; padding: 2px 6px; white-space: nowrap;
+				background: #58FA82; color: #424242; float:left; height:30px; 
+				line-height:36px; margin: 0 7px 7px 0;-webkit-user-select: none; 
+				-moz-user-select: none; -ms-user-select: none; -o-user-select: none; 
+				user-select: none; cursor: pointer;}
+	.name_list span:hover {background: #088A29;}
+	.name_list span.select, .luck_select {background: darkorange;}
+
+
+  table.bottomBorder { 
+    border-collapse: collapse; 
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+  }
+  table.bottomBorder tfoot { border-top: 1px solid; }
+  table.bottomBorder td { padding: 5px; border: 0px; text-align: center; font-size:18px; }
+  table.bottomBorder th { 
+    border-bottom: 1px solid; 
+    padding: 5px; 
+    text-align: center;
+    vertical-align:middle;
+  }
+
+</style>
+
+
+
+</head>
+
+
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+
+<body>
+	<div class="reveal">			
+	<div class="slides">
+
+<section data-menu-title="整合行銷部圖書館">
+	<h1 style="font-size:4em;">圖書館<h1>
+	<h3 style="color="#C0C0C0">整合行銷部</h3>
+	<h5 id="dddate" style="color="#999999"></h5>
+<script>
+var d = new Date();
+document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMonth()+1)+ "." + d.getDate();
+</script>
+</section>
+
+
+<section>
+<!-- ************************************************************************************* -->
+<!--                                          館藏                                         -->
+<!-- ************************************************************************************* -->
+
+<section data-menu-title="館藏(171)">
+	<h2 id="dkmom">館藏 (171)</h2>
+	<ul><small>
+	<li><a href="#/ben">錦棠</a> (9)</li>
+	<li><a href="#/na">芷儀</a> (22)</li>
+	<li><a href="#/egg">瑞宏</a> (18)
+		<div class="dropdown"><i class="fa fa-indent" style="color:#AA2234; font-size:16pt"></i>
+  		   <div class="dropdown-content"><ul style="font-size:14px; line-height: 20px;">
+			<li>惡意</li>
+			<li>解憂雜貨店</li>
+			<li>這就是我來到這世界的理由</li>
+			<li>因為愛，我們呼吸</li>
+			<li>基因</li>
+			<li>深夜小狗神祕習題</li>
+			<li>你的孩子不是你的孩子</li>
+			<li>了解「人」，你才知道怎麼設計！</li>			
+			<li>新參者</li>
+			<li>寫作革命：散文、小說、文案、社群貼文輕鬆進階的 40 道練習題</li>
+			<li>小說課 I ─ 折磨讀者的祕密</li>
+			<li>小說課 II ─ 偷故事的人</li>
+			<li>小說課 III ─ 偷電影的故事賊</li>
+			<li>穿裙子的男孩</li>
+			<li>惡血</li>
+			<li>故事課 1：3 分鐘說 18 萬個故事，打造影響力</li>
+			<li>故事課 2：99% 有效的故事行銷，創造品牌力</li>
+			<li>餘震</li>
+ 		 </ul></div>
+		</div>
+		 </li>
+	<li><a href="#/shenchi">慎淇</a> (16)</li>
+	<li><a href="#/yujen">祐任</a> (24)</li>
+	<li><a href="#/susan">芝萱</a> (12)</li>
+	<li><a href="#/jim">峻銘</a> (13)</li>
+	<li><a href="#/adolf">晏羽</a> (6)</li>
+	<li><a href="#/zoya">婷雅</a> (5)</li>
+	<li><a href="#/hung">昱宏</a> (8)</li>
+	<li><a href="#/amal">筱婷</a> (3)</li>	
+	<li><a href="#/mcw">智超</a> (11)</li>
+	<li><a href="#/andy">鄭陳</a> (12)</li>
+	<li><a href="#/mom">林辰</a> (12)</li>
+	<li><a href="#/balloon">桔梗</a></li>
+	<!--<li><a href="#/yuting">于庭</a> (12)</li>
+	<li><a href="#/alin">慧伶</a> (12)</li>-->
+	</small></ul>
+</section>
+
+
+<section data-menu-title="演出表">
+	<h4 id="dkmom">演出表</h4>
+
+	<table class="bottomBorder" style="line-height:22px;">
+		<tr>
+			<th style="font-size:22px;">#</th>
+			<th style="font-size:22px;">1</th>
+			<th style="font-size:22px;">2</th>
+			<th style="font-size:22px;">3</th>
+			<th style="font-size:22px;">4</th>
+			<th style="font-size:22px;">5</th>
+			<th style="font-size:22px;">6</th>
+			<th style="font-size:22px;">7</th>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">芷儀</td>
+			<td>9/13</td>
+			<td>11/22</td>
+			<td>1/17</td>
+			<td>3/14</td>
+			<td>5/2</td>
+			<td>6/20</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">瑞宏</td>
+			<td>10/4</td>
+			<td>10/18</td>
+			<td>1/10</td>
+			<td>1/31</td>
+			<td>4/18</td>
+			<td>6/6</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">慎淇</td>
+			<td>9/20</td>
+			<td>11/1</td>
+			<td>12/6</td>
+			<td>1/17</td>
+			<td>5/16</td>
+			<td>6/13</td>
+			<td></td>
+		</tr>
+		<!--<tr>
+			<td style="font-size:22px;">于庭</td>
+			<td>9/6</td>
+			<td>11/22</td>
+			<td>12/13</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>-->
+		<tr>
+			<td style="font-size:22px;">祐任</td>
+			<td>9/27</td>
+			<td>11/15</td>
+			<td>1/10</td>
+			<td>1/24</td>
+			<td>5/16</td>
+			<td style="color:tomato">7/4</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">芝萱</td>
+			<td>9/13</td>
+			<td>11/15</td>
+			<td>1/29</td>
+			<td>2/14</td>
+			<td>4/11</td>
+			<td>5/23</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">峻銘</td>
+			<td>9/20</td>
+			<td>10/18</td>
+			<td>12/13</td>
+			<td>2/27</td>
+			<td>4/11</td>
+			<td>6/6</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">晏羽</td>
+			<td>─</td>
+			<td>11/8</td>
+			<td>1/3</td>
+			<td>2/21</td>
+			<td>4/18</td>
+			<td> style="color:tomato">待定</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">婷雅</td>
+			<td>─</td>
+			<td>─</td>
+			<td>12/27</td>
+			<td>3/7</td>
+			<td>5/2</td>
+			<td>6/13</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">昱宏</td>
+			<td>─</td>
+			<td>─</td>
+			<td>11/29</td>
+			<td>3/21</td>
+			<td>3/28</td>
+			<td style="color:tomato">7/4</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">筱婷</td>
+			<td>─</td>
+			<td>─</td>
+			<td>─</td>
+			<td>─</td>
+			<td>4/25</td>
+			<td style="color:tomato">7/11</td>
+			<td></td>
+		</tr>
+		<!--<tr>
+			<td style="font-size:22px;">慧伶</td>
+			<td>9/27</td>
+			<td>11/8</td>
+			<td>12/20</td>
+			<td></td>
+			<td></td>
+		</tr>-->
+		<tr>
+			<td style="font-size:22px;">林辰</td>
+			<td>10/11</td>
+			<td>10/25</td>
+			<td>12/6</td>
+			<td>3/14</td>
+			<td>5/9</td>
+			<td>6/27</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">智超</td>
+			<td>10/4</td>
+			<td>11/1</td>
+			<td>12/27</td>
+			<td>2/14</td>
+			<td>3/28</td>
+			<td>5/30</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">澤</td>
+			<td>10/11</td>
+			<td>10/25</td>
+			<td>1/3</td>
+			<td>1/31</td>
+			<td>4/25</td>
+			<td>6/27</td>
+			<td></td>
+		</tr>
+		<!--<tr>
+			<td style="font-size:22px;">桔梗</td>
+			<td>─</td>
+			<td>─</td>
+			<td>─</td>
+			<td>3/21</td>
+			<td>5/9</td>
+			<td>5/23</td>
+		</tr>-->
+	</table>
+
+
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                          抽籤                                         -->
+<!-- ************************************************************************************* -->
+<section data-menu-title="抽籤">
+	<h2>抽<span style="font-size:20px">下回爐主</span></h2>
+	<div class="result_box"><input type="text" id="oknum" name="oknum" readonly="readonly" placeholder="Outcome" /></div>
+	<p></p>
+	<div class="button_box">
+		<button class="btn1" onclick="start()" accesskey="s">開始</button>
+		<button class="btn2" onclick="ok()" accesskey="o">停止</button>
+		<button class="btn3" onclick="javascript:window.location.reload()">重來</button>
+	</div>
+	<p></p>
+	<div class="more_box">
+    		<b>候選人：</b><span style="color:#AAAAAA;font-size:18px;">(雙擊刪除)</span>
+    		<!-- <span class="luck_select">中籤者</span> -->
+    		<div class="name_list" id="name_list" style="font-size:32px;">
+			&nbsp;&nbsp;&nbsp;None! Not Ready!
+		</div>
+	</div>
+	<p></p>
+	<div class="more_box">
+    	參選人：<span style="color:#AAAAAA;font-size:18px;">(用逗號隔開)</span>
+    	<div class="more_form">
+		<input id="more_input" value="芷儀, 瑞宏, 慎淇, 祐任, 芝萱, 峻銘, 晏羽, 筱婷, 智超, 鄭陳, 林辰, 婷雅, 昱宏," /><button onclick="addData()">加入</button></div> <!-- 芷儀, 瑞宏, 慎淇, 祐任, 芝萱, 峻銘, 晏羽, 筱婷, 智超, 鄭陳, 林辰, 婷雅, 昱宏, -->
+	</div>
+</section>
+</section>
+
+<section>
+<section data-menu-title="教學">
+	<h1>簡單教學</h1>
+</section>
+
+<section>
+	<h2>快捷鍵</h2>
+	<aside class="notes">
+		1.此地為註釋說明，給白癡講者題詞。<br>2.看得到的就是白癡。<br>3.哈哈，白癡。
+	</aside>
+	<p style="color:#999999">為了演示 PPT 方便，有以下快捷鍵供使用：</p>
+	<ul>
+		<li>全螢幕 "<span style="color:deeppink">F</span>"，退出全螢幕 "<span style="color:deeppink">Esc</span>"</li>
+		<li>全視野縮圖 "<span style="color:deeppink">Esc</span>" <small>or</small> "<span style="color:deeppink">O</span>"，回復正常 "<span style="color:deeppink">Esc</span>" <small>or</small> "<span style="color:deeppink">O</span>"</li>
+		<li>演講者模式 "<span style="color:deeppink">S</span>"</li>
+		<li>上一頁 "<span style="color:deeppink">P</span>"，下一頁 "<span style="color:deeppink">N</span>" <small>or</small> "<span style="color:deeppink">空白鍵</span>"</li>
+		<li>首頁 "<span style="color:deeppink">Home</span>"，末頁 "<span style="color:deeppink">End</span>"</li>
+		<li>目錄按 <a href="#" onclick="RevealMenu.toggle(); return false;"><i class="fa fa-bars"></i></a> <small>or</small> "<span style="color:deeppink">M</span>"</li>
+	</ul><br>
+	<p></p><p></p>
+	<p class="fragment fade-up" style="color:#999999">試試看請先按 "<span style="color:deeppink">F</span>"，再按 "<span style="color:deeppink">S</span>"</p>
+</section>
+
+<section>
+	<h2>基本認識</h2>
+	<pre><code data-trim data-noescape>
+	&lt;html&gt;
+	&lt;head&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/reveal.css&quot;&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/theme/white.css&quot;&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class=&quot;reveal&quot;&gt;
+		&lt;div class=&quot;slides&quot;&gt;
+			<span style='color:darkorange'>&lt;section&gt;投影片正文&lt;/section&gt;</span>
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;script src=&quot;js/reveal.js&quot;&gt;&lt;/script&gt;
+	&lt;script&gt;Reveal.initialize();&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;</code></pre>
+	<p>目前需要修改的只有屬於自己的 <code style='color:darkorange'>&lt;section&gt;</code> 至 <code style='color:darkorange'>&lt;/section&gt;</code> 中間的部分</p>
+
+</section>
+<section>
+	<h2>找到自己的&lt;section&gt;</h2>
+	<ul>
+	<li><code style='color:darkorange'>&lt;section&gt;</code> 與  <code style='color:darkorange'>&lt;/section&gt;</code> 之間為一張<span style="color:deeppink">投影片</span>。</li>
+	<li><code style='color:darkorange'>&lt;section&gt;</code> 之後通常接著立即 <code style='color:darkorange'>&lt;h2&gt;</code>。</li>
+	<li><code style='color:darkorange'>&lt;h2&gt;</code> 與 <code style='color:darkorange'>&lt;/h2&gt;</code> 為該張投影片<span style="color:deeppink">標題</span>。</li>
+	<li>若 <code style='color:darkorange'>&lt;h2&gt;</code> 與 <code style='color:darkorange'>&lt;/h2&gt;</code> 中間夾著你的名字，則該 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code> 間即為<span style="color:deeppink">你的投影片</span>。</li>
+	<li>若 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code> 之間還夾有 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code>，而且還有兩對以上，則投影片會<span style="color:deeppink">往下</span>發展。</li>
+	</ul>
+</section>
+<section>
+	<h2>播放主軸</h2>
+	<ul>
+	<li>主幹道為橫軸，往右 <span style="color:deeppink">→</span></li>
+	<li>支幹道為縱軸，往下 <span style="color:deeppink">↓</span></li>
+	<li>主幹道往右為主要敘事流程，遇到分支可往下，不論分支的哪張投影片，皆可往右繼續主幹道通行。</li>
+	<li>按 "<span style="color:deeppink">Esc</span>" 可看到整張地圖。</li>
+	</ul>
+</section>
+<section>
+	<h2>簡單修正功能介紹 (1)</h2>
+	<pre><code data-trim data-noescape>
+	&lt;ul&gt;
+	&lt;li&gt;集蛋&lt;/li&gt;</li>
+	&lt;li&gt;&lt;div title="egg"&gt;蛋集&lt;/div&gt;&lt;/li&gt;</li>
+	&lt;/ul&gt;
+	</code></pre>
+	<ul>
+	<li>列書：每個 <code style='color:darkorange'>&lt;li&gt;</code> 與 <code style='color:darkorange'>&lt;/li&gt;</code> 之間為一本書，如《集蛋》、《蛋集》。</li>
+	<li>加作者：在 <code style='color:darkorange'>&lt;li&gt;</code> 裡加 <code style='color:darkorange'>&lt;div title="作者"&gt;</code> 及 <code style='color:darkorange'>&lt;/div&gt;</code>，每次滑過「蛋集」就會出現 egg。</li>
+	</ul>
+</section>
+<section>
+	<h2>簡單修正功能介紹 (2)─超連結</h2>
+	<pre><code data-trim data-noescape>
+	&lt;ul&gt;
+	&lt;li&gt;&lt;a href="https://www.books.com.tw/products/0010775137"&gt;關係黑洞&lt;/a&gt;&lt;/li&gt;</li>
+	&lt;li&gt;&lt;a target="_blank" href="https://www.books.com.tw/products/0010775137"&gt;關係黑洞&lt;/a&gt;&lt;/li&gt;</li>
+	&lt;/ul&gt;
+	</code></pre>
+	<ul>
+	<li><code style='color:darkorange'>&lt;a href="網址"&gt;</code> 要超連結文字 <code style='color:darkorange'>&lt;/a&gt;</code>；本例中，按下「關係黑洞」就會結到金石堂網站。</li>
+		<ul>
+		<li>絕對網址：如 <code style='color:darkorange'>"https://www.bo...."</code> 之類。</li>
+		<li>相對網址：以本檔案為原點，往外一個資料夾則用一個 <code style='color:darkorange'>"../"</code>。</li>
+		</ul>
+	<li><code style='color:darkorange'>target="_blank"</code>：此參數為加開一個空網頁來承載標的網頁，若不加此參數則覆蓋原來檔案。</li>
+	</ul>
+</section>
+<section>
+	<h2>簡單修正功能介紹 (3)</h2>
+	<p><a target="_blank" href="https://doltegg.github.io/egg/demonstration.html">按我</a></p>
+</section>
+</section>
+		
+
+<!-- ************************************************************************************* -->
+<!--                                        錦棠                                           -->
+<!-- ************************************************************************************* -->
+<section data-menu-title="呂錦棠(9)">	
+	<h2 id="ben">呂錦棠</h2>
+	<ul><small>
+	<li>世界冠軍紙飛機</li>
+	<li>決斷的演算─預測、分析與好決定的11堂邏輯課</li>
+	<li>地圖大歷史：探索世界上最具時代意義的偉大地圖</li>
+	<li>便利店人間</li>
+	<li>2018 台北米其林指南 Taipei：The MICHELIN</li>
+	<li>拚死也要去的世界絕景</li>
+	<li>1945 零年─現代世界的夢想與夢碎之路</li>
+	<li>心的經典─心經新釋</li>
+	<li>這樣裝潢，不後悔</li>
+	</small></ul>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        芷儀                                           -->
+<!-- ************************************************************************************* -->			
+<section id="na">
+<section data-menu-title="曾芷儀(22)">
+	<h2>曾芷儀</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/na/education.pptx">正向教養</a></li>
+	<li>愛是一切的答案</li>
+	<li>靈魂之旅</li>
+	<li>心靈雞湯</li>
+	<li>被討厭的勇氣二部曲完結篇</li>
+	<li>你值得過更好的生活</li>
+	<li>開啟高敏感孩子天賦</li>
+	<li>孩子，先別急著吃棉花糖</li>
+	<li>有錢人想的和你不一樣</li>
+	<li>為什麼你不敢面對真實的自己</li>
+	<li>練習，喜歡自己</li>
+	<li>秘密</li>
+	</small></ul><br />
+	<a href="#/xx"><i class="fa fa-chevron-circle-down" style="font-size:20px;"></i></a> <!-- <br><br><a href="#xx"><img src="others/down.png" height="18" width="23"></a> -->
+</section>
+<section id="xx">
+	<h2>曾芷儀<small>(續)</small></h2>
+	<ul><small>
+	<li>零極限：創造健康、平靜與財富的夏威夷療法</li>
+	<li>Hero：活出你內在的英雄</li>
+	<li>向宇宙下訂單</li>
+	<li>想像5年後的你</li>
+	<li>失落的致富經典</li>
+	<li>斜槓青年</li>
+	<li>時間的陷阱</li>
+	<li>覺醒的你</li>
+	<li>小王子</li>
+	<li>富爸爸，窮爸爸</li>
+	</small></ul>
+</section>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        瑞宏                                           -->
+<!-- ************************************************************************************* -->
+<section>
+<section data-menu-title="許瑞宏(17)" id="egg">
+	<h2>許瑞宏</h2>
+	<ul style='list-style-type:lower-roman;'><small>
+	<li><span title="東野圭吾">惡意</span></li>
+	<li><span title="東野圭吾">解憂雜貨店</span></li>
+	<li><span title="李洛克">寫作革命<span style="font-size:14px;">：散文、小說、文案、社群貼文輕鬆進階的 40 道練習題</span></li>
+	<li><span title="大衛．威廉斯">穿裙子的男孩</span>
+		<span title="note"><a target="_blank" href="others/egg/2019/skirtboy.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
+	</li>
+	<li><span title="約翰．凱瑞魯">惡血</span>
+		<span title="note"><a target="_blank" href="others/egg/2019/badblood.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
+	</li>
+	<li><span title="辛達塔．穆克吉"><a  href="#/gene">基因</a></span> 
+	    <span title="note"><a target="_blank" href="others/egg/gene.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<span style="color:#AA2234; font-size:10pt"><i> (Oct. 4, 2018)</i></span>
+	</li>
+	<li><span title="莉莎‧潔諾娃"><a  href="#/obriens">因為愛，我們呼吸</a></span>
+	    <span title="note"><a target="_blank" href="others/egg/obriens.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<span style="color:#AA2234; font-size:10pt"><i> (Oct. 18, 2018)</i></span>
+	</li>
+	<li><span title="Susan M. Weinschenk"><a href="#/design">了解「人」，你才知道怎麼設計！</a></span>
+		<span title="powerpoint about tables"><a target="_blank" href="others/egg/design.ppsx"><i class="fas fa-file-powerpoint" style="font-size:16px;color:#F5A9A9"></i></a>
+		<span style="color:#AA2234; font-size:10pt"><i> (Jan. 10, 2019)</i></span>
+	</li>
+	<li><span title="馬克．海登"><a href="#/dog">深夜小狗神祕習題</a></span>
+		<span title="note"><a target="_blank" href="others/egg/dog.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<span style="color:#AA2234; font-size:10pt"><i> (Jan. 31, 2019)</i></span>
+	</li>
+	<li><span title="許榮哲"><a href="#/noveli">小說課 I ─ 折磨讀者的祕密</a></span>
+		<span title="note"><a target="_blank" href="others/egg/2019/novel1.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
+		<span style="color:#AA2234; font-size:10pt"><i> (Apr. 18, 2019)</i></span></li>	
+	</li>	
+	<li><span title="許榮哲"><a href="#/novelii">小說課 II ─ 偷故事的人</a></span>
+		<span title="note"><a target="_blank" href="others/egg/2019/novel2.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<span style="color:#AA2234; font-size:10pt"><i> (Apr. 18, 2019)</i></span></li>	
+	</li>			
+	<li><span title="許榮哲"><a href="#/noveliii">小說課 III ─ 偷電影的故事賊</a></span>
+		<span title="note"><a target="_blank" href="others/egg/2019/novel3.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
+		<span style="color:#AA2234; font-size:10pt"><i> (Apr. 18, 2019)</i></span></li>	
+	</li>
+	<li><span title="張翎"><a href="#/earthquake">餘震</a></span>
+		<span title="note"><a target="_blank" href="others/egg/2019/earthquake.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+	<span style="color:#AA2234; font-size:10pt"><i> (Jun. 6, 2019)</i></span>
+	<li><span title="莉莎‧潔諾娃"><a href="#/anthony">這就是我來到這世界的理由</a></span> 
+	    				<span title="尖叫"><a target="_blank" href="others/egg/scream.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span> 
+	</li>
+	</li>
+	<li><span title="吳曉樂"><a href="#/child">你的孩子不是你的孩子</a></span>
+		<span title="note"><a target="_blank" href="others/egg/child.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+	</li>
+	</small>
+	</ul><br />
+	<a href="#/egg2"><i class="fa fa-chevron-circle-down" style="font-size:20px;"></i></a>
+</section>
+
+<section id="egg2">
+	<h2>許瑞宏<small>(續)</small></h2>
+	<ol start="16"><small>
+	<li type="i"><span title="許榮哲"><a href="#/story1">故事1：3分鐘說18萬個故事，打造影響力</a></span>
+		<span title="note"><a target="_blank" href="others/egg/2019/story1.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+	</li>
+	<li type="i"><span title="許榮哲"><a href="#/story2">故事2：99%有效的故事行銷，創造品牌力</a></span>
+		<span title="note"><a target="_blank" href="others/egg/2019/brand.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+	</li>
+	<li type="i"><span title="東野圭吾"><a href="#/newone">新參者</a></span>
+	</li>
+	</small></ol>
+</section>
+
+
+
+
+
+
+	
+
+<section id="child" data-menu-title="你的孩子不是你的孩子" data-transition="slide" data-background-image="others/egg/child.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+	<h2 style="color:#F08080;">你的孩子不是你的孩子</h2>
+	<h5 style="font-size:32px; color:#ffcccc;">吳曉樂</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li>把孩子帶來人世間的男女自然能勝任父母的角色 , 這實在是很<span style="color:yellow;">天真</span>的幻想。</li>
+		<li>每一個小孩，有其存在的<span style="color:yellow;">獨特性</span>。有太多父母執意要小孩去臨摹其他人的行為，複製類似的成功經驗，去追求他們眼中的理想人生，圓滿他們年輕時未竟的夢，甚至是驅策小孩成為「第二個自己」。<br />
+						<div style="line-height:35px; color:#A9F5BC; font-size:24px;">就小孩立場來說，「為了達成某個目的，自己才被生下來」，也是很可悲的一件事。</div></li>
+		<li>妳若執意給她做決定， 這在某種程度上也是一種<span style="color:yellow;">溺愛</span>。</li>
+		<li>這些故事之所以存在，是期待我們去凝視一個初衷，靜下來，好好想想，把小孩帶到這世界上的<span style="color:yellow;">初衷</span>。<br />
+			<div style="line-height:35px; color:#A9F5BC; font-size:24px;">曾經，我們光是觸摸小孩柔軟的掌心就滿足不已。</div></li>
+	</ul>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/child.jpg" width="175px"></span>
+		</span>
+	</div>
+	</div>	
+</section>
+	
+
+<section id="newone" data-menu-title="新參者"  data-transition="slide" data-background-image="others/egg/newone.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1"-->
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h2 style="color:#65BB44;">新參者</h2>
+	<h5 style="font-size:32px; color:#ffcccc;">東野圭吾</h5>
+	<div class="parent">
+	<div class="left">
+		<a target="_blank" href="https://www.google.com/maps/d/viewer?ie=UTF8&hl=zh-TW&msa=0&ll=35.686590141808466%2C139.79047374078368&spn=0.0061%2C0.00912&z=16&source=embed&mid=1_y2Ur1b5OGJs2glpIdkqzLHihsI"><img src="others/egg/newmap.jpg"></a>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/newone.jpg" width="175px"></span>
+		</span>
+	</div>
+	</div>
+</section>
+
+<section id="story1" data-menu-title="故事課 1" data-transition="slide" data-background-image="others/egg/story1.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h3 style="color:#65BB44;">3 分鐘說 18 萬個故事，打造影響力</h3>
+	<h5 style="font-size:32px; color:orange;">許榮哲</h5>
+	<div class="parent">
+	<div class="left">
+		<ul style="line-height:48px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li>「我我我在你老婆床上等等等...... 火車經過。」</li>
+		<li>史上第二厲害的故事類型</li>
+			<ul>
+			<li>賽局理論</li>
+			<li>第十三封情書： <span style="font-size:22px">$r=a(1-\sin\theta)$</span> </li>
+			</ul>
+		<li>史上最厲害的故事</li>
+			<ul>
+			<li>賽局理論的故事再發展</li>
+			</ul>
+		</ul>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/story1.jpg" width="175px"></span>
+		</span>
+	</div>
+	</div>
+</section>
+
+<section id="story2" data-menu-title="故事課 2" data-transition="slide" data-background-image="others/egg/story2.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h3 style="color:#65BB44;">99% 有效的故事行銷，創造品牌力</h3>
+	<h5 style="font-size:32px; color:orange;">許榮哲</h5>
+	<div class="parent">
+	<div class="left">
+	<iframe width="735" height="552" src="https://www.youtube.com/embed/L9jiPQAuTBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/story2.jpg" width="175px"></span>
+		</span>
+	</div>
+	</div>
+</section>
+
+<section id="earthquake" data-transition="slide" data-background-image="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h3 style="color:#65BB44;">餘震 (唐山大地震)</h3>
+	<h5 style="font-size:32px; color:orange;">張翎 (馮小剛)</h5>
+	<div class="parent">
+	<div class="left">
+	<iframe width="962" height="541" src="https://www.youtube.com/embed/EqdQ1wjrTDU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" width="175px"></span>
+		</span>
+	</div>
+	</div>
+</section>
+
+
+<section id="noveli" data-transition="slide" data-background-image="others/egg/noveli.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h2 style="color:#65BB44;">小說課 I ─ 折磨讀者的祕密</h2>
+	<h5 style="font-size:32px; color:#ffcccc;">許榮哲</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li>馬奎斯說的極好，每篇好小說都是這個世界上的一個<span style="color:yellow;">謎</span>。有了謎，就帶來了<span style="color:yellow;">折磨</span>。</li>
+		<li>此處的場景和一開始的場景幾乎一模一樣，但讀者這時的心情已經和當初看到這個場景時的心情完全不一樣了，...</li>
+		<li>人物的<span style="color:yellow;">性格</span>決定了人物的命運，而不是小說家決定了人物的命運。</li>
+		<li>有一種說法是這樣，當小說寫到三分之一處時，小說就會<span style="color:yellow;">脫離</span>作家的手，自己接力寫下去。</li>
+		<!--<li>壞詩人用『借』的，好詩人用『偷』的。</li>
+		<li>現在的範圍極小而明確，但過去和未來卻時無邊無際。</li>
+		<li>過去，雖然已經發生了，但人們常常因著各種理由，而將之扭曲變形，以便捏塑成符合自己需求的記憶。</li>-->
+		<li>所以請記得創作 (或虛構) 小說的你，擁有至高無上的訂定<span style="color:yellow;">規則權力</span>，千萬別被現實這個可怕的敵人牽著鼻子走，</li>
+		<!--<li><a target="_blank" href="others/egg/blackheart.pdf">「黑暗之心」</a></li>-->
+	</ul>			
+	</div>
+	<div class="right">
+		<img src="others/egg/noveli.jpg" width="120px">
+		<img src="others/egg/novelii.jpg" width="120px">
+	</div>
+	</div>
+</section>
+
+<section id="novelii" data-transition="slide" data-background-image="others/egg/novelii.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h2 style="color:#65BB44;">小說課 II ─ 偷故事的人</h2>
+	<h5 style="font-size:32px; color:#ffcccc;">許榮哲</h5>
+	<div class="parent">
+	<div class="left" style="text-align:left">
+	<p style="font-size:32px;"><b><u>史上最準的心理測驗</u></b>&nbsp;  <sup><span title="note"><a target="_blank" href="others/egg/2019/novel22.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:pink"></i></a></span></sup></p>
+		<p style="font-size:28px;">有個旅人因為迷路，再加上三天三夜沒有進食、喝水，即將倒下之前，意外發現前面有間小木屋。旅人用盡最後一口氣，好不容易爬進小木屋。屋裡空蕩蕩的，什麼也沒有。正當絕望之際，赫然發現桌上有三種水果：
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li>西瓜</li>
+		<li>香蕉</li>
+		<li>蘋果</li>
+	</ul>
+	<p style="font-size:28px;">如果你只能選擇一種水果，你會選哪一種？</p>
+	</div>
+	<div class="right">
+		<img src="others/egg/novelii.jpg" width="120px">
+		<img src="others/egg/noveliii.jpg" width="120px">
+	</div>
+	</div>
+</section>
+
+<section id="noveliii" data-transition="slide" data-background-image="others/egg/noveliii.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h2 style="color:#65BB44;">小說課 III ─ 偷電影的故事賊</h2>
+	<h5 style="font-size:32px; color:#ffcccc;">許榮哲</h5>
+	<p style="font-size:32px; text-align:left;"><b><u>隧道</u></b></p>
+	<ul style="font-size:28px;">
+	<li>隧道非常具有<span style="color:yellow;">象徵性</span>，入口與出口之間，隔著不知道多久才會結束的黑暗。</li>
+	<li>隧道裡， 一片全然的黑，最無助的人物走在最無助的空間裡，沒有人知道<span style="color:yellow;">前方</span>等著他們的是什麼。</li>
+	</ul>
+		<img src="others/egg/No7.jpg" height="250px"> 
+		<img src="others/egg/train.jpg" height="250px">
+		<img src="others/egg/noveli.jpg" height="250px">
+		<img src="others/egg/novelii.jpg" height="250px">
+		<img src="others/egg/noveliii.jpg" height="250px">
+</section>
+
+<section data-transition="slide" data-background-image="others/egg/train.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.2">
+	<h2>屍速列車的結局應該停在哪裡？</h2>
+	<ol>
+		<li>三人新世界<span style="color:yellow; font-size:18pt"><i> (75%)</i></span></span></li>
+		<li>悲劇英雄<span style="color:yellow; font-size:18pt"><i> (80%)</i></span></li>
+		<li>開放隧道<spanstyle="color:yellow; font-size:18pt"><i> (85%)</i></span></li>
+		<li>貫穿頭尾的伏筆<span style="color:yellow; font-size:18pt"><i> (原劇)</i></span></li>
+		<li>角色性格的伏筆<span style="color:yellow; font-size:18pt"><i> (性格)</i></span></li>
+		<li>重複的禮物<span style="color:yellow; font-size:18pt"><i> ...</i></span></li>
+	</ol>
+</section>
+
+<section id="dog" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+	<h2 style="color:#F08080;">深夜小狗神祕習題</h2>
+	<h5 style="font-size:32px; color:#ffcccc;">馬克‧海登</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li>三門問題 (蒙特霍問題、蒙提霍爾悖論)</li>
+		    假設你正在參加一個遊戲節目，你被要求在三扇門中選擇一扇：其中一扇後面有一輛車；其餘兩扇後面則是山羊。你選擇了一道門，假設是一號門，然後<span style="color:yellow;" class="preview-item small shake-little shake-constant shake-constant--hover"><b>知道</b></span>門後面有什麼的主持人，<span style="color:yellow;" class="preview-item small shake-little shake-constant shake-constant--hover"><b>開啟</b></span>了另一扇後面有山羊的門，假設是三號門。他然後問你：「你想選擇二號門嗎？」
+  		<li>瑪麗蓮·沃斯·莎凡特</li>
+		    在1980年代中期因躋身《金氏世界紀錄》中的智商紀錄保持人而成名（結果為228）。當時她的答覆在《大觀雜誌》刊出之後引起舉世關注。她的解答徹底<span style="color:yellow;" class="badge shake-constant shake-chunk"><b>違反直覺</b></span>，並引起眾多數學家的<a target="_blank" href="others/egg/doors.pdf">質疑</a>。但隨後的闡釋讓質疑者顏面無光。</li>
+	</ul>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/dog.png" width="175px"></span>
+		<img src="others/egg/Marilyn.jpg" width="168px"></span>
+	</div>
+	</div>	
+</section>
+
+
+<section id="design" data-transition="slide" data-background="#ffffff" data-background-transition="zoom">
+	<h2 style="color:#F08080;">了解人你才知道怎麼設計</h2>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li>你的腦部不斷在解釋你眼睛看到的所有事物。</li>
+	</ul>
+	<p><a target="_blank" href="others/egg/design.ppsx"><img src="others/egg/design2.png" width="400" /></a></p>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/design1.jpg" width="175px"></span>
+		</span>
+	</div>
+	</div>	
+</section>
+
+<section id="gene" data-transition="slide" data-background-image="others/egg/gene.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.125">
+	<h2 style="color:#F08080;">基因<span style="font-size:32px">：人類最親密的歷史</span></h2>
+	<h5 style="font-size:32px; color:#ffcccc;">辛達塔‧穆克吉 (The Gene)</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<span class="fragment"><li>你的爹娘，把你搞得<pps><span style="color:yellow;" class="shake-chunk shake-constant shake-constant--hover dib">一蹋糊塗</span></pps>。<br />
+						<div style="line-height:35px; color:#A9F5BC; font-size:24px;">他們未必有心如此，卻依舊這麼做了。他們把自己的缺點，一股腦兒塞給你，還特別為你，<u>附贈</u>更多。</div></li></span>
+		<span class="fragment"><li>疾病不是絕對的殘疾，而是基因型和環境之間的<span style="color:yellow;" class="shake shake-opacity">不一致</span>。</li></span>
+		<span class="fragment"><li>女性的隱私權「範圍足以涵蓋她是否決定<span style="color:yellow;" class="preview-item small shake-little shake-constant shake-constant--hover">終止</span>懷孕」。</li></span>
+		<span class="fragment"><li>法官認為「在可以合理確定孩子會畸形時，準父母<span style="color:yellow;" class="shake shake-slow">有權</span>選擇不要生孩子。」</li></span>
+		<span class="fragment"><li>法庭認為孩子擁有天生不帶有<span style="color:yellow;" class="shake-constant shake">遺傳異常</span>的權利，這是一種基本的權利。</li></span>
+		<span class="fragment"><li>人類史上舉世最大的「消極優生學」計畫，並不是 1930 年代在納粹德國或奧地利有系統地處決猶太人，這項恐怖的殊榮落在<span style="color:yellow;" class="badge shake-constant shake-chunk">印度</span>和<span style="color:yellow;" class="badge shake-constant shake-chunk">中國</span>，在這兩個國家，...</li></span>
+  	</ul>
+	</div>
+	<div class="right">
+		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/gene.jpg"></span>
+		<img src="others/egg/gene2.jpg"></span>
+	</div>
+	</div>	
+</section>
+<section id="obriens" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+	<h2 style="color:#F08080;">因為愛，我們呼吸</h2>
+	<h4 style="color:#ffcccc;">莉莎‧潔諾娃 (Inside the O'Briens)</h3>
+	<h5 style="color:#f7e1e1;">亨丁頓舞蹈症</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:50px; font-size:32px;">
+		<!-- fragment 為分段顯示 <span class="fragment">  -->
+		<li>他伸進前口袋，拿出零錢。他找出四個二十五分硬幣...。每個孩子都有<span style="color:black" class="shake shake-constant shake-constant-hover">百分之五十</span>的機率。</li>
+		<li>至今，有超過<font color="black">百分之九十</font>可能患有 HD 的人選擇保持未知。</li>
+		<li>寶寶一出生，就只有她自己才能決定要不要知道自己基因，而最早的檢驗法定年齡是<font color="black">十八歲</font>。</li>
+		<!--<li>我們需要你，爸。拜託，我們需要學會怎麼跟 HD 共處。</li>-->
+		<li>自 1993 年起知道造成 HD 的單一因素是基因突變，但至今仍<font color="black">無</font>有效預防或減緩病程的療法。</li>
+	</ul>
+	</div>
+	<div class="right">
+		<span class="preview-item shake sheake-chunk shake-constant"><img src="others/egg/obriens.jpg"></span>
+	</div>
+	</div>	
+</section>
+<section id="anthony" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+	<h2 style="color:#F08080;">這就是我來到這世界的理由</h2>
+	<h4 style="color:#ffcccc;">莉莎‧潔諾娃 (Love Anthony)</h3>
+	<h5 style="color:#f7e1e1;">自閉症</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:50px; font-size:32px;">
+		<!-- fragment 為分段顯示  -->
+		<li>自閉症患者只是和別人不同，而不是不如人。</li>
+		<li>討厭碰觸、不與人有眼神接觸，但還是有想法，同每個人一樣，他有他喜歡的<span class="shake-constant shake" style="color:black">邏輯</span>，與思考模式。</li>
+		<li>高鐵上<b><a target="_blank" href="others/egg/scream.pdf">尖叫</a></b>
+			<ul style="list-style-type:lower-roman;">
+			<li>永遠如此規則</li>
+			<li>情狀規則</li>
+			</ul>
+		</li>
+		<li>我來到這個世界只有一個簡單的目的，而自閉症就是我的<span color="black">工具</span></li>
+	</ul>
+	</div>
+	<div class="right">
+		<span class="badge shake-constant shake-chunk"><img src="others/egg/anthony.jpg"></span>
+	</div>
+	</div>	
+</section>
+</section>
+
+
+
+<!-- ************************************************************************************* -->
+<!--                                        慎淇                                           -->
+<!-- ************************************************************************************* -->
+<section id="shenchi" data-menu-title="楊慎淇(16)">
+	<h2>楊慎淇</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/shenchi/painting.pdf">第一次油漆就上手</a></li>
+	<li>雪球：巴菲特傳</li>
+	<li>五代中醫救命之方</li>
+	<li>The Science of Success</li>
+	<li>Good Profit</li>
+	<li>馬雲管理日志</li>
+	<li>屋主都說讚的居家好設計350+</li>
+	<li>薑黃的秘密</li>
+	<li>電子商務─新商業革命</li>
+	<li>如何從台股賺一億</li>
+	<li>專案管理聖經</li>
+	<li>神奇的肝膽排石法</li>
+	<li>行銷思想</li>
+	<li>牛奶可樂經濟學</li>
+	<li>幸福退休新時代</li>
+	<li>只買 4 支股，年賺18%</li></small>
+	</ul>
+</section>
+
+
+
+
+
+<!-- ************************************************************************************* -->
+<!--                                        祐任                                           -->
+<!-- ************************************************************************************* -->			
+<section id="yujen">
+<section data-menu-title="林祐任(24)"><h2>林祐任</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/yujen/southasia.pdf">從東南亞到東協：存異求同的五百年東南亞史</a></li>
+	<li><a target="_blank" href="others/yujen/future.pptx">馬雲：未來已來</a></li>
+	<li>A Splendid Exchange: How Trade Shaped the World
+	<li>Factfulness: Ten Reasons We’re Wrong About the World - and Why Things Are Better Than You Think</li>
+	<li>華頓商學院最受歡迎的談判課:上完這堂課，世界都會聽你的</li>
+	<li>第五項修練：學習型組織的藝術與實務</li>
+	<li>智慧型股票投資人</li>
+	<li>資本的世界史：財富哪裡來?經濟成長、貨幣與危機的歷史</li>
+	<li>複雜問題的策略思考 &amp 分析</li>
+	<li>商業冒險：華爾街的 12 個經典故事</li>
+	<li>最后一公里的哲學：電商物流全鏈條運營管理</li>
+	<li>手機消費革命：行動化時代影響消費者決策的九種力量</li>
+	</small></ul>
+	<a href="#/xy"><i class="fa fa-chevron-circle-down" style="font-size:20px;"></i></a>
+</section>
+
+<section id="xy"><h2>林祐任<small>(續)</small></h2>
+	<ul><small>
+	<li>刻意練習：原創者全面解析，比天賦更關鍵的學習法</li>
+	<li>美國的反智傳統：宗教、民主、商業與教育如何形塑美國人對知識的態度？</li>
+	<li>Thinking, Fast and Slow</li>
+	<li>重新想像印度：亞洲下一個超級強國的潛力解碼</li>
+	<li>中東心臟：沙烏地阿拉伯的人民、宗教，歷史與未來</li>
+	<li>橫渡孟加拉灣：浪濤上流轉的移民與財富，南亞‧東南亞五百年史</li>
+	<li>能源大騙局：綠能神話引燃的世紀豪賭</li>
+	<li>基因：人類最親密的歷史</li>
+	<li>萬病之王：一部癌症的傳記，以及我們與它搏鬥的故事</li>
+	<li>你從哪裡來？一個字聽出你的故鄉─為什麼要懂語言學</li>
+	<li>漢字日本：日本人說的和你想的不一樣，學習不勉強的日文漢字豆知識</li>
+	<li>原則：生活和工作</li>
+	</small></ul></section>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        芝萱                                           -->
+<!-- ************************************************************************************* -->
+<section id="susan" data-menu-title="林芝萱(12)">
+	<h2>林芝萱</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/susan/work.pdf">這樣 ○ 那樣 X 馬上學好設計</a></li>
+	<li><a target="_blank" href="others/susan/design.pdf">工作，剛剛好就好</a></li>
+	<li>設計心理學</li>
+	<li>協槓青年</li>
+	<li>被討厭的勇氣</li>
+	<li>打動人心的產品設計</li>
+	<li>一擊奏效的社群行銷術</li>
+	<li>敏捷與 Scrum 軟體開發速成</li>
+	<li>願你的深情，能被溫柔以待</li>
+	<li>刻意練習：原創者全面解析，比天賦更關鍵的學習法</li>
+	<li>如果可以簡單，誰想要複雜</li>
+	<li>你的孩子不是你的孩子</li>
+	</small></ul>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        峻銘                                           -->
+<!-- ************************************************************************************* -->
+<section id="jim" data-menu-title="張峻銘(13)">
+	<h2>張峻銘</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/jim/eye.pptx">中川式護眼法</a></li>
+	<li><a target="_blank" href="others/jim/thinks.pdf">精準明確思考術</a></li>
+	<li>內容電力公司</li>
+	<li>引爆趨勢</li>
+	<li>影響力</li>
+	<li>誰說人是理性的</li>
+	<li>鉤癮效應</li>
+	<li>聰明捷徑</li>
+	<li>你想要的幸福藏在你不要的改變裡</li>
+	<li>競爭力</li>
+	<li>內向心理學</li>
+	<li>瘋潮行銷</li>
+	<li>超高效心智圖法</li>
+	</small></ul>
+</section>
+
+<!-- ************************************************************************************* -->
+<!--                                        晏羽                                           -->
+<!-- ************************************************************************************* -->
+<section id="adolf" data-menu-title="鄭晏羽(6)">
+	<h2>鄭晏羽</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/adolf/class.pdf">最後14堂星期二的課</a></li>
+	<li><a target="_blank" href="others/adolf/badscript.pptx">丟掉你的爛劇本</a></li>
+	<li>斜槓青年</li>
+	<li>Color for Designer</li>
+	<li>你的善良必須有點鋒芒</li>
+	<li>高手思維</li>
+	</small></ul>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        婷雅                                           -->
+<!-- ************************************************************************************* -->
+<section id="zoya" data-menu-title="張婷雅(5)">
+	<h2>張婷雅</h2>
+	<ul><small>
+	<li>6 分鐘日記的魔法</li>
+	<li>被討厭的勇氣</li>
+	<li>不要在該奮鬥時選擇安逸</li>
+	<li>如何在 LINE、FB 寫出爆款文案</li>
+	<li>原則：生活和工作</li>
+	</small></ul>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        昱宏                                           -->
+<!-- ************************************************************************************* -->
+<section id="hung" data-menu-title="林昱宏(8)">
+	<h2>林昱宏</h2>
+	<ul><small>
+	<li>橡皮擦計畫</li>
+	<li>動物農莊</li>
+	<li>動物農莊求生計：一場「實現改革創新」的 MBA 經典故事</li>
+	<li>四騎士主宰的未來：解析地表最強四巨頭 Amazon、Apple、Facebook、Google 的兆演算法</li>
+	<li>好策略‧壞策略：第一本讓歐洲首席經濟學家欲罷不能、愛不釋手的策略書</li>
+	<li>貝佐斯傳：從電商之王到物聯網中樞，亞馬遜成功的關鍵</li>
+	<li>我絕非虛構的美好七年</li>
+	<li>為什麼 Google、LinkedIn、波音、高通、迪士尼都找他合作？</li>
+	<li>窮查理的普通常識</li>
+	<li>大破壞</li>
+	<li>兩年八個月又二十八夜</li>
+	<li>創意天才的蝴蝶思考術</li>
+	</small></ul>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        筱婷                                           -->
+<!-- ************************************************************************************* -->
+<section id="amal" data-menu-title="洪筱婷(3)">
+	<h2>洪筱婷 <sup title="resume"><a target="_blank" href="others/amal/amal.pdf"><i class="fa fa-file-pdf" style="font-size:24px;color:#F5A9A9"></i></a></sup></a></h2>
+        <ul><small>
+	<li><a target="_blank" href="others/amal/beforecold.pptx">在咖啡冷掉之前</a></li>
+	<li>在謊言拆穿之前</li>
+        <li>在回憶消逝之前</li>
+        </small></ul>
+</section>
+
+
+
+<!-- ************************************************************************************* -->
+<!--                                        林辰                                           -->
+<!-- ************************************************************************************* -->
+<section id="mom" data-menu-title="林辰(12)">
+	<h2>林辰</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/mom/store.pptx">解憂雜貨店</a></li>
+	<li><a target="_blank" href="others/mom/badblood.pdf">惡血</a><span style="color:#AA2234; font-size:10pt"><i> (Mar. 14, 2019)</i></span></li>
+	<li>被討厭的勇氣</li>
+	<li><a target="_blank" href="others/mom/disliked_courage2.pptx">被討厭的勇氣 2</a><span style="color:#AA2234; font-size:10pt"><i> (May 9, 2019)</i></span></li>
+	<li>獲利團隊</li>
+	<li>電商 Zero to one</li>
+	<li>優秀的人，都敢對自己下手</li>
+	<li>光榮城市</li>
+	<li>你的善良必須有點鋒芒</li>
+	<li>情緒勒索</li>
+	<li>真確</li>
+	<li>超越地表最強小編</li>
+	</small></ul>
+</section>
+
+
+
+
+<!-- ************************************************************************************* -->
+<!--                                        智超                                           -->
+<!-- ************************************************************************************* -->
+<section id="mcw" data-menu-title="許智超(11)">
+	<h6 style="color:#4CAF50;"><span style="font-size:1.7em;">許智超</span><font size="3" color="gray"> 他說不要靜態，所以我讓他一直搖...</font></h1>
+	<ul><small>
+	<li><a target="_blank" href="others/mcw/timid.pptx">膽小別看畫</a></li>
+	<li><a target="_blank" href="others/mcw/runner.pdf">跑者時代</a></li>
+	<li><div title="石井貴士"><a target="_blank" href="others/mcw/talk.pptx">幹大事的閒聊力</a></div></li>
+	<li><a target="_blank" href="others/mcw/badblood.pdf">惡血</a></li>
+	<li><div title="nicholas carr">網路讓我們變笨?</div></li>
+	<li><div title="劉海永">餐桌上的宋朝</div></li>
+	<li><div title="石澤良昭">亦近亦遠的東南亞</div></li>
+	<li><div title="HOWHOW">HOWFUN 如何爽當 youtubeer</div></li>
+	<li><div title="湯禎兆">香港電影血與骨</div></li>
+	<li><div title="日經設計">靠包裝就能賣</div></li>
+	<li><div title="河合敦">超日本近現代史</div></li>
+	</small></ul>
+</section>
+
+
+<!-- ************************************************************************************* -->
+<!--                                        陳澤                                           -->
+<!-- ************************************************************************************* -->
+<section>
+<section id="andy" data-menu-title="鄭陳澤(12)">
+	<h2>鄭陳澤</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/andy/money.pptx">錢買不到的東西</a></li>
+	<li><a target="_blank" href="others/andy/outofempathy.pdf">失控的同理心</li>
+	<li><a href="#/consultant">外商顧問超強資料製作術</a></li>
+	<li>天才在左瘋子在右</li>
+	<li>好人總是自以為是</li>
+	<li>為什麼我們需要公共哲學</li>
+	<li>隱藏人格們的旅行清單</li>
+	<li>網路連鎖效應</li>
+	<li>縮時社會</li>
+	<li>斜槓青年</li>
+	<li>被討厭的勇氣</li>
+	<li>光榮城市</li>
+	</small></ul>
+</section>
+
+<section id="consultant" data-transition="slide" data-background="white" data-background-transition="zoom">
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:50px; font-size:36px;">
+		<!-- fragment 為分段顯示 <span class="fragment">  -->
+		<li>說服，是商業資料的最大目的</li>
+		<li>商業資料只有十二種形式</li>
+		<li>資料的標題，就看得出故事</li>
+	</ul>
+	</div>
+	<div class="right"><img src="others/andy/consultant.jpg"></div>
+	</div>	
+</section>
+</section>
+
+
+
+
+<section>
+<section>
+	<h1>附錄</h1>
+</section>
+
+<!-- ************************************************************************************* -->
+<!--                                        立緯                                           -->
+<!-- ************************************************************************************* -->
+<section>
+	<h2 id="david">許立緯</h2>
+	<ul><small>
+	<li>待辦事項這樣列工作當場完成一半</li>
+	<li>High Performance Habits</li>
+	<li>與成功有約：高效能人士的七個習慣</li>
+	<li>刻意練習：原創者全面解析，比天賦更關鍵的學習法</li>
+	<li>為什麼這樣工作會快、準、好：全球瘋行的工作效率升級方案，讓你的生活不再辛苦，工作更加省時省力</li>
+	<li>為什麼我們這樣生活，那樣工作?</li>
+	<li>這輩子，只能這樣嗎?你是自己最大的敵人</li>
+	<li>峰與谷：超越逆境、享受順境的人生禮物</li>
+	<li>周一清晨的領導課</li>
+	<li>先別急著吃棉花糖</li>
+	<li>成功從聚焦一件事開始</li>
+	<li>想成功，先吃了那隻青蛙：博恩 ‧ 崔西提升個人效力21個技巧</li>
+	<li>原來有錢人都這麼做：效法有錢人的理財術，學習富人的致富之道</li>
+	<li>Mindset: The New Psychology of Success</li>
+	<li>Deep Work: Rules for Focused Success in a Distracted World</li>
+	</small></ul>
+</section>
+
+<!-- ************************************************************************************* -->
+<!--                                        于庭                                           -->
+<!-- ************************************************************************************* -->
+<section>
+	<h2>黃于庭</h2>
+	<ul><small>
+		<li><a target="_blank" href="others/yuting/rule.pdf">翻身準則</a></li>
+	<li>腦科學時間術</li>
+	<li>菜鳥變成問題解決高手</li>
+	<li>魔球</li>
+	<li>簡報的藝術</li>
+	<li>向上管理</li>
+	<li>師父</li>
+	<li>橡皮擦計畫</li>
+	<li>ETF煉金術</li>
+	<li>五線譜投資術</li>
+	<li>這些憑什麼爆紅</li>
+	<li>斜槓青年</li>
+	</small></ul>
+</section>
+
+<!-- ************************************************************************************* -->
+<!--                                        慧伶                                           -->
+<!-- ************************************************************************************* -->
+<section>
+	<h2>劉慧伶</h2>
+	<ul><small>
+	<li><a target="_blank" href="others/alin/scream.pptx">尖叫感(33個關鍵文案技巧)</a></li>
+	<li><a target="_blank" href="others/alin/muscle.pdf">肌內效魔法貼</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010775137">成功廣告影片的創意與製作</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010530603">微電影製作與行銷這檔事</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010730296">創意是發現不是發明</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010703400">迎向無限挑戰─劉在錫</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010610508">貼就有效</a></li>
+	<li>基礎牙體技術學</li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010794006">安靜是種超能力</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/E050012022">用LINE貼圖月入30萬</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010792593">大腦衝浪</a></li>
+	<li><a target="_blank" href="https://www.books.com.tw/products/0010786029">微縮模型雙料冠軍的創作小世界</a></li>
+	</small></ul>
+</section>
+</section>
+
+
+
+
+<section>
+<section>
+<h1>部內行政</h1>
+</section>
+
+
+<section data-menu-title="Email">
+	<h5>Email</h5>
+	<table class="bottomBorder" style="line-height:22px;">
+		<tr>
+			<th style="font-size:20px;">姓名</th>
+			<th style="font-size:20px; text-align:left;"">Email</th>
+			<th style="font-size:20px;">姓名</th>
+			<th style="font-size:20px; text-align:left;"">Email</th>
+		</tr>
+		<tr>
+			<td>呂錦棠</td>
+			<td style="text-align:left;"><a href="mailto:ben@cathayholdings.com.tw">ben@cathayholdings.com.tw</a></td>
+			<td>許瑞宏</td>
+			<td style="text-align:left;"><a href="mailto:doltegg@cathayholdings.com.tw">doltegg@cathayholdings.com.tw</a></td>
+		</tr>
+		<tr>
+			<td>曾芷儀</td>
+			<td style="text-align:left;"><a href="mailto:chinna@cathayholdings.com.tw">chinna@cathayholdings.com.tw</a></td>
+			<td>楊慎淇</td>
+			<td style="text-align:left;"><a href="mailto:shenchiy@cathayholdings.com.tw">shenchiy@cathayholdings.com.tw</a></td>
+		</tr>
+		<tr>
+			<td>林昱宏</td>
+			<td style="text-align:left;"><a href="mailto:yulin@cathayholdings.com.tw">yulin@cathayholdings.com.tw</a></td>
+			<td>洪筱婷</td>
+			<td style="text-align:left;"><a href="mailto:amal@cathayholdings.com.tw">amal@cathayholdings.com.tw</a></td>
+		</tr>
+		<tr>
+			<td>林祐任</td>
+			<td style="text-align:left;"><a href="mailto:yujenlin@cathayholdings.com.tw">yujenlin@cathayholdings.com.tw</a></td>
+			<td>張峻銘</td>
+			<td style="text-align:left;"><a href="mailto:Jimchang@cathayholdings.com.tw">Jimchang@cathayholdings.com.tw</a></td>
+		</tr>
+		<tr>
+			<td>鄭晏羽</td>
+			<td style="text-align:left;"><a href="mailto:adolf70408@cathayholdings.com.tw">adolf70408@cathayholdings.com.tw</a></td>
+			<td>張婷雅</td>
+			<td style="text-align:left;"><a href="mailto:zoyachang@cathayholdings.com.tw">zoyachang@cathayholdings.com.tw</a></td>
+		</tr>
+		<tr>
+			<td>林芝萱</td>
+			<td style="text-align:left;"><a href="mailto:susan.lin@cathayholdings.com.tw">susan.lin@cathayholdings.com.tw</a></td>
+			<td>林辰</td>
+			<td style="text-align:left;"><a href="mailto:dkmom@cathaylife.com.tw">dkmom@cathaylife.com.tw</a></td>
+		</tr>
+		<tr>
+			<td>陳莉婷</td>
+			<td style="text-align:left;"><a href="mailto:ting@cathayholdings.com.tw">ting@cathayholdings.com.tw</a></td>
+			<td>許智超</td>
+			<td style="text-align:left;"><a href="mailto:mcwild39@cathayholdings.com.tw">mcwild39@cathayholdings.com.tw</a></td>
+		</tr>
+		<tr>
+			<td>鄭陳澤</td>
+			<td style="text-align:left;"><a href="mailto:strawandy@cathaylife.com.tw">strawandy@cathaylife.com.tw</a></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+<p></p>
+<ul style="font-size:22px;">
+	<li><a href="mailto:ben@cathayholdings.com.tw; doltegg@cathayholdings.com.tw; chinna@cathayholdings.com.tw; shenchiy@cathayholdings.com.tw; yulin@cathayholdings.com.tw; 
+		amal@cathayholdings.com.tw; yujenlin@cathayholdings.com.tw; Jimchang@cathayholdings.com.tw; adolf70408@cathayholdings.com.tw; zoyachang@cathayholdings.com.tw;
+		susan.lin@cathayholdings.com.tw; mcwild39@cathayholdings.com.tw; strawandy@cathaylife.com.tw; dkmom@cathayholdings.com.tw; 
+		ting@cathayholdings.com.tw;">全部 <small>(含兼職)</small>：</a>
+		<span style="font-size:14px;">錦棠、 瑞宏、 芷儀、 慎淇、 昱宏、 筱婷、 祐任、 峻銘、 晏羽、 婷雅、 芝萱、 辰、 莉婷、 智超、 澤</span></li>
+	<li><a href="mailto:ben@cathayholdings.com.tw; doltegg@cathayholdings.com.tw; chinna@cathayholdings.com.tw; shenchiy@cathayholdings.com.tw; yulin@cathayholdings.com.tw; 
+		amal@cathayholdings.com.tw; yujenlin@cathayholdings.com.tw; Jimchang@cathayholdings.com.tw; adolf70408@cathayholdings.com.tw; zoyachang@cathayholdings.com.tw;
+		susan.lin@cathayholdings.com.tw; dkmom@cathayholdings.com.tw; ting@cathayholdings.com.tw">全部 <small>(不含兼職)</small>：</a>
+		<span style="font-size:14px;">錦棠、 瑞宏、 芷儀、 慎淇、 昱宏、 筱婷、 祐任、 峻銘、 晏羽、 婷雅、 芝萱、 辰、 莉婷</span></li>
+	<li><a href="mailto:ben@cathayholdings.com.tw; doltegg@cathayholdings.com.tw; chinna@cathayholdings.com.tw; shenchiy@cathayholdings.com.tw; yulin@cathayholdings.com.tw; 
+		amal@cathayholdings.com.tw; yujenlin@cathayholdings.com.tw; Jimchang@cathayholdings.com.tw; adolf70408@cathayholdings.com.tw; zoyachang@cathayholdings.com.tw;
+		susan.lin@cathayholdings.com.tw; mcwild39@cathayholdings.com.tw; strawandy@cathaylife.com.tw; dkmom@cathayholdings.com.tw">周報：</a>
+		<span style="font-size:14px;">錦棠、 瑞宏、 芷儀、 慎淇、 昱宏、 筱婷、 祐任、 峻銘、 晏羽、 婷雅、 芝萱、 辰、 智超、 澤</span></li>
+</ul>
+
+</section>
+
+</section>
+
+
+
+
+
+
+
+<!--
+
+<section data-menu-title="點餐">
+	<h6 style="color:pink;"><b>3/15 餐點</b></h6>
+	<table class="bottomBorder" style="line-height:22px;">
+		<tr>
+			<th style="font-size:18px;">#</th>
+			<th style="font-size:18px;">姓名</th>
+			<th style="font-size:18px;">金額</th>
+			<th style="font-size:18px;">餐點 & 定價</th>
+
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Zoya</td>
+			<td style="text-align:right;">$ 320</td>
+			<td style="text-align:left;">太陽蛋酒醋野菇直麵 (230) $+$ 紫-甜菜藍莓 (120)</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>egg</td>
+			<td style="text-align:right;">$ 380</td>
+			<td style="text-align:left;">蔓越莓蘋果雞肉帕里尼 <small> 換地瓜薯條</small> (250 <small>&</small> 40) $+$ 橘-胡蘿蔔蘋果 (120)</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>莉婷</td>
+			<td style="text-align:right;">$ 380</td>
+			<td style="text-align:left;">舒肥雞烤蔬菜羽衣甘藍沙拉 (320)  $+$ 精選今日湯品 (90)</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>ALin</td>
+			<td style="text-align:right;">$ 380</td>
+			<td style="text-align:left;">西班牙辣肉丸水管麵 (270) $+$ 法式藍伯爵(熱) (140)
+</td>
+		</tr>
+		<tr>
+
+			<td>5</td>
+
+			<td>晏羽</td>
+
+			<td style="text-align:right;">$ 330</td>
+
+			<td style="text-align:left;">西班牙辣肉丸水管麵 (270) $+$ 精選今日湯 (90)</td>
+
+		</tr>
+
+		<tr>
+
+			<td>6</td>
+
+			<td>Yuhung</td>
+
+			<td style="text-align:right;">$ 370</td>
+
+			<td style="text-align:left;">蒜味日曬番茄雞肉水管麵 (280) $+$ 橘-胡蘿蔔蘋果 (120)</td>
+
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Ben</td>
+			<td style="text-align:right;">$ 420</td>
+			<td style="text-align:left;">72小時茴香慢烤活菌豬 <small>6oz</small> (330) $+$ 黃-鳳梨萊姆 (120)</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>芷儀</td>
+			<td style="text-align:right;">$ 340</td>
+			<td style="text-align:left;">亞洲風胡麻雞肉藜麥沙拉 (280) $+$ 精選今日湯 (90)</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>祐任</td>
+			<td style="text-align:right;">$ 370</td>
+			<td style="text-align:left;">燻鮭酪梨藜麥沙拉 <small> $+$ 舒肥雞肉片</small> (290 <small>$+$</small> 80)</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Jim</td>
+			<td style="text-align:right;">$ 400</td>
+			<td style="text-align:left;">舒肥雞肉炙烤凱薩撒拉 (280) $+$ 精選今日湯 (90) $+$ 橄欖油煎酸種麵包佐番茄 (60) </td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>慎淇</td>
+			<td style="text-align:right;">$ 350</td>
+			<td style="text-align:left;">辣味煙花女鮪魚直麵 (260) $+$ 橘-胡蘿蔔蘋果 (120)</td>
+		</tr> 
+		<tr>
+			<td>12</td>
+			<td>于庭</td>
+			<td style="text-align:right;">$ 365</td>
+			<td style="text-align:left;">辣味煙花女鮪魚直麵 (260) $+$ 烤榛果拿鐵(熱) (135)</td>
+		</tr> 
+		<tr>
+			<td>13</td>
+			<td>林辰</td>
+			<td style="text-align:right;">$ 290</td>
+			<td style="text-align:left;">古巴慢烤活菌豬帕里尼 (290)</td>
+		</tr>
+		<tr>
+			<td>14</td>
+			<td>智超</td>
+			<td style="text-align:right;">$ 320</td>
+			<td style="text-align:left;">街頭芥末烤牛肉三明治 (320)</td>
+		</tr>
+		<tr>
+			<td>15</td>
+			<td>芝萱</td>
+			<td style="text-align:right;">$ 350</td>
+			<td style="text-align:left;">普羅旺斯風味燉烤雞肉 (350)</td>
+		</tr>
+		<tr>
+			<td>16</td>
+			<td>桔梗</td>
+			<td style="text-align:right;">$ 370</td>
+			<td style="text-align:left;">堅果青醬番茄雞肉寬麵 (280) $+$ 紫-甜菜藍莓 (120)
+</td>
+		</tr>
+		<tfoot>
+		</tr>
+		<tr>
+			<td></td>
+			<td>合計</td>
+			<td>$ 5,735</td>
+			<td>─</td>
+		</tr>
+		</tfoot>
+	</table>
+</section>
+<section>
+	<h4 id="dkmom">1 月點名表</h4>
+	<table class="bottomBorder" style="line-height:22px;">
+		<tr>
+			<th style="font-size:22px;">date</th>
+			<th style="font-size:22px;">1/28</th>
+			<th style="font-size:22px;">1/29</th>
+			<th style="font-size:22px;">1/30</th>
+			<th style="font-size:22px;">1/31</th>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">芷儀*</td>
+			<td>09:08</td>
+			<td>NA</td>
+			<td>PASS</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">瑞宏</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">慎淇</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">于庭</td>
+			<td>08:35</td>
+			<td>PASS</td>
+			<td>NA</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">祐任</td>
+			<td>08:33</td>
+			<td>NA</td>
+			<td>08:45</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">芝萱</td>
+			<td>08:46</td>
+			<td>08:38</td>
+			<td>08:31</td>
+			<td>08:33</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">峻銘</td>
+			<td>08:55</td>
+			<td>08:38</td>
+			<td>08:37</td>
+			<td>08:41</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">婷雅</td>
+			<td>08:34</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>08:35</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">昱宏*</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">晏羽*</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>NA</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">慧伶*</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>09:02</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">莉婷</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>08:35</td>
+			<td>PASS</td>
+		</tr>
+		<tr>
+			<td style="font-size:22px;">素秀</td>
+			<td>08:31</td>
+			<td>PASS</td>
+			<td>PASS</td>
+			<td>PASS</td>
+		</tr>
+	</table>
+</section>
+-->
+
+		
+</div>
+</div>
+
+
+
+<!-- 抽獎  -->
+<script type="text/javascript">
+var allData = {};
+function addData(){
+    var input = document.getElementById("more_input");
+    var data = input.value;
+    input.value = '';
+    if(!data){alert('是要加「鬼」膩？'); return;}
+    data = data.replace("，",",").replace(",,",",").split(",");
+    var d, i, s='';
+    for (i=0;i<data.length;i++){
+        d = data[i].replace(/(^\s*)|(\s*$)/g, '');
+        if(d && !allData[d]) {
+            allData[d]=-1;
+            s+='<span ondblclick="removeData(this)" title="雙擊刪除">' + d + '</span>';
+        }
+    }
+    var name_list = document.getElementById("name_list");
+    if(name_list.getElementsByTagName('span').length<1)name_list.innerHTML='';
+    name_list.innerHTML+=s;
+    timer && start();
+}
+function removeData(obj){
+    delete allData[obj.innerHTML];
+    obj.parentNode.removeChild(obj);
+}
+var timer;
+var dataarr = [];
+function change(){
+    document.getElementById("oknum").value = dataarr[GetRnd(0,dataarr.length-1)];
+}
+function clear(){
+    clearInterval(timer);
+    timer='';
+    document.getElementById("oknum").value='';
+}
+function start(){
+    clear();
+    dataarr = [];
+    for(var d in allData) {
+        if(allData[d]===-1) dataarr.push(d);
+    }
+    if(dataarr.length<1){
+        alert('是要抽「鬼」膩？');
+        return;
+    }
+    timer = setInterval('change()',46);
+}
+function ok(){
+    clearInterval(timer);
+    timer='';
+    var lucky=document.getElementById("oknum").value;
+    if(!lucky)return;
+	var spans = document.getElementById("name_list").getElementsByTagName('span');
+    if(spans.length<1)return;
+    for (i=0;i<spans.length;i++){
+        if(spans[i].innerHTML == lucky){
+            spans[i].className='select';
+            allData[spans[i].innerHTML]=1;
+        }
+    }
+}
+function GetRnd(min,max){
+    return parseInt(Math.random()*(max-min+1));
+}
+</script>
+		
+<script src="lib/js/head.min.js"></script>
+		
+<script src="js/reveal.js"></script>
+
+		
+<script>
+			
+	// More info about config & dependencies:
+			
+	// - https://github.com/hakimel/reveal.js#configuration
+			
+	// - https://github.com/hakimel/reveal.js#dependencies
+			
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				logo: true,
+				defaultTiming: 60,
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+				math: { 
+					config: 'TeX-AMS_HTML-full', //mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				      },
+	
+				menu: {
+					numbers: false,
+					useTextContentForMissingTitles: false,
+					hideMissingTitles: true,
+					themes: true,
+					themesPath: 'css/theme/',
+					transitions: true,
+					titleSelector: 'h1',
+			        	custom: [
+			            		{ title: 'Custom', icon: '<i class="fa fa-bookmark">', src: 'others/links.html' },
+			        		]
+					},
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'plugin/reveal.js-menu/menu.js', async: true },
+					]
+			});
+</script>
+</body>
+</html>
