@@ -26,130 +26,232 @@
 		document.getElementsByTagName( 'head' )[0].appendChild( link );
 	</script>
 
-<style>
-/** logo  **/
-.reveal .logo { background-image: url("demonstration/logo.png"); }
-/* 去圖片框 */
-.reveal section img { background:none; border:none; box-shadow:none; }
-/** h2 標題改為綠色 **/
-	.reveal section h2 { color:#4CAF50; }
-/** 滑動
-h6 {
-  animation-duration: 3s;
-  animation-name: slidein;
-  animation-iteration-count: infinite;
-animation-direction: alternate;
-} */
-
-@keyframes slidein {
-  from {
-    padding-left: 100%;
-    width: 300%;
-  }
-  to {
-    padding-left: 0%;
-    width: 100%;
-  }
-}
-/* 移動 */
-pps {
-    width: 100px;
-    position: relative;
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    animation-name: example;
-  animation-iteration-count: infinite;
-    animation-duration: 4s;
-}
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes example {
-    0%   {left:0px; top:0px;}
-    50%  {left:375px; top:0px;}
-    100% {left:0px; top:0px;}
-}
-/* Standard syntax */
-@keyframes example {
-    0%   {left:0px; top:0px;}
-    50%  {left:375px; top:0px;}
-    100% {left:0px; top:0px;}
-}
-/* 二欄 */
-.parent{
-	position:absolute;
-}
-.left{
-	position: relative;
-	float:left;
-	height: 350px;
-	width: 750px;
-}
-.right{
-	position: relative;
-	float: right;
-	height: 350px;
-	width: 180px;	
-}
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #AA2234;
-    color: MediumSeaGreen;
-    min-width: 360px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 10px 16px;
-    z-index: 1;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-</style>
-	
-
 <!--[if lt IE 9]>
 <script src="lib/js/html5shiv.js"></script>
-<![endif]-->
+<![endif]-->	
 
 <style type="text/css">
-	body {font-family: 微軟正黑體; text-align:center;}
-	.result_box {width:700px;text-align:center;background:#333; color:#F7BE81;}
-	.result_box #oknum {width:960px;color:darkorange;font-size:36pt;text-align:center;border:3px solid #888;background:#333;}
-	.button_box {margin-top:50px;}
-	.button_box .btn1 {cursor:pointer;padding:5px 30px;margin:0 10px;color:white;font-size:28px;background:#4CAF50;}
-	.button_box .btn2 {cursor:pointer;padding:5px 30px;margin:0 10px;color:white;font-size:28px;background:#880000;}
-	.button_box .btn3 {cursor:pointer;padding:5px 30px;margin:0 10px;color:white;font-size:28px;background:#2E64FE;}
-	.more_box {width:960px; overflow:hidden; text-align:left; font-size:20px;}
-	.more_form {position: relative; clear: both; line-height:36px;}
-	.more_form input, .more_form button {font-size:22px;}
-	.more_form input {width:835px; height:36px; padding:1px 55px 1px 5px; line-height:36px; background:#CEF6D8}
-	.more_form button {right:10; height:42px;background-color: #4CAF50;color:white;border:none;text-align:center;}
-	.more_box span.luck_select {font-size:24px; float:right; margin:0;line-height:36px;}
-	.name_list {overflow: hidden; padding:10px 1px 1px 1px; clear:both; border: 1px solid #40AA53;}  <!-- {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  -->
-	.name_list span, .luck_select {font-size:24px; display: inline-block; padding: 2px 6px; white-space: nowrap;
-				background: #58FA82; color: #424242; float:left; height:30px; 
-				line-height:36px; margin: 0 7px 7px 0;-webkit-user-select: none; 
-				-moz-user-select: none; -ms-user-select: none; -o-user-select: none; 
-				user-select: none; cursor: pointer;}
-	.name_list span:hover {background: #088A29;}
-	.name_list span.select, .luck_select {background: darkorange;}
+	body {
+		font-family: 微軟正黑體; 
+		text-align: center;
+	}
+	.result_box {
+		width: 700px;
+		text-align: center;
+		background: #333; 
+		color: #F7BE81;
+	}
+	.result_box #oknum {
+		width: 960px;
+		color: darkorange;
+		font-size: 36pt;
+		text-align: center;
+		border: 3px solid #888;
+		background: #333;
+	}
+	.button_box {
+		margin-top:50px;
+	}
+	.button_box .btn1 {
+		cursor: pointer;
+		padding: 5px 30px;
+		margin: 0 10px;
+		color: white;
+		font-size: 28px;
+		background: #4CAF50;
+	}
+	.button_box .btn2 {
+		cursor: pointer;
+		padding: 5px 30px;
+		margin: 0 10px;
+		color: white;
+		font-size: 28px;
+		background: #880000;
+	}
+	.button_box .btn3 {
+		cursor: pointer;
+		padding: 5px 30px;
+		margin: 0 10px;
+		color: white;
+		font-size: 28px;
+		background: #2E64FE;
+	}
+	.more_box {
+		width: 960px; 
+		overflow: hidden; 
+		text-align: left; 
+		font-size: 20px;
+	}
+	.more_form {
+		position: relative; 
+		clear: both; 
+		line-height: 36px;
+	}
+	.more_form input, .more_form button {
+		font-size: 22px;
+	}
+	.more_form input {
+		width: 835px; 
+		height: 36px; 
+		padding: 1px 55px 1px 5px; 
+		line-height: 36px; 
+		background: #CEF6D8
+	}
+	.more_form button {
+		right: 10; 
+		height: 42px;
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		text-align:center;
+	}
+	.more_box span.luck_select {
+		font-size: 24px; 
+		float: right; 
+		margin: 0;
+		line-height: 36px;
+	}
+	.name_list {
+		overflow: hidden; 
+		padding: 10px 1px 1px 1px; 
+		clear: both; 
+		border: 1px solid #40AA53;
+	}  /* {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  */
+	.name_list span, .luck_select {
+		font-size:24px; 
+		display: inline-block; 
+		padding: 2px 6px; 
+		white-space: nowrap;
+		background: #58FA82; 
+		color: #424242; 
+		float: left; 
+		height: 30px; 
+		line-height: 36px; 
+		margin: 0 7px 7px 0;
+		-webkit-user-select: none; 
+		-moz-user-select: none; 
+		-ms-user-select: none; 
+		-o-user-select: none; 
+		user-select: none; 
+		cursor: pointer;
+	}
+	.name_list span:hover {
+		background: #088A29;
+	}
+	.name_list span.select, .luck_select {
+		background: darkorange;
+	}
+
+	/** logo  **/
+	.reveal .logo { 
+		background-image: url("demonstration/logo.png"); 
+	}  
+	/* 去圖片框 */
+	.reveal section img { 
+		background:none; border:none; box-shadow:none; 
+	}  
+	/* h2 標題改為綠色 */
+	.reveal section h2 { 
+		color: #4CAF50; 
+	}   
 
 
-  table.bottomBorder { 
-    border-collapse: collapse; 
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-  }
-  table.bottomBorder tfoot { border-top: 1px solid; }
-  table.bottomBorder td { padding: 5px; border: 0px; text-align: center; font-size:18px; }
-  table.bottomBorder th { 
-    border-bottom: 1px solid; 
-    padding: 5px; 
-    text-align: center;
-    vertical-align:middle;
-  }
+
+	@keyframes slidein {
+	  from {
+	    padding-left: 100%;
+	    width: 300%;
+	  }
+	  to {
+	    padding-left: 0%;
+	    width: 100%;
+	  }
+	}
+
+	pps {
+	    width: 100px;
+	    position: relative;
+	    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+	    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+	    animation-name: example;
+		animation-iteration-count: infinite;
+	    animation-duration: 4s;
+	}/* 移動 */
+	
+	/* Safari 4.0 - 8.0 */
+	@-webkit-keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* Standard syntax */
+	@keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* 二欄 */
+	.parent{
+		position:absolute;
+	}
+	.left{
+		position: relative;
+		float:left;
+		height: 350px;
+		width: 750px;
+	}
+	.right{
+		position: relative;
+		float: right;
+		height: 350px;
+		width: 180px;	
+	}
+	.dropdown {
+	    position: relative;
+	    display: inline-block;
+	}
+	.dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #AA2234;
+	    color: MediumSeaGreen;
+	    min-width: 360px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    padding: 10px 16px;
+	    z-index: 1;
+	}
+	.dropdown:hover .dropdown-content {
+	    display: block;
+	}
+
+	/*表格*/
+	table.bottomBorder { 
+    	border-collapse: collapse; 
+    	border-top: 2px solid;
+    	border-bottom: 2px solid;
+	}
+	table.bottomBorder tfoot { 
+		border-top: 1px solid; 
+	}
+	table.bottomBorder td { 
+		padding: 5px; 
+		border: 0px; 
+		text-align: center; 
+		font-size: 18px; 
+	}
+	table.bottomBorder th { 
+    	border-bottom: 1px solid; 
+    	padding: 5px; 
+    	text-align: center;
+    	vertical-align: middle;
+	}
+	/* 滑動
+	h6 {
+	  animation-duration: 3s;
+	  animation-name: slidein;
+	  animation-iteration-count: infinite;
+	animation-direction: alternate;
+	} */
 </style>
 
 </head>
@@ -211,7 +313,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<li>故事行銷</li>
  		 </ul></div>
 		</div> -->
-		 </li>
+	</li>
 	<li><a href="#/shenchi">慎淇</a> (16)</li>
 	<li><a href="#/susan">芝萱</a> (12)</li>
 	<li><a href="#/hung">昱宏</a> (12)</li>
@@ -231,7 +333,6 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<li><a href="#/adolf">晏羽</a> (6)</li>
 	<li><a href="#/zoya">婷雅</a> (5)</li>
   -->
-
 </section>
 
 
@@ -448,8 +549,6 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 		</tr>
 	-->
 	</table>
-
-
 </section>
 
 
@@ -481,6 +580,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	</div>
 </section>
 </section>
+
 <section>
 <section data-menu-title="教學">
 	<h1>簡單教學</h1>
@@ -651,48 +751,48 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<li title="東野圭吾">解憂雜貨店</li>
 	<li title="李洛克">寫作革命<span style="font-size:14px;">：散文、小說、文案、社群貼文輕鬆進階的 40 道練習題</span></li>
 	<li title="大衛．威廉斯">穿裙子的男孩
-		<span title="note"><a target="_blank" href="others/egg/2019/skirtboy.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
+		<a target="_blank" href="others/egg/2019/skirtboy.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
 	</li>
 	<li title="約翰．凱瑞魯">惡血
-		<span title="note"><a target="_blank" href="others/egg/2019/badblood.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
+		<a target="_blank" href="others/egg/2019/badblood.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
 	</li>
 	<li><a href="#/gene" title="辛達塔．穆克吉">基因</a> 
-	    <span title="note"><a target="_blank" href="others/egg/gene.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
-		<span style="color:#AA2234; font-size:10pt"><i> (Oct. 4, 2018)</i></span>
+	    <a target="_blank" href="others/egg/gene.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		<i style="color:#AA2234; font-size:10pt"> (Oct. 4, 2018)</i>
 	</li>
 	<li title="莉莎‧潔諾娃"><a href="#/obriens">因為愛，我們呼吸</a>
-	    <span title="note"><a target="_blank" href="others/egg/obriens.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
-		<span style="color:#AA2234; font-size:10pt"><i> (Oct. 18, 2018)</i></span>
+	    <a target="_blank" href="others/egg/obriens.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		<i style="color:#AA2234; font-size:10pt"> (Oct. 18, 2018)</i>
 	</li>
 	<li title="Susan M. Weinschenk"><a href="#/design">了解「人」，你才知道怎麼設計！</a>
-		<span title="powerpoint about tables"><a target="_blank" href="others/egg/design.ppsx"><i class="fas fa-file-powerpoint" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="color:#AA2234; font-size:10pt"><i> (Jan. 10, 2019)</i></span>
+		<a target="_blank" href="others/egg/design.ppsx" title="powerpoint about tables"><i class="fas fa-file-powerpoint" style="font-size:16px;color:#F5A9A9"></i></a>
+		<i style="color:#AA2234; font-size:10pt"> (Jan. 10, 2019)</i>
 	</li>
 	<li title="馬克．海登"><a href="#/dog">深夜小狗神祕習題</a>
-		<span title="note"><a target="_blank" href="others/egg/dog.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
-		<span style="color:#AA2234; font-size:10pt"><i> (Jan. 31, 2019)</i></span>
+		<a target="_blank" href="others/egg/dog.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		<i style="color:#AA2234; font-size:10pt"> (Jan. 31, 2019)</i>
 	</li>
 	<li title="許榮哲"><a href="#/noveli">小說課 I ─ 折磨讀者的祕密</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/novel1.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
-		<span style="color:#AA2234; font-size:10pt"><i> (Apr. 18, 2019)</i></span></li>	
-	</li>	
+		<a target="_blank" href="others/egg/2019/novel1.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
+		<i style="color:#AA2234; font-size:10pt"> (Apr. 18, 2019)</i>
+	</li>
 	<li title="許榮哲"><a href="#/novelii">小說課 II ─ 偷故事的人</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/novel2.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
-		<span style="color:#AA2234; font-size:10pt"><i> (Apr. 18, 2019)</i></span></li>	
+		<a target="_blank" href="others/egg/2019/novel2.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		<i style="color:#AA2234; font-size:10pt"> (Apr. 18, 2019)</i>	
 	</li>			
 	<li title="許榮哲"><a href="#/noveliii">小說課 III ─ 偷電影的故事賊</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/novel3.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>	
-		<span style="color:#AA2234; font-size:10pt"><i> (Apr. 18, 2019)</i></span></li>	
+		<a target="_blank" href="others/egg/2019/novel3.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
+		<i style="color:#AA2234; font-size:10pt"> (Apr. 18, 2019)</i>	
 	</li>
 	<li title="張翎"><a href="#/earthquake">餘震</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/earthquake.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
-	<span style="color:#AA2234; font-size:10pt"><i> (Jun. 6, 2019)</i></span>
-	<li title="莉莎‧潔諾娃"><a href="#/anthony">這就是我來到這世界的理由</a>
-	    				<span title="尖叫"><a target="_blank" href="others/egg/scream.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span> 
+		<a target="_blank" href="others/egg/2019/earthquake.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		<i style="color:#AA2234; font-size:10pt"> (Jun. 6, 2019)</i>
 	</li>
+	<li title="莉莎‧潔諾娃"><a href="#/anthony">這就是我來到這世界的理由</a>
+	    <a target="_blank" href="others/egg/scream.pdf" title="尖叫"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="吳曉樂"><a href="#/child">你的孩子不是你的孩子</a>
-		<span title="note"><a target="_blank" href="others/egg/child.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/child.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	</small>
 	</ol><br />
@@ -703,40 +803,39 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<h2>許瑞宏<small>(續)</small></h2>
 	<ol start="16" style='list-style-type:lower-roman;'><small>
 	<li title="許榮哲"><a href="#/story1">故事1：3分鐘說18萬個故事，打造影響力</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/story1.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/story1.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="許榮哲"><a href="#/story2">故事2：99%有效的故事行銷，創造品牌力</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/brand.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/brand.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 		<a href="others/egg/brand.html" target="_blank"><i class="fas fa-file-powerpoint" style="font-size:16px;color:#F5A9A9"></i></a>
 		<i style="color:#AA2234; font-size:10pt"> (Sep. 12, 2019)</i>
 	</li>
 	<li title="莎莉‧潔諾娃"><a href="#/noteplayed">當最後一個音符輕柔落下</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/noteplayed.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/noteplayed.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="理查‧賽勒"><a href="#/misbehaving">不當行為</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/misbehaving.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/misbehaving.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 		<a href="others/egg/2019/misbehaving.html" target="_blank"><i class="fas fa-file-powerpoint" style="font-size:16px;color:#F5A9A9"></i></a>
 		<i style="color:#AA2234; font-size:10pt"> (Nov. 7, 2019)</i>
 	</li>
 	<li title="池井戶潤"><a href="#/meetings">七個會議</a>
-		<span title="note"><a target="_blank" href="others/egg/2019/7meetings.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/7meetings.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="東野圭吾"><a href="#/newone">新參者</a>
 	</li>
 	<li title="提姆．哈福特">親愛的臥底經濟學家
-		<span title="note"><a target="_blank" href="others/egg/2019/deareconomist.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/deareconomist.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="朴信英">童話裡隱藏的世界史
-		<span title="note"><a target="_blank" href="others/egg/2019/princeeverywhere.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/princeeverywhere.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="東野圭吾">禁忌的魔術
-		<span title="note"><a target="_blank" href="others/egg/2019/magic.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/magic.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="Mitch Albom">在天堂遇見的五個人
-		<span title="note"><a target="_blank" href="others/egg/2019/inheaven.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span>
+		<a target="_blank" href="others/egg/2019/inheaven.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
 	</li>
 	<li title="Mitch Albom">在天堂遇見的下一個人
-		<!-- <span title="note"><a target="_blank" href="others/egg/2019/inheaven2.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a></span> -->
 	</li>
 	<li title="李洛克">故事行銷
 	</li>
@@ -749,8 +848,9 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 <section id="misbehaving" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
 	<h2 style="color:#F08080;">不當行為</h2>
 	<h4 style="color:#ffcccc;">理查‧塞勒</h3>
-	<span class="badge shake-constant shake-chunk"><a href="others/egg/2019/misbehaving.html" target="_blank"><img src="https://doltegg.github.io/book/images/misbehaving.jpg" width="300px" /></a></span><br />
-	<a href="others/egg/2019/misbehaving.html" target="_blank"><i class="far fa-hand-point-up" style="color:#FFB7DD"></i></a>
+		<a href="others/egg/2019/misbehaving.html" target="_blank" class="badge shake-constant shake-chunk">
+			<img src="https://doltegg.github.io/book/images/misbehaving.jpg" width="300px" /></a><br />
+		<a href="others/egg/2019/misbehaving.html" target="_blank"><i class="far fa-hand-point-up" style="color:#FFB7DD"></i></a>
 </section>	
 
 <section id="child" data-menu-title="你的孩子不是你的孩子" data-transition="slide" data-background-image="others/egg/child.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
@@ -860,7 +960,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<h5 style="font-size:32px; color:orange;">張翎 (馮小剛)</h5>
 	<div class="parent">
 	<div class="left">
-	<iframe width="962" height="541" src="https://www.youtube.com/embed/EqdQ1wjrTDU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="962" height="541" src="https://www.youtube.com/embed/EqdQ1wjrTDU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	<div class="right">
 		<img src="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
@@ -901,7 +1001,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<h5 style="font-size:32px; color:#ffcccc;">許榮哲</h5>
 	<div class="parent">
 	<div class="left" style="text-align:left">
-	<p style="font-size:32px;"><b><u>史上最準的心理測驗</u></b>&nbsp;  <sup><span title="note"><a target="_blank" href="others/egg/2019/novel22.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:pink"></i></a></span></sup></p>
+	<p style="font-size:32px;"><b><u>史上最準的心理測驗</u></b>&nbsp;  <sup title="note"><a target="_blank" href="others/egg/2019/novel22.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:pink"></i></a></sup></p>
 		<p style="font-size:28px;">有個旅人因為迷路，再加上三天三夜沒有進食、喝水，即將倒下之前，意外發現前面有間小木屋。旅人用盡最後一口氣，好不容易爬進小木屋。屋裡空蕩蕩的，什麼也沒有。正當絕望之際，赫然發現桌上有三種水果：
 	<ul style="line-height:40px; font-size:28px;">
 		<!-- fragment 為分段顯示  -->
@@ -937,12 +1037,12 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 <section data-transition="slide" data-background-image="others/egg/train.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.2">
 	<h2>屍速列車的結局應該停在哪裡？</h2>
 	<ol>
-		<li>三人新世界<span style="color:yellow; font-size:18pt"><i> (75%)</i></span></span></li>
-		<li>悲劇英雄<span style="color:yellow; font-size:18pt"><i> (80%)</i></span></li>
-		<li>開放隧道<span style="color:yellow; font-size:18pt"><i> (85%)</i></span></li>
-		<li>貫穿頭尾的伏筆<span style="color:yellow; font-size:18pt"><i> (原劇)</i></span></li>
-		<li>角色性格的伏筆<span style="color:yellow; font-size:18pt"><i> (性格)</i></span></li>
-		<li>重複的禮物<span style="color:yellow; font-size:18pt"><i> ...</i></span></li>
+		<li>三人新世界<span style="color:yellow; font-size:18pt"><em> (75%)</em></span></span></li>
+		<li>悲劇英雄<span style="color:yellow; font-size:18pt"><em> (80%)</em></span></li>
+		<li>開放隧道<span style="color:yellow; font-size:18pt"><em> (85%)</em></span></li>
+		<li>貫穿頭尾的伏筆<span style="color:yellow; font-size:18pt"><em> (原劇)</em></span></li>
+		<li>角色性格的伏筆<span style="color:yellow; font-size:18pt"><em> (性格)</em></span></li>
+		<li>重複的禮物<span style="color:yellow; font-size:18pt"><em> ...</em></span></li>
 	</ol>
 </section>
 
@@ -971,11 +1071,11 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<h2 style="color:#F08080;">了解人你才知道怎麼設計</h2>
 	<div class="parent">
 	<div class="left">
-	<ul style="line-height:40px; font-size:28px;">
-		<!-- fragment 為分段顯示  -->
-		<li>你的腦部不斷在解釋你眼睛看到的所有事物。</li>
-	</ul>
-	<p><a target="_blank" href="others/egg/design.ppsx"><img src="others/egg/design2.png" width="400" /></a></p>
+		<ul style="line-height:40px; font-size:28px;">
+			<!-- fragment 為分段顯示  -->
+			<li>你的腦部不斷在解釋你眼睛看到的所有事物。</li>
+		</ul>
+		<p><a target="_blank" href="others/egg/design.ppsx"><img src="others/egg/design2.png" width="400" /></a></p>
 	</div>
 	<div class="right">
 		<img src="others/egg/design1.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
@@ -1001,7 +1101,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	</div>
 	<div class="right">
 		<img src="others/egg/gene.jpg" class="preview-item small shake-slow shake-constant shake-constant--hover">
-		<img src="others/egg/gene2.jpg"></span>
+		<img src="others/egg/gene2.jpg">
 	</div>
 	</div>	
 </section>
@@ -1154,15 +1254,15 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 <section id="astrid" data-menu-title="詹宛霖(7)">
 	<h2>詹宛霖</h2>
 	<ul><small>
-	1)  未來年表 - 河合雅司 著</br>
-	2)  2025無齡時代：迎接你我的超高齡社會 - 陳亮恭 著</br>
-	3)  無毒好生活 - 譚敦慈 著</br>
-	4)  別再錯用你的腦 - 樺澤紫苑 著</br>
-	5)  Marketing 4.0 - Philip Kotler</br>
-	6)  像芬蘭這樣教 - Timothy D. Walker</br>
-	7)  讓天賦自由 - Ken Robinson</br>
-	8)  ...</br>
-        </small></ul>
+	1)  未來年表 - 河合雅司 著<br>
+	2)  2025無齡時代：迎接你我的超高齡社會 - 陳亮恭 著<br>
+	3)  無毒好生活 - 譚敦慈 著<br>
+	4)  別再錯用你的腦 - 樺澤紫苑 著<br>
+	5)  Marketing 4.0 - Philip Kotler<br>
+	6)  像芬蘭這樣教 - Timothy D. Walker<br>
+	7)  讓天賦自由 - Ken Robinson<br>
+	8)  ...<br>
+    </small></ul>
 </section>
 
 
@@ -1171,7 +1271,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 <!-- ************************************************************************************* -->
 <section id="vivienne" data-menu-title="黃薇(7)">
 	<h2>黃薇</h2>
-        <ul><small>
+    <ul><small>
 	<li>精準用腦</li>
 	<li>原子習慣</li>
 	<li>二十一世紀生死課</li>
@@ -1179,7 +1279,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<li>變老的勇氣</li>
 	<li>不斷幸福論</li>
 	<li>怪奇事物所:你知道嗎?其實我們都很怪!</li>
-        </small></ul>
+    </small></ul>
 </section>
 
 
@@ -1191,20 +1291,21 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 <!--                                        智超                                           -->
 <!-- ************************************************************************************* -->
 <section id="mcw" data-menu-title="許智超(12)">
-	<h2 style="animation-duration: 3s; animation-name: slidein; animation-iteration-count: infinite; animation-direction: alternate;">許智超<sapn style="font-size:14px; color:gray;"> 他說不要靜態，所以我讓他一直搖...</span></h1>
+	<h2 style="animation-duration: 3s; animation-name: slidein; animation-iteration-count: infinite; animation-direction: alternate;">許智超
+		<sapn style="font-size:14px; color:gray;"> 他說不要靜態，所以我讓他一直搖...</span></h2>
 	<ul><small>
 	<li><a target="_blank" href="others/mcw/timid.pptx">膽小別看畫</a></li>
 	<li><a target="_blank" href="others/mcw/runner.pdf">跑者時代</a></li>
-	<li><div title="石井貴士"><a target="_blank" href="others/mcw/talk.pptx">幹大事的閒聊力</a></div></li>
+	<li title="石井貴士"><a target="_blank" href="others/mcw/talk.pptx">幹大事的閒聊力</a></li>
 	<li><a target="_blank" href="others/mcw/badblood.pdf">惡血</a></li>
 	<li><a target="_blank" href="others/mcw/chungking.pdf">重慶大廈</a></li>
 	<li><a target="_blank" href="others/mcw/circus.pptx">奧運的詛咒</a></li>
-	<li><div title="nicholas carr">網路讓我們變笨?</div></li>
-	<li><div title="劉海永">餐桌上的宋朝</div></li>
-	<li><div title="石澤良昭">亦近亦遠的東南亞</div></li>
-	<li><div title="HOWHOW">HOWFUN 如何爽當 youtubeer</div></li>
-	<li><div title="湯禎兆">香港電影血與骨</div></li>
-	<li><div title="日經設計">靠包裝就能賣</div></li>
+	<li title="nicholas carr">網路讓我們變笨?</li>
+	<li title="劉海永">餐桌上的宋朝</li>
+	<li title="石澤良昭">亦近亦遠的東南亞</li>
+	<li title="HOWHOW">HOWFUN 如何爽當 youtubeer</li>
+	<li title="湯禎兆">香港電影血與骨</li>
+	<li title="日經設計">靠包裝就能賣</li>
 	</small></ul>
 </section>
 
@@ -1417,9 +1518,9 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<h2>林辰</h2>
 	<ul><small>
 	<li><a target="_blank" href="others/mom/store.pptx">解憂雜貨店</a></li>
-	<li><a target="_blank" href="others/mom/badblood.pdf">惡血</a><span style="color:#AA2234; font-size:10pt"><i> (Mar. 14, 2019)</i></span></li>
+	<li><a target="_blank" href="others/mom/badblood.pdf">惡血</a><i style="color:#AA2234; font-size:10pt"> (Mar. 14, 2019)</i></li>
 	<li>被討厭的勇氣</li>
-	<li><a target="_blank" href="others/mom/disliked_courage2.pptx">被討厭的勇氣 2</a><span style="color:#AA2234; font-size:10pt"><i> (May 9, 2019)</i></span></li>
+	<li><a target="_blank" href="others/mom/disliked_courage2.pptx">被討厭的勇氣 2</a><i style="color:#AA2234; font-size:10pt"> (May 9, 2019)</i></li>
 	<li>獲利團隊</li>
 	<li>電商 Zero to one</li>
 	<li>優秀的人，都敢對自己下手</li>
@@ -1447,9 +1548,9 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<table class="bottomBorder" style="line-height:22px;">
 		<tr>
 			<th style="font-size:20px;">姓名</th>
-			<th style="font-size:20px; text-align:left;"">Email</th>
+			<th style="font-size:20px; text-align:left;">Email</th>
 			<th style="font-size:20px;">姓名</th>
-			<th style="font-size:20px; text-align:left;"">Email</th>
+			<th style="font-size:20px; text-align:left;">Email</th>
 		</tr>
 		<tr>
 			<td>呂錦棠</td>
@@ -1675,7 +1776,8 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>$ 5,735</td>
 			<td>─</td>
 		</tr>
-		</tfoot>
+		</tfoot>
+
 	</table>
 </section>
 <section>
