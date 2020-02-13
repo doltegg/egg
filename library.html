@@ -32,14 +32,15 @@
 /* 去圖片框 */
 .reveal section img { background:none; border:none; box-shadow:none; }
 /** h2 標題改為綠色 **/
-.reveal section h2 { color:#4CAF50; }
-/** 滑動 **/
+	.reveal section h2 { color:#4CAF50; }
+/** 滑動
 h6 {
   animation-duration: 3s;
   animation-name: slidein;
   animation-iteration-count: infinite;
 animation-direction: alternate;
-}
+} */
+
 @keyframes slidein {
   from {
     padding-left: 100%;
@@ -247,6 +248,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<th style="font-size:24px;">6</th>
 			<th style="font-size:24px;">7</th>
 			<th style="font-size:24px;">8</th>
+			<th style="font-size:24px;">9</th>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">芷儀</td>
@@ -258,6 +260,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>6/20</td>
 			<td>10/9</td>
 			<td>12/19</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">瑞宏</td>
@@ -269,6 +272,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>6/6</td>
 			<td>9/12</td>
 			<td>11/7</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">慎淇</td>
@@ -280,6 +284,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>6/13</td>
 			<td>10/17</td>
 			<td>11/21</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">芝萱</td>
@@ -291,6 +296,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>5/23</td>
 			<td>9/19</td>
 			<td>2/6</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">昱宏</td>
@@ -302,6 +308,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>7/4</td>
 			<td>10/24</td>
 			<td>10/31</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">筱婷</td>
@@ -313,6 +320,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>9/5</td>
 			<td>9/19</td>
 			<td>1/16</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">宛霖</td>
@@ -323,7 +331,8 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>─</td>
 			<td>─</td>
 			<td>─</td>
-			<td style="color:tomato">2/13</td>
+			<td>2/13</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">黃薇</td>
@@ -335,6 +344,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>─</td>
 			<td>─</td>
 			<td>1/9</td>
+			<td style="color:tomato">2/20</td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">智超</td>
@@ -346,6 +356,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>5/30</td>
 			<td>9/12</td>
 			<td>1/9</td>
+			<td></td> 
 		</tr>
 	<!--
 		<tr>
@@ -466,7 +477,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<div class="more_box">
     	參選人：<span style="color:#AAAAAA;font-size:18px;">(用逗號隔開)</span>
     	<div class="more_form">
-		<input id="more_input" value="芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇," /><button onclick="addData()">加入</button></div> <!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
+		<input id="more_input" value="芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖," /><button onclick="addData()">加入</button></div> <!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
 	</div>
 </section>
 </section>
@@ -758,8 +769,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	</ul>
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/child.jpg" width="175px"></span>
-		</span>
+		<img src="others/egg/child.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
 	</div>
 	</div>	
 </section>
@@ -774,8 +784,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 		<a target="_blank" href="https://www.google.com/maps/d/viewer?ie=UTF8&hl=zh-TW&msa=0&ll=35.686590141808466%2C139.79047374078368&spn=0.0061%2C0.00912&z=16&source=embed&mid=1_y2Ur1b5OGJs2glpIdkqzLHihsI"><img src="others/egg/newmap.jpg"></a>
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/newone.jpg" width="175px"></span>
-		</span>
+		<img src="others/egg/newone.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
 	</div>
 	</div>
 </section>
@@ -808,8 +817,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 		</ul>
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/story1.jpg" width="175px"></span>
-		</span>
+		<img src="others/egg/story1.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
 	</div>
 	</div>
 </section>
@@ -823,8 +831,8 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<iframe width="735" height="552" src="https://www.youtube.com/embed/L9jiPQAuTBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/story2.jpg" width="175px"></span>
-		</span><br />
+		<img src="others/egg/story2.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		<br />
 	<a href="others/egg/brand.html" target="_blank"><i class="fas fa-file-powerpoint"></i></a>
 	</div>
 	</div>
@@ -839,8 +847,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="https://doltegg.github.io/egg/others/egg/played.png" width="175px"></span>
-		</span>
+		<img src="https://doltegg.github.io/egg/others/egg/played.png" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">		
 	</div>
 	</div>
 </section>
@@ -856,8 +863,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<iframe width="962" height="541" src="https://www.youtube.com/embed/EqdQ1wjrTDU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" width="175px"></span>
-		</span>
+		<img src="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
 	</div>
 	</div>
 </section>
@@ -933,7 +939,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<ol>
 		<li>三人新世界<span style="color:yellow; font-size:18pt"><i> (75%)</i></span></span></li>
 		<li>悲劇英雄<span style="color:yellow; font-size:18pt"><i> (80%)</i></span></li>
-		<li>開放隧道<spanstyle="color:yellow; font-size:18pt"><i> (85%)</i></span></li>
+		<li>開放隧道<span style="color:yellow; font-size:18pt"><i> (85%)</i></span></li>
 		<li>貫穿頭尾的伏筆<span style="color:yellow; font-size:18pt"><i> (原劇)</i></span></li>
 		<li>角色性格的伏筆<span style="color:yellow; font-size:18pt"><i> (性格)</i></span></li>
 		<li>重複的禮物<span style="color:yellow; font-size:18pt"><i> ...</i></span></li>
@@ -954,8 +960,8 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	</ul>
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/dog.png" width="175px"></span>
-		<img src="others/egg/Marilyn.jpg" width="168px"></span>
+		<img src="others/egg/dog.png" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		<img src="others/egg/Marilyn.jpg" width="168px">
 	</div>
 	</div>	
 </section>
@@ -972,8 +978,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<p><a target="_blank" href="others/egg/design.ppsx"><img src="others/egg/design2.png" width="400" /></a></p>
 	</div>
 	<div class="right">
-		<span class="preview-item small shake-slow shake-constant shake-constant--hover"><img src="others/egg/design1.jpg" width="175px"></span>
-		</span>
+		<img src="others/egg/design1.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
 	</div>
 	</div>	
 </section>
@@ -1002,17 +1007,17 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 </section>
 <section id="obriens" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
 	<h2 style="color:#F08080;">因為愛，我們呼吸</h2>
-	<h4 style="color:#ffcccc;">莉莎‧潔諾娃 (Inside the O'Briens)</h3>
-	<h5 style="color:#f7e1e1;">亨丁頓舞蹈症</h5>
+	<h4 style="font-size:32px; color:#ffcccc;">莉莎‧潔諾娃 (Inside the O'Briens)</h3>
+	<h5 style="font-size:28px; color:#f7e1e1;">亨丁頓舞蹈症</h5>
 	<div class="parent">
 	<div class="left">
 	<ul style="line-height:50px; font-size:32px;">
 		<!-- fragment 為分段顯示 <span class="fragment">  -->
 		<li>他伸進前口袋，拿出零錢。他找出四個二十五分硬幣...。每個孩子都有<span style="color:black" class="shake shake-constant shake-constant-hover">百分之五十</span>的機率。</li>
-		<li>至今，有超過<font color="black">百分之九十</font>可能患有 HD 的人選擇保持未知。</li>
-		<li>寶寶一出生，就只有她自己才能決定要不要知道自己基因，而最早的檢驗法定年齡是<font color="black">十八歲</font>。</li>
+		<li>至今，有超過<span style="color: black;">百分之九十</sapn>可能患有 HD 的人選擇保持未知。</li>
+		<li>寶寶一出生，就只有她自己才能決定要不要知道自己基因，而最早的檢驗法定年齡是<span style="color:black">十八歲</span>。</li>
 		<!--<li>我們需要你，爸。拜託，我們需要學會怎麼跟 HD 共處。</li>-->
-		<li>自 1993 年起知道造成 HD 的單一因素是基因突變，但至今仍<font color="black">無</font>有效預防或減緩病程的療法。</li>
+		<li>自 1993 年起知道造成 HD 的單一因素是基因突變，但至今仍<span style="color:black">無</span>有效預防或減緩病程的療法。</li>
 	</ul>
 	</div>
 	<div class="right">
@@ -1022,8 +1027,8 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 </section>
 <section id="anthony" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
 	<h2 style="color:#F08080;">這就是我來到這世界的理由</h2>
-	<h4 style="color:#ffcccc;">莉莎‧潔諾娃 (Love Anthony)</h3>
-	<h5 style="color:#f7e1e1;">自閉症</h5>
+	<h4 style="font-size:32px; color:#ffcccc;">莉莎‧潔諾娃 (Love Anthony)</h3>
+	<h5 style="font-size:28px; color:#f7e1e1;">自閉症</h5>
 	<div class="parent">
 	<div class="left">
 	<ul style="line-height:50px; font-size:32px;">
@@ -1186,7 +1191,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 <!--                                        智超                                           -->
 <!-- ************************************************************************************* -->
 <section id="mcw" data-menu-title="許智超(12)">
-	<h6 style="color:#4CAF50;"><span style="font-size:1.7em;">許智超</span><font size="3" color="gray"> 他說不要靜態，所以我讓他一直搖...</font></h1>
+	<h2 style="animation-duration: 3s; animation-name: slidein; animation-iteration-count: infinite; animation-direction: alternate;">許智超<sapn style="font-size:14px; color:gray;"> 他說不要靜態，所以我讓他一直搖...</span></h1>
 	<ul><small>
 	<li><a target="_blank" href="others/mcw/timid.pptx">膽小別看畫</a></li>
 	<li><a target="_blank" href="others/mcw/runner.pdf">跑者時代</a></li>
