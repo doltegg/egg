@@ -6,7 +6,10 @@
 	<link rel="icon" type="image/png" href="others/favicon.ico" />	
 	<title>整合行銷部圖書館</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<!--google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,500,700,900&display=swap" rel="stylesheet">
+
 	
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css" id="theme"> <!--black, white, league, sky, beige, simple, serif, blood, night, moon, solarized -->
@@ -16,7 +19,7 @@
 	
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
-		
+			
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement( 'link' );
@@ -32,8 +35,10 @@
 
 <style type="text/css">
 	body {
-		font-family: 微軟正黑體; 
 		text-align: center;
+	}
+	section{
+		font-family: 'Noto Sans TC', 微軟正黑體, sans-serif; 
 	}
 	.result_box {
 		width: 700px;
@@ -151,8 +156,10 @@
 		background:none; border:none; box-shadow:none; 
 	}  
 	/* h2 標題改為綠色 */
-	.reveal section h2 { 
-		color: #4CAF50; 
+	.reveal section h2 {
+		font-family: 'Noto Sans TC'; 
+		color: #4CAF50;
+		font-weight: 900; 
 	}   
 
 
@@ -167,7 +174,7 @@
 	    width: 100%;
 	  }
 	}
-
+	/* 移動 */
 	pps {
 	    width: 100px;
 	    position: relative;
@@ -176,7 +183,7 @@
 	    animation-name: example;
 		animation-iteration-count: infinite;
 	    animation-duration: 4s;
-	}/* 移動 */
+	}
 	
 	/* Safari 4.0 - 8.0 */
 	@-webkit-keyframes example {
@@ -196,7 +203,7 @@
 	}
 	.left{
 		position: relative;
-		float:left;
+		float: left;
 		height: 350px;
 		width: 750px;
 	}
@@ -266,12 +273,12 @@
 	<div class="slides">
 
 <section data-menu-title="整合行銷部圖書館">
-	<h1 style="font-size:4em;">圖書館<h1>
-	<h3 style="color="#C0C0C0">整合行銷部</h3>
-	<h5 id="dddate" style="color="#999999"></h5>
+	<h1 style="font-family: 'Noto Sans TC'; font-size:4em; font-weight: 900;">圖書館<h1>
+	<h3 style="font-family: 微軟正黑體; color: #C0C0C0;">整合行銷部</h3>
+	<h5 id="dddate" style="color: #999999;"></h5>
 <script>
-var d = new Date();
-document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMonth()+1)+ "." + d.getDate();
+	var d = new Date();
+	document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMonth()+1)+ "." + d.getDate();
 </script>
 </section>
 
@@ -385,7 +392,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>6/13</td>
 			<td>10/17</td>
 			<td>11/21</td>
-			<td style="color:tomato">2/27</td>
+			<td>2/27</td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">芝萱</td>
@@ -433,7 +440,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 			<td>─</td>
 			<td>─</td>
 			<td>2/13</td>
-			<td></td>
+			<td style="color:tomato">3/12</td>
 		</tr>
 		<tr>
 			<td style="font-size:24px;">黃薇</td>
@@ -576,7 +583,7 @@ document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMont
 	<div class="more_box">
     	參選人：<span style="color:#AAAAAA;font-size:18px;">(用逗號隔開)</span>
     	<div class="more_form">
-			<input id="more_input" value="瑞宏, 芝萱, 筱婷, 智超, 昱宏, 宛霖," /><button onclick="addData()">加入</button>
+			<input id="more_input" value="瑞宏, 芝萱, 筱婷, 智超, 昱宏," /><button onclick="addData()">加入</button>
 										<!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
 		</div> 
 	</div>
