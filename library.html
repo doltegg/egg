@@ -43,7 +43,7 @@
 	.result_box {
 		width: 700px;
 		text-align: center;
-		background: #333; 
+		/*background: #333; */
 		color: #F7BE81;
 	}
 	.result_box #oknum {
@@ -51,8 +51,10 @@
 		color: darkorange;
 		font-size: 36pt;
 		text-align: center;
-		border: 3px solid #888;
+		border: 2px solid #888;
+		border-radius: 30px;
 		background: #333;
+		overflow: hidden;
 	}
 	.button_box {
 		margin-top:50px;
@@ -91,6 +93,7 @@
 		position: relative; 
 		clear: both; 
 		line-height: 36px;
+
 	}
 	.more_form input, .more_form button {
 		font-size: 22px;
@@ -570,9 +573,9 @@
 	<div class="result_box"><input type="text" id="oknum" name="oknum" readonly="readonly" placeholder="Outcome" /></div>
 	<p></p>
 	<div class="button_box">
-		<button class="btn1" onclick="start()" accesskey="s">開始</button>
-		<button class="btn2" onclick="ok()" accesskey="o">停止</button>
-		<button class="btn3" onclick="javascript:window.location.reload()">重來</button>
+		<button class="btn1" onclick="start()" accesskey="s"><i class="far fa-play-circle"></i><!--開始--></button>
+		<button class="btn2" onclick="ok()" accesskey="o"><i class="far fa-stop-circle"></i><!--停止--></button>
+		<button class="btn3" onclick="javascript:window.location.reload()"><i class="fas fa-backward"></i><!--重來--></button>
 	</div>
 	<p></p>
 	<div class="more_box">
@@ -586,7 +589,7 @@
 	<div class="more_box">
     	參選人：<span style="color:#AAAAAA;font-size:18px;">(用逗號隔開)</span>
     	<div class="more_form">
-			<input id="more_input" value="瑞宏, 芝萱, 筱婷, 智超, 昱宏," /><button onclick="addData()">加入</button>
+			<input id="more_input" value="瑞宏, 芝萱, 筱婷, 智超, 昱宏," /><button onclick="addData()"><i class="fas fa-user-plus"></i></button>
 										<!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
 		</div> 
 	</div>
@@ -2003,10 +2006,8 @@ function GetRnd(min,max){
 		
 <script>
 			
-	// More info about config & dependencies:
-			
-	// - https://github.com/hakimel/reveal.js#configuration
-			
+	// More info about config & dependencies:			
+	// - https://github.com/hakimel/reveal.js#configuration			
 	// - https://github.com/hakimel/reveal.js#dependencies
 			
 			Reveal.initialize({
