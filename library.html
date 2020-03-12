@@ -40,115 +40,7 @@
 	section{
 		font-family: 'Noto Sans TC', 微軟正黑體, sans-serif; 
 	}
-	.result_box {
-		width: 700px;
-		text-align: center;
-		/*background: #333; */
-		color: #F7BE81;
-	}
-	.result_box #oknum {
-		width: 960px;
-		color: darkorange;
-		font-size: 36pt;
-		text-align: center;
-		border: 2px solid #888;
-		border-radius: 30px;
-		background: #333;
-		overflow: hidden;
-	}
-	.button_box {
-		margin-top:50px;
-	}
-	.button_box .btn1 {
-		cursor: pointer;
-		padding: 5px 30px;
-		margin: 0 10px;
-		color: white;
-		font-size: 28px;
-		background: #4CAF50;
-	}
-	.button_box .btn2 {
-		cursor: pointer;
-		padding: 5px 30px;
-		margin: 0 10px;
-		color: white;
-		font-size: 28px;
-		background: #880000;
-	}
-	.button_box .btn3 {
-		cursor: pointer;
-		padding: 5px 30px;
-		margin: 0 10px;
-		color: white;
-		font-size: 28px;
-		background: #2E64FE;
-	}
-	.more_box {
-		width: 960px; 
-		overflow: hidden; 
-		text-align: left; 
-		font-size: 20px;
-	}
-	.more_form {
-		position: relative; 
-		clear: both; 
-		line-height: 36px;
 
-	}
-	.more_form input, .more_form button {
-		font-size: 22px;
-	}
-	.more_form input {
-		width: 835px; 
-		height: 36px; 
-		padding: 1px 55px 1px 5px; 
-		line-height: 36px; 
-		background: #CEF6D8
-	}
-	.more_form button {
-		right: 10; 
-		height: 42px;
-		background-color: #4CAF50;
-		color: white;
-		border: none;
-		text-align:center;
-	}
-	.more_box span.luck_select {
-		font-size: 24px; 
-		float: right; 
-		margin: 0;
-		line-height: 36px;
-	}
-	.name_list {
-		overflow: hidden; 
-		padding: 10px 1px 1px 1px; 
-		clear: both; 
-		border: 1px solid #40AA53;
-	}  /* {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  */
-	.name_list span, .luck_select {
-		font-size:24px; 
-		display: inline-block; 
-		padding: 2px 6px; 
-		white-space: nowrap;
-		background: #58FA82; 
-		color: #424242; 
-		float: left; 
-		height: 30px; 
-		line-height: 36px; 
-		margin: 0 7px 7px 0;
-		-webkit-user-select: none; 
-		-moz-user-select: none; 
-		-ms-user-select: none; 
-		-o-user-select: none; 
-		user-select: none; 
-		cursor: pointer;
-	}
-	.name_list span:hover {
-		background: #088A29;
-	}
-	.name_list span.select, .luck_select {
-		background: darkorange;
-	}
 
 	/** logo  **/
 	.reveal .logo { 
@@ -163,10 +55,7 @@
 		font-family: 'Noto Sans TC'; 
 		color: #4CAF50;
 		font-weight: 900; 
-	}   
-
-
-
+	}
 	@keyframes slidein {
 	  from {
 	    padding-left: 100%;
@@ -265,8 +154,119 @@
 	  animation-iteration-count: infinite;
 	animation-direction: alternate;
 	} */
+	/* 以下為抽籤 CSS */
+	.result, .more{}
+	.result form, .more form{
+		width: 960px;
+		display: flex;
+		margin: 0 10px 15px;
+		border-radius: 100px;		
+		background: rgba(0,0,0,.3);
+	}
+	.more form{
+		width: 942px;
+	}
+	.result form{
+		border:1px solid rgba(255,255,255,.6);
+	}
+	.more form{
+		padding: 5px 0px 5px 20px;
+		background: rgba(238,255,187,.8);
+	}
+	.result form .pray{
+		color: #f08;
+		padding: 10px 10px 5px 25px;
+	}
+	.result form input,	.more form input, .more form button{
+		border: none;
+		background-color: transparent;
+		color: #fff;
+		padding: 8px 10px;
+		font-size: 30px;
+		text-align: center;
+		font-family: 'Noto Sans TC';
+		font-weight: 900;
+	}
+	.result form input, .more form input{ 
+		width: 860px;
+		height: 110%;
+	}
+	.result form input{
+		margin-left:-40px;
+	}
+	.more form input{
+		text-align:left;
+		color: #222;
+	}
+	.more form button{
+		cursor: pointer;
+		width: 60px;
+		color: green;
+		margin-left: -15px;
+	}
+	section .bubox{
+		margin-bottom: 60px;
+	}
+	.bubox .btn1, .bubox .btn2,	.bubox .btn3{
+		cursor: pointer;
+		padding: 10px 40px;
+		margin: 0 10px;
+		border-radius: 6px;
+		border: none;
+		color: white;
+		font-size: 28px;
+		box-shadow: 0 5px 10px 0 rgba(255,255,255,.2), 0 3px 10px 0 rgba(255,255,255,.25);
+	}
+	.bubox .btn1:hover, .bubox .btn2:hover, .bubox .btn3:hover{
+    	box-shadow: 0 12px 16px 0 rgba(99,99,99,.8),0 17px 50px 0 rgba(99,99,99,.75);		
+	}
+	.bubox .btn1{
+		background: #4CAF50;
+	}
+	.bubox .btn2{
+		background: #880000;
+	}
+	.bubox .btn3{
+		background: #2E64FE;
+	}
+	.name_list {
+		overflow: hidden; 
+		padding: 10px 1px 1px 1px; 
+		clear: both; 
+		border: 1px solid #40AA53;
+	}  /* {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  */
+	.name_list span, .luck_select {
+		font-size:24px; 
+		display: inline-block; 
+		padding: 2px 6px 6px 6px; 
+		white-space: nowrap;
+		background: #58FA82; 
+		color: #424242; 
+		float: left; 
+		height: 30px; 
+		line-height: 40px; 
+		margin: 0 7px 7px 0;
+		-webkit-user-select: none; 
+		-moz-user-select: none; 
+		-ms-user-select: none; 
+		-o-user-select: none; 
+		user-select: none; 
+		cursor: pointer;
+	}
+	.name_list span:hover {
+		background: #088A29;
+	}
+	.name_list span.select, .luck_select {
+		background: #f08; /*darkorange;*/
+		font-family: 'Noto Sans TC';
+		font-weight: 700;
+		color: #fff;
+	}
+	.bubox .btn1, .bubox .btn2, .bubox .btn3, .result form input:focus, .more form input:focus,	.more form button:focus{
+		outline: none;
+	}
+	/* 以上抽籤CSS */
 </style>
-
 </head>
 
 
@@ -282,10 +282,10 @@
 	<h1 style="font-family: 'Noto Sans TC'; font-size:4em; font-weight: 900;">圖書館<h1>
 	<h3 style="font-family: 微軟正黑體; color: #C0C0C0;">整合行銷部</h3>
 	<h5 id="dddate" style="color: #999999;"></h5>
-<script>
-	var d = new Date();
-	document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMonth()+1)+ "." + d.getDate();
-</script>
+		<script>
+			var d = new Date();
+			document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMonth()+1)+ "." + d.getDate();
+		</script>
 </section>
 
 
@@ -570,28 +570,46 @@
 <!-- ************************************************************************************* -->
 <section data-menu-title="抽籤">
 	<h2>抽<span style="font-size:20px">下回爐主</span></h2>
-	<div class="result_box"><input type="text" id="oknum" name="oknum" readonly="readonly" placeholder="Outcome" /></div>
-	<p></p>
-	<div class="button_box">
-		<button class="btn1" onclick="start()" accesskey="s"><i class="far fa-play-circle"></i><!--開始--></button>
-		<button class="btn2" onclick="ok()" accesskey="o"><i class="far fa-stop-circle"></i><!--停止--></button>
-		<button class="btn3" onclick="javascript:window.location.reload()"><i class="fas fa-backward"></i><!--重來--></button>
+	<div class="result">
+		<form>
+			<span class="pray"><i class="fas fa-pray"></i></span>
+			<input type="text" id="oknum" name="oknum" readonly="readonly" placeholder="子孫有孝順！" />
+		</form>
 	</div>
-	<p></p>
-	<div class="more_box">
-    		<b>候選人：</b><span style="color:#AAAAAA;font-size:18px;">(雙擊刪除)</span>
-    		<!-- <span class="luck_select">中籤者</span> -->
-    		<div class="name_list" id="name_list" style="font-size:32px;">
-			&nbsp;&nbsp;&nbsp;None! Not Ready!
-		</div>
+	<div class="bubox">
+		<button class="btn1" onclick="start()" accesskey="s">
+			<i class="far fa-play-circle"></i><!--開始-->
+		</button>
+		<button class="btn2" onclick="ok()" accesskey="o">
+			<i class="far fa-stop-circle"></i><!--停止-->
+		</button>
+		<button class="btn3" onclick="javascript:window.location.reload()">
+			<i class="fas fa-undo-alt"></i><!--重來-->
+		</button>
 	</div>
-	<p></p>
-	<div class="more_box">
-    	參選人：<span style="color:#AAAAAA;font-size:18px;">(用逗號隔開)</span>
-    	<div class="more_form">
-			<input id="more_input" value="瑞宏, 芝萱, 筱婷, 智超, 昱宏," /><button onclick="addData()"><i class="fas fa-user-plus"></i></button>
-										<!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
-		</div> 
+	<div style="margin-top: 50px;text-align:left;">
+    	<b>候選人：</b>
+    		<span style="color:#AAA;font-size:18px;">
+    			(雙擊刪除)
+    		</span>
+    </div>
+    	<!-- <span class="luck_select">中籤者</span> -->
+    <div class="name_list" id="name_list" style="font-size:32px;color:green;text-align:left; padding-left:50px;">
+		None! Not Ready! Please Add In.
+	</div>
+	<div style="margin-top: 50px;margin-bottom:10px;text-align:left;">
+    	<b>參選人：</b>
+    		<span style="color:#AAAAAA;font-size:18px;">
+    			(用逗號隔開)
+    		</span>
+    </div>
+    <div class="more">
+		<form><!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
+			<input id="more_input" value="瑞宏, 芝萱, 筱婷, 智超, 昱宏," />
+			<button onclick="addData()">
+				<i class="fas fa-user-plus"></i>
+			</button>				
+		</form>
 	</div>
 </section>
 </section>
@@ -711,7 +729,7 @@
 		<li>1945 零年─現代世界的夢想與夢碎之路</li>
 		<li>心的經典─心經新釋</li>
 		<li>這樣裝潢，不後悔</li>
-		</small></ul>
+	</small></ul>
 </section>
 
 
@@ -762,101 +780,106 @@
 <section data-menu-title="許瑞宏(28)" id="egg">
 	<h2>許瑞宏</h2>
 	<ol style='list-style-type:lower-roman;'><small>
-	<li title="東野圭吾">惡意</li>
-	<li title="東野圭吾">解憂雜貨店</li>
-	<li title="李洛克">寫作革命<span style="font-size:14px;">：散文、小說、文案、社群貼文輕鬆進階的 40 道練習題</span></li>
-	<li title="大衛．威廉斯">穿裙子的男孩
-		<a target="_blank" href="others/egg/2019/skirtboy.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
-	</li>
-	<li title="約翰．凱瑞魯">惡血
-		<a target="_blank" href="others/egg/2019/badblood.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
-	</li>
-	<li><a href="#/gene" title="辛達塔．穆克吉">基因</a> 
-	    <a target="_blank" href="others/egg/gene.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	    <span style="font-size:small; font-style:italic; color:#AA2234;"> (Oct. 4, 2018)</span>
-	</li>
-	<li title="莉莎‧潔諾娃"><a href="#/obriens">因為愛，我們呼吸</a>
-	    <a target="_blank" href="others/egg/obriens.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Oct. 18, 2018)</span>
-	</li>
-	<li title="Susan M. Weinschenk"><a href="#/design">了解「人」，你才知道怎麼設計！</a>
-		<a target="_blank" href="others/egg/design.ppsx" title="powerpoint about tables"><i class="fas fa-file-powerpoint" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Jan. 10, 2019)</span>
-	</li>
-	<li title="馬克．海登"><a href="#/dog">深夜小狗神祕習題</a>
-		<a target="_blank" href="others/egg/dog.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Jan. 31, 2019)</span>
-	</li>
-	<li title="許榮哲"><a href="#/noveli">小說課 I ─ 折磨讀者的祕密</a>
-		<a target="_blank" href="others/egg/2019/novel1.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Apr. 18, 2019)</span>
-	</li>
-	<li title="許榮哲"><a href="#/novelii">小說課 II ─ 偷故事的人</a>
-		<a target="_blank" href="others/egg/2019/novel2.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Apr. 18, 2019)</span>	
-	</li>			
-	<li title="許榮哲"><a href="#/noveliii">小說課 III ─ 偷電影的故事賊</a>
-		<a target="_blank" href="others/egg/2019/novel3.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Apr. 18, 2019)</span>	
-	</li>
-	<li title="張翎"><a href="#/earthquake">餘震</a>
-		<a target="_blank" href="others/egg/2019/earthquake.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Jun. 6, 2019)</span>
-	</li>
-	<li title="莉莎‧潔諾娃"><a href="#/anthony">這就是我來到這世界的理由</a>
-	    <a target="_blank" href="others/egg/scream.pdf" title="尖叫"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="吳曉樂"><a href="#/child">你的孩子不是你的孩子</a>
-		<a target="_blank" href="others/egg/child.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	</small>
-	</ol><br />
+		<li title="東野圭吾">
+			惡意
+		</li>
+		<li title="東野圭吾">
+			解憂雜貨店
+		</li>
+		<li title="李洛克">
+			寫作革命<span style="font-size:14px;">：散文、小說、文案、社群貼文輕鬆進階的 40 道練習題</span>
+		</li>
+		<li title="大衛．威廉斯">穿裙子的男孩
+			<a target="_blank" href="others/egg/2019/skirtboy.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
+		</li>
+		<li title="約翰．凱瑞魯">惡血
+			<a target="_blank" href="others/egg/2019/badblood.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
+		</li>
+		<li><a href="#/gene" title="辛達塔．穆克吉">基因</a> 
+		    <a target="_blank" href="others/egg/gene.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		    <span style="font-size:small; font-style:italic; color:#AA2234;"> (Oct. 4, 2018)</span>
+		</li>
+		<li title="莉莎‧潔諾娃"><a href="#/obriens">因為愛，我們呼吸</a>
+		    <a target="_blank" href="others/egg/obriens.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Oct. 18, 2018)</span>
+		</li>
+		<li title="Susan M. Weinschenk"><a href="#/design">了解「人」，你才知道怎麼設計！</a>
+			<a target="_blank" href="others/egg/design.ppsx" title="powerpoint about tables"><i class="fas fa-file-powerpoint" style="font-size:16px;color:#F5A9A9"></i></a>
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Jan. 10, 2019)</span>
+		</li>
+		<li title="馬克．海登"><a href="#/dog">深夜小狗神祕習題</a>
+			<a target="_blank" href="others/egg/dog.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Jan. 31, 2019)</span>
+		</li>
+		<li title="許榮哲"><a href="#/noveli">小說課 I ─ 折磨讀者的祕密</a>
+			<a target="_blank" href="others/egg/2019/novel1.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Apr. 18, 2019)</span>
+		</li>
+		<li title="許榮哲"><a href="#/novelii">小說課 II ─ 偷故事的人</a>
+			<a target="_blank" href="others/egg/2019/novel2.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Apr. 18, 2019)</span>	
+		</li>			
+		<li title="許榮哲"><a href="#/noveliii">小說課 III ─ 偷電影的故事賊</a>
+			<a target="_blank" href="others/egg/2019/novel3.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>	
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Apr. 18, 2019)</span>	
+		</li>
+		<li title="張翎"><a href="#/earthquake">餘震</a>
+			<a target="_blank" href="others/egg/2019/earthquake.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Jun. 6, 2019)</span>
+		</li>
+		<li title="莉莎‧潔諾娃"><a href="#/anthony">這就是我來到這世界的理由</a>
+		    <a target="_blank" href="others/egg/scream.pdf" title="尖叫"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="吳曉樂"><a href="#/child">你的孩子不是你的孩子</a>
+			<a target="_blank" href="others/egg/child.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+	</small></ol><br />
 	<a href="#/egg2"><i class="fa fa-chevron-circle-down" style="font-size:20px;"></i></a>
 </section>
 
 <section id="egg2">
 	<h2>許瑞宏<small>(續)</small></h2>
 	<ol start="16" style='list-style-type:lower-roman;'><small>
-	<li title="許榮哲"><a href="#/story1">故事1：3分鐘說18萬個故事，打造影響力</a>
-		<a target="_blank" href="others/egg/2019/story1.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="許榮哲"><a href="#/story2">故事2：99%有效的故事行銷，創造品牌力</a>
-		<a target="_blank" href="others/egg/2019/brand.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-		<a href="others/egg/brand.html" target="_blank"><i class="fas fa-file-code" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Sep. 12, 2019)</span>
-	</li>
-	<li title="莎莉‧潔諾娃"><a href="#/noteplayed">當最後一個音符輕柔落下</a>
-		<a target="_blank" href="others/egg/2019/noteplayed.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="理查‧賽勒"><a href="#/misbehaving">不當行為</a>
-		<a target="_blank" href="others/egg/2019/misbehaving.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-		<a href="others/egg/2019/misbehaving.html" target="_blank"><i class="fas fa-file-code" style="font-size:16px;color:#F5A9A9"></i></a>
-		<span style="font-size:small; font-style:italic; color:#AA2234;"> (Nov. 7, 2019)</span>
-	</li>
-	<li title="池井戶潤"><a href="#/meetings">七個會議</a>
-		<a target="_blank" href="others/egg/2019/7meetings.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="東野圭吾"><a href="#/newone">新參者</a>
-	</li>
-	<li title="提姆．哈福特">親愛的臥底經濟學家
-		<a target="_blank" href="others/egg/2019/deareconomist.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="朴信英">童話裡隱藏的世界史
-		<a target="_blank" href="others/egg/2019/princeeverywhere.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="東野圭吾">禁忌的魔術
-		<a target="_blank" href="others/egg/2019/magic.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="Mitch Albom">在天堂遇見的五個人
-		<a target="_blank" href="others/egg/2019/inheaven.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="Eric A. Meyer & Estelle Weyl"><a href="#/csstype">CSS 大全</a>
-		<a href="others/egg/2020/typecss.html"><i class="fas fa-file-code" style="font-size:16px;color:#F5A9A9"></i></a>
-	</li>
-	<li title="Mitch Albom">在天堂遇見的下一個人
-	</li>
-	<li title="李洛克">故事行銷
-	</li>
+		<li title="許榮哲"><a href="#/story1">故事1：3分鐘說18萬個故事，打造影響力</a>
+			<a target="_blank" href="others/egg/2019/story1.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="許榮哲"><a href="#/story2">故事2：99%有效的故事行銷，創造品牌力</a>
+			<a target="_blank" href="others/egg/2019/brand.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+			<a href="others/egg/brand.html" target="_blank"><i class="fas fa-file-code" style="font-size:16px;color:#F5A9A9"></i></a>
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Sep. 12, 2019)</span>
+		</li>
+		<li title="莎莉‧潔諾娃"><a href="#/noteplayed">當最後一個音符輕柔落下</a>
+			<a target="_blank" href="others/egg/2019/noteplayed.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="理查‧賽勒"><a href="#/misbehaving">不當行為</a>
+			<a target="_blank" href="others/egg/2019/misbehaving.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+			<a href="others/egg/2019/misbehaving.html" target="_blank"><i class="fas fa-file-code" style="font-size:16px;color:#F5A9A9"></i></a>
+			<span style="font-size:small; font-style:italic; color:#AA2234;"> (Nov. 7, 2019)</span>
+		</li>
+		<li title="池井戶潤"><a href="#/meetings">七個會議</a>
+			<a target="_blank" href="others/egg/2019/7meetings.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="東野圭吾"><a href="#/newone">新參者</a>
+		</li>
+		<li title="提姆．哈福特">親愛的臥底經濟學家
+			<a target="_blank" href="others/egg/2019/deareconomist.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="朴信英">童話裡隱藏的世界史
+			<a target="_blank" href="others/egg/2019/princeeverywhere.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="東野圭吾">禁忌的魔術
+			<a target="_blank" href="others/egg/2019/magic.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="Mitch Albom">在天堂遇見的五個人
+			<a target="_blank" href="others/egg/2019/inheaven.pdf" title="note"><i class="fa fa-file-pdf" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="Eric A. Meyer & Estelle Weyl"><a href="#/csstype">CSS 大全</a>
+			<a href="others/egg/2020/typecss.html"><i class="fas fa-file-code" style="font-size:16px;color:#F5A9A9"></i></a>
+		</li>
+		<li title="Mitch Albom">在天堂遇見的下一個人
+		</li>
+		<li title="李洛克">故事行銷
+		</li>
 	</small></ol>
 </section>
 
@@ -896,20 +919,20 @@
 	<h2 style="color:#F08080;">你的孩子不是你的孩子</h2>
 	<h5 style="font-size:32px; color:blue;">吳曉樂</h5>
 	<div class="parent">
-	<div class="left">
-	<ul style="line-height:40px; font-size:28px;">
-		<!-- fragment 為分段顯示  -->
-		<li>把孩子帶來人世間的男女自然能勝任父母的角色 , 這實在是很<span style="color:red;">天真</span>的幻想。</li>
-		<li>每一個小孩，有其存在的<span style="color:red;">獨特性</span>。有太多父母執意要小孩去臨摹其他人的行為，複製類似的成功經驗，去追求他們眼中的理想人生，圓滿他們年輕時未竟的夢，甚至是驅策小孩成為「第二個自己」。<br />
-						<div style="line-height:35px; color:blue; font-size:24px;">就小孩立場來說，「為了達成某個目的，自己才被生下來」，也是很可悲的一件事。</div></li>
-		<li>妳若執意給她做決定， 這在某種程度上也是一種<span style="color:red;">溺愛</span>。</li>
-		<li>這些故事之所以存在，是期待我們去凝視一個初衷，靜下來，好好想想，把小孩帶到這世界上的<span style="color:red;">初衷</span>。<br />
-			<div style="line-height:35px; color:blue; font-size:24px;">曾經，我們光是觸摸小孩柔軟的掌心就滿足不已。</div></li>
-	</ul>
-	</div>
-	<div class="right">
-		<img src="others/egg/child.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
-	</div>
+		<div class="left">
+			<ul style="line-height:40px; font-size:28px;">
+				<!-- fragment 為分段顯示  -->
+				<li>把孩子帶來人世間的男女自然能勝任父母的角色 , 這實在是很<span style="color:red;">天真</span>的幻想。</li>
+				<li>每一個小孩，有其存在的<span style="color:red;">獨特性</span>。有太多父母執意要小孩去臨摹其他人的行為，複製類似的成功經驗，去追求他們眼中的理想人生，圓滿他們年輕時未竟的夢，甚至是驅策小孩成為「第二個自己」。<br />
+								<div style="line-height:35px; color:blue; font-size:24px;">就小孩立場來說，「為了達成某個目的，自己才被生下來」，也是很可悲的一件事。</div></li>
+				<li>妳若執意給她做決定， 這在某種程度上也是一種<span style="color:red;">溺愛</span>。</li>
+				<li>這些故事之所以存在，是期待我們去凝視一個初衷，靜下來，好好想想，把小孩帶到這世界上的<span style="color:red;">初衷</span>。<br />
+					<div style="line-height:35px; color:blue; font-size:24px;">曾經，我們光是觸摸小孩柔軟的掌心就滿足不已。</div></li>
+			</ul>
+		</div>
+		<div class="right">
+			<img src="others/egg/child.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		</div>
 	</div>	
 </section>
 	
@@ -919,12 +942,12 @@
 	<h2 style="color:#65BB44;">新參者</h2>
 	<h5 style="font-size:32px; color:blue;">東野圭吾</h5>
 	<div class="parent">
-	<div class="left">
-		<a target="_blank" href="https://www.google.com/maps/d/viewer?ie=UTF8&hl=zh-TW&msa=0&ll=35.686590141808466%2C139.79047374078368&spn=0.0061%2C0.00912&z=16&source=embed&mid=1_y2Ur1b5OGJs2glpIdkqzLHihsI"><img src="others/egg/newmap.jpg"></a>
-	</div>
-	<div class="right">
-		<img src="others/egg/newone.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
-	</div>
+		<div class="left">
+			<a target="_blank" href="https://www.google.com/maps/d/viewer?ie=UTF8&hl=zh-TW&msa=0&ll=35.686590141808466%2C139.79047374078368&spn=0.0061%2C0.00912&z=16&source=embed&mid=1_y2Ur1b5OGJs2glpIdkqzLHihsI"><img src="others/egg/newmap.jpg"></a>
+		</div>
+		<div class="right">
+			<img src="others/egg/newone.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		</div>
 	</div>
 </section>
 
@@ -942,17 +965,17 @@
 	<div class="parent">
 	<div class="left">
 		<ul style="line-height:48px; font-size:28px;">
-		<!-- fragment 為分段顯示  -->
-		<li>「我我我在你老婆床上等等等...... 火車經過。」</li>
-		<li>史上第二厲害的故事類型</li>
-			<ul>
-			<li>賽局理論</li>
-			<li>第十三封情書： <span style="font-size:22px">$r=a(1-\sin\theta)$</span> </li>
-			</ul>
-		<li>史上最厲害的故事</li>
-			<ul>
-			<li>賽局理論的故事再發展</li>
-			</ul>
+			<!-- fragment 為分段顯示  -->
+			<li>「我我我在你老婆床上等等等...... 火車經過。」</li>
+			<li>史上第二厲害的故事類型</li>
+				<ul>
+				<li>賽局理論</li>
+				<li>第十三封情書： <span style="font-size:22px">$r=a(1-\sin\theta)$</span> </li>
+				</ul>
+			<li>史上最厲害的故事</li>
+				<ul>
+				<li>賽局理論的故事再發展</li>
+				</ul>
 		</ul>
 	</div>
 	<div class="right">
@@ -966,14 +989,14 @@
 	<h3 style="color:#65BB44;">99% 有效的故事行銷，創造品牌力</h3>
 	<h5 style="font-size:32px; color:orange;">許榮哲</h5>
 	<div class="parent">
-	<div class="left">
-	<iframe width="735" height="552" src="https://www.youtube.com/embed/L9jiPQAuTBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</div>
-	<div class="right">
-		<img src="others/egg/story2.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
-		<br />
-	<a href="others/egg/brand.html" target="_blank"><i class="fas fa-file-powerpoint"></i></a>
-	</div>
+		<div class="left">
+			<iframe width="735" height="552" src="https://www.youtube.com/embed/L9jiPQAuTBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<div class="right">
+			<img src="others/egg/story2.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+			<br />
+		<a href="others/egg/brand.html" target="_blank"><i class="fas fa-file-powerpoint"></i></a>
+		</div>
 	</div>
 </section>
 
@@ -983,7 +1006,6 @@
 	<h5 style="font-size:32px; color:#eee;">莎莉‧潔諾娃</h5>
 	<div class="parent">
 	<div class="left">
-
 	</div>
 	<div class="right">
 		<img src="https://doltegg.github.io/egg/others/egg/played.png" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">		
@@ -998,12 +1020,12 @@
 	<h3 style="color:#65BB44;">餘震 (唐山大地震)</h3>
 	<h5 style="font-size:32px; color:orange;">張翎 (馮小剛)</h5>
 	<div class="parent">
-	<div class="left">
-		<iframe width="962" height="541" src="https://www.youtube.com/embed/EqdQ1wjrTDU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</div>
-	<div class="right">
-		<img src="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
-	</div>
+		<div class="left">
+			<iframe width="962" height="541" src="https://www.youtube.com/embed/EqdQ1wjrTDU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<div class="right">
+			<img src="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		</div>
 	</div>
 </section>
 
@@ -1939,7 +1961,7 @@ function addData(){
     var input = document.getElementById("more_input");
     var data = input.value;
     input.value = '';
-    if(!data){alert('是要加「鬼」膩？'); return;}
+    if(!data){alert('沒有參選人，是要加「鬼」膩？'); return;}
     data = data.replace("，",",").replace(",,",",").split(",");
     var d, i, s='';
     for (i=0;i<data.length;i++){
@@ -1975,7 +1997,7 @@ function start(){
         if(allData[d]===-1) dataarr.push(d);
     }
     if(dataarr.length<1){
-        alert('是要抽「鬼」膩？');
+        alert('啊，沒有候選人，是要抽「鬼」膩？');
         return;
     }
     timer = setInterval('change()',46);
@@ -2050,3 +2072,141 @@ function GetRnd(min,max){
 </script>
 </body>
 </html>
+<!--
+<section data-menu-title="抽籤">
+	<h2>抽<span style="font-size:20px">下回爐主</span></h2>
+	<div class="result_box"><input type="text" id="oknum" name="oknum" readonly="readonly" placeholder="Outcome" /></div>
+	<p></p>
+	<div class="button_box">
+		<button class="btn1" onclick="start()" accesskey="s"><i class="far fa-play-circle"></i></button>
+		<button class="btn2" onclick="ok()" accesskey="o"><i class="far fa-stop-circle"></i></button>
+		<button class="btn3" onclick="javascript:window.location.reload()"><i class="fas fa-backward"></i></button>
+	</div>
+	<p></p>
+	<div class="more_box">
+    		<b>候選人：</b><span style="color:#AAAAAA;font-size:18px;">(雙擊刪除)</span>
+    		<div class="name_list" id="name_list" style="font-size:32px;">
+			&nbsp;&nbsp;&nbsp;None! Not Ready!
+		</div>
+	</div>
+	<p></p>
+	<div class="more_box">
+    	參選人：<span style="color:#AAAAAA;font-size:18px;">(用逗號隔開)</span>
+    	<div class="more_form">
+			<input id="more_input" value="瑞宏, 芝萱, 筱婷, 智超, 昱宏," /><button onclick="addData()"><i class="fas fa-user-plus"></i></button>
+		</div> 
+	</div>
+</section>
+
+<sprict>
+	.result_box {
+		width: 700px;
+		text-align: center;
+		/*background: #333; */
+		color: #F7BE81;
+	}
+	.result_box #oknum {
+		width: 960px;
+		color: darkorange;
+		font-size: 36pt;
+		text-align: center;
+		border: 2px solid #888;
+		border-radius: 30px;
+		background: #333;
+		overflow: hidden;
+	}
+	.button_box {
+		margin-top:50px;
+	}
+	.button_box .btn1 {
+		cursor: pointer;
+		padding: 5px 30px;
+		margin: 0 10px;
+		color: white;
+		font-size: 28px;
+		background: #4CAF50;
+	}
+	.button_box .btn2 {
+		cursor: pointer;
+		padding: 5px 30px;
+		margin: 0 10px;
+		color: white;
+		font-size: 28px;
+		background: #880000;
+	}
+	.button_box .btn3 {
+		cursor: pointer;
+		padding: 5px 30px;
+		margin: 0 10px;
+		color: white;
+		font-size: 28px;
+		background: #2E64FE;
+	}
+	.more_box {
+		width: 960px; 
+		overflow: hidden; 
+		text-align: left; 
+		font-size: 20px;
+	}
+	.more_form {
+		position: relative; 
+		clear: both; 
+		line-height: 36px;
+
+	}
+	.more_form input, .more_form button {
+		font-size: 22px;
+	}
+	.more_form input {
+		width: 835px; 
+		height: 36px; 
+		padding: 1px 55px 1px 5px; 
+		line-height: 36px; 
+		background: #CEF6D8
+	}
+	.more_form button {
+		right: 10; 
+		height: 42px;
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		text-align:center;
+	}
+	.more_box span.luck_select {
+		font-size: 24px; 
+		float: right; 
+		margin: 0;
+		line-height: 36px;
+	}
+	.name_list {
+		overflow: hidden; 
+		padding: 10px 1px 1px 1px; 
+		clear: both; 
+		border: 1px solid #40AA53;
+	}  /* {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  */
+	.name_list span, .luck_select {
+		font-size:24px; 
+		display: inline-block; 
+		padding: 2px 6px; 
+		white-space: nowrap;
+		background: #58FA82; 
+		color: #424242; 
+		float: left; 
+		height: 30px; 
+		line-height: 36px; 
+		margin: 0 7px 7px 0;
+		-webkit-user-select: none; 
+		-moz-user-select: none; 
+		-ms-user-select: none; 
+		-o-user-select: none; 
+		user-select: none; 
+		cursor: pointer;
+	}
+	.name_list span:hover {
+		background: #088A29;
+	}
+	.name_list span.select, .luck_select {
+		background: darkorange;
+	}
+</script>
+-->
