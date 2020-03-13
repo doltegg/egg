@@ -1223,109 +1223,7 @@
 
 
 
-<!-- ************************************************************************************* -->
-<!-- ************************************************************************************* -->
-<!--                                        教學                                           -->
-<!-- ************************************************************************************* -->
-<!-- ************************************************************************************* -->
-<section>
-<section data-menu-title="教學">
-	<h1>簡單教學</h1>
-</section>
 
-<section>
-	<h2>快捷鍵</h2>
-	<aside class="notes">
-		1.此地為註釋說明，給白癡講者題詞。<br>2.看得到的就是白癡。<br>3.哈哈，白癡。
-	</aside>
-	<p style="color:#999999">為了演示 PPT 方便，有以下快捷鍵供使用：</p>
-	<ul>
-		<li>全螢幕 "<span style="color:deeppink">F</span>"，退出全螢幕 "<span style="color:deeppink">Esc</span>"</li>
-		<li>全視野縮圖 "<span style="color:deeppink">Esc</span>" <small>or</small> "<span style="color:deeppink">O</span>"，回復正常 "<span style="color:deeppink">Esc</span>" <small>or</small> "<span style="color:deeppink">O</span>"</li>
-		<li>演講者模式 "<span style="color:deeppink">S</span>"</li>
-		<li>上一頁 "<span style="color:deeppink">P</span>"，下一頁 "<span style="color:deeppink">N</span>" <small>or</small> "<span style="color:deeppink">空白鍵</span>"</li>
-		<li>首頁 "<span style="color:deeppink">Home</span>"，末頁 "<span style="color:deeppink">End</span>"</li>
-		<li>目錄按 <a href="#" onclick="RevealMenu.toggle(); return false;"><i class="fa fa-bars"></i></a> <small>or</small> "<span style="color:deeppink">M</span>"</li>
-	</ul><br>
-	<p></p><p></p>
-	<p class="fragment fade-up" style="color:#999999">試試看請先按 "<span style="color:deeppink">F</span>"，再按 "<span style="color:deeppink">S</span>"</p>
-</section>
-
-<section>
-	<h2>基本認識</h2>
-	<pre><code data-trim data-noescape>
-	&lt;html&gt;
-	&lt;head&gt;
-		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/reveal.css&quot;&gt;
-		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/theme/white.css&quot;&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div class=&quot;reveal&quot;&gt;
-		&lt;div class=&quot;slides&quot;&gt;
-			<span style='color:darkorange'>&lt;section&gt;投影片正文&lt;/section&gt;</span>
-		&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;script src=&quot;js/reveal.js&quot;&gt;&lt;/script&gt;
-	&lt;script&gt;Reveal.initialize();&lt;/script&gt;
-	&lt;/body&gt;
-	&lt;/html&gt;</code></pre>
-	<p>目前需要修改的只有屬於自己的 <code style='color:darkorange'>&lt;section&gt;</code> 至 <code style='color:darkorange'>&lt;/section&gt;</code> 中間的部分</p>
-
-</section>
-<section>
-	<h2>找到自己的&lt;section&gt;</h2>
-	<ul>
-	<li><code style='color:darkorange'>&lt;section&gt;</code> 與  <code style='color:darkorange'>&lt;/section&gt;</code> 之間為一張<span style="color:deeppink">投影片</span>。</li>
-	<li><code style='color:darkorange'>&lt;section&gt;</code> 之後通常接著立即 <code style='color:darkorange'>&lt;h2&gt;</code>。</li>
-	<li><code style='color:darkorange'>&lt;h2&gt;</code> 與 <code style='color:darkorange'>&lt;/h2&gt;</code> 為該張投影片<span style="color:deeppink">標題</span>。</li>
-	<li>若 <code style='color:darkorange'>&lt;h2&gt;</code> 與 <code style='color:darkorange'>&lt;/h2&gt;</code> 中間夾著你的名字，則該 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code> 間即為<span style="color:deeppink">你的投影片</span>。</li>
-	<li>若 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code> 之間還夾有 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code>，而且還有兩對以上，則投影片會<span style="color:deeppink">往下</span>發展。</li>
-	</ul>
-</section>
-<section>
-	<h2>播放主軸</h2>
-	<ul>
-	<li>主幹道為橫軸，往右 <span style="color:deeppink">→</span></li>
-	<li>支幹道為縱軸，往下 <span style="color:deeppink">↓</span></li>
-	<li>主幹道往右為主要敘事流程，遇到分支可往下，不論分支的哪張投影片，皆可往右繼續主幹道通行。</li>
-	<li>按 "<span style="color:deeppink">Esc</span>" 可看到整張地圖。</li>
-	</ul>
-</section>
-<section>
-	<h2>簡單修正功能介紹 (1)</h2>
-	<pre><code data-trim data-noescape>
-	&lt;ul&gt;
-	&lt;li&gt;集蛋&lt;/li&gt;</li>
-	&lt;li&gt;&lt;div title="egg"&gt;蛋集&lt;/div&gt;&lt;/li&gt;</li>
-	&lt;/ul&gt;
-	</code></pre>
-	<ul>
-	<li>列書：每個 <code style='color:darkorange'>&lt;li&gt;</code> 與 <code style='color:darkorange'>&lt;/li&gt;</code> 之間為一本書，如《集蛋》、《蛋集》。</li>
-	<li>加作者：在 <code style='color:darkorange'>&lt;li&gt;</code> 裡加 <code style='color:darkorange'>&lt;div title="作者"&gt;</code> 及 <code style='color:darkorange'>&lt;/div&gt;</code>，每次滑過「蛋集」就會出現 egg。</li>
-	</ul>
-</section>
-<section>
-	<h2>簡單修正功能介紹 (2)─超連結</h2>
-	<pre><code data-trim data-noescape>
-	&lt;ul&gt;
-	&lt;li&gt;&lt;a href="https://www.books.com.tw/products/0010775137"&gt;關係黑洞&lt;/a&gt;&lt;/li&gt;</li>
-	&lt;li&gt;&lt;a target="_blank" href="https://www.books.com.tw/products/0010775137"&gt;關係黑洞&lt;/a&gt;&lt;/li&gt;</li>
-	&lt;/ul&gt;
-	</code></pre>
-	<ul>
-	<li><code style='color:darkorange'>&lt;a href="網址"&gt;</code> 要超連結文字 <code style='color:darkorange'>&lt;/a&gt;</code>；本例中，按下「關係黑洞」就會結到金石堂網站。</li>
-		<ul>
-		<li>絕對網址：如 <code style='color:darkorange'>"https://www.bo...."</code> 之類。</li>
-		<li>相對網址：以本檔案為原點，往外一個資料夾則用一個 <code style='color:darkorange'>"../"</code>。</li>
-		</ul>
-	<li><code style='color:darkorange'>target="_blank"</code>：此參數為加開一個空網頁來承載標的網頁，若不加此參數則覆蓋原來檔案。</li>
-	</ul>
-</section>
-<section>
-	<h2>簡單修正功能介紹 (3)</h2>
-	<p><a target="_blank" href="https://doltegg.github.io/egg/demonstration.html">按我</a></p>
-</section>
-</section>
 
 
 
@@ -2218,3 +2116,107 @@ function GetRnd(min,max){
 			<td>5/23</td>
 		</tr>
 	-->
+
+<!-- ************************************************************************************* -->
+<!--                                        教學                                           -->
+<!-- ************************************************************************************* -->
+<!--
+<section>
+<section data-menu-title="教學">
+	<h1>簡單教學</h1>
+</section>
+
+<section>
+	<h2>快捷鍵</h2>
+	<aside class="notes">
+		1.此地為註釋說明，給白癡講者題詞。<br>2.看得到的就是白癡。<br>3.哈哈，白癡。
+	</aside>
+	<p style="color:#999999">為了演示 PPT 方便，有以下快捷鍵供使用：</p>
+	<ul>
+		<li>全螢幕 "<span style="color:deeppink">F</span>"，退出全螢幕 "<span style="color:deeppink">Esc</span>"</li>
+		<li>全視野縮圖 "<span style="color:deeppink">Esc</span>" <small>or</small> "<span style="color:deeppink">O</span>"，回復正常 "<span style="color:deeppink">Esc</span>" <small>or</small> "<span style="color:deeppink">O</span>"</li>
+		<li>演講者模式 "<span style="color:deeppink">S</span>"</li>
+		<li>上一頁 "<span style="color:deeppink">P</span>"，下一頁 "<span style="color:deeppink">N</span>" <small>or</small> "<span style="color:deeppink">空白鍵</span>"</li>
+		<li>首頁 "<span style="color:deeppink">Home</span>"，末頁 "<span style="color:deeppink">End</span>"</li>
+		<li>目錄按 <a href="#" onclick="RevealMenu.toggle(); return false;"><i class="fa fa-bars"></i></a> <small>or</small> "<span style="color:deeppink">M</span>"</li>
+	</ul><br>
+	<p></p><p></p>
+	<p class="fragment fade-up" style="color:#999999">試試看請先按 "<span style="color:deeppink">F</span>"，再按 "<span style="color:deeppink">S</span>"</p>
+</section>
+
+<section>
+	<h2>基本認識</h2>
+	<pre><code data-trim data-noescape>
+	&lt;html&gt;
+	&lt;head&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/reveal.css&quot;&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/theme/white.css&quot;&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class=&quot;reveal&quot;&gt;
+		&lt;div class=&quot;slides&quot;&gt;
+			<span style='color:darkorange'>&lt;section&gt;投影片正文&lt;/section&gt;</span>
+		&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;script src=&quot;js/reveal.js&quot;&gt;&lt;/script&gt;
+	&lt;script&gt;Reveal.initialize();&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;</code></pre>
+	<p>目前需要修改的只有屬於自己的 <code style='color:darkorange'>&lt;section&gt;</code> 至 <code style='color:darkorange'>&lt;/section&gt;</code> 中間的部分</p>
+
+</section>
+<section>
+	<h2>找到自己的&lt;section&gt;</h2>
+	<ul>
+	<li><code style='color:darkorange'>&lt;section&gt;</code> 與  <code style='color:darkorange'>&lt;/section&gt;</code> 之間為一張<span style="color:deeppink">投影片</span>。</li>
+	<li><code style='color:darkorange'>&lt;section&gt;</code> 之後通常接著立即 <code style='color:darkorange'>&lt;h2&gt;</code>。</li>
+	<li><code style='color:darkorange'>&lt;h2&gt;</code> 與 <code style='color:darkorange'>&lt;/h2&gt;</code> 為該張投影片<span style="color:deeppink">標題</span>。</li>
+	<li>若 <code style='color:darkorange'>&lt;h2&gt;</code> 與 <code style='color:darkorange'>&lt;/h2&gt;</code> 中間夾著你的名字，則該 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code> 間即為<span style="color:deeppink">你的投影片</span>。</li>
+	<li>若 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code> 之間還夾有 <code style='color:darkorange'>&lt;section&gt;</code> 與 <code style='color:darkorange'>&lt;/section&gt;</code>，而且還有兩對以上，則投影片會<span style="color:deeppink">往下</span>發展。</li>
+	</ul>
+</section>
+<section>
+	<h2>播放主軸</h2>
+	<ul>
+	<li>主幹道為橫軸，往右 <span style="color:deeppink">→</span></li>
+	<li>支幹道為縱軸，往下 <span style="color:deeppink">↓</span></li>
+	<li>主幹道往右為主要敘事流程，遇到分支可往下，不論分支的哪張投影片，皆可往右繼續主幹道通行。</li>
+	<li>按 "<span style="color:deeppink">Esc</span>" 可看到整張地圖。</li>
+	</ul>
+</section>
+<section>
+	<h2>簡單修正功能介紹 (1)</h2>
+	<pre><code data-trim data-noescape>
+	&lt;ul&gt;
+	&lt;li&gt;集蛋&lt;/li&gt;</li>
+	&lt;li&gt;&lt;div title="egg"&gt;蛋集&lt;/div&gt;&lt;/li&gt;</li>
+	&lt;/ul&gt;
+	</code></pre>
+	<ul>
+	<li>列書：每個 <code style='color:darkorange'>&lt;li&gt;</code> 與 <code style='color:darkorange'>&lt;/li&gt;</code> 之間為一本書，如《集蛋》、《蛋集》。</li>
+	<li>加作者：在 <code style='color:darkorange'>&lt;li&gt;</code> 裡加 <code style='color:darkorange'>&lt;div title="作者"&gt;</code> 及 <code style='color:darkorange'>&lt;/div&gt;</code>，每次滑過「蛋集」就會出現 egg。</li>
+	</ul>
+</section>
+<section>
+	<h2>簡單修正功能介紹 (2)─超連結</h2>
+	<pre><code data-trim data-noescape>
+	&lt;ul&gt;
+	&lt;li&gt;&lt;a href="https://www.books.com.tw/products/0010775137"&gt;關係黑洞&lt;/a&gt;&lt;/li&gt;</li>
+	&lt;li&gt;&lt;a target="_blank" href="https://www.books.com.tw/products/0010775137"&gt;關係黑洞&lt;/a&gt;&lt;/li&gt;</li>
+	&lt;/ul&gt;
+	</code></pre>
+	<ul>
+	<li><code style='color:darkorange'>&lt;a href="網址"&gt;</code> 要超連結文字 <code style='color:darkorange'>&lt;/a&gt;</code>；本例中，按下「關係黑洞」就會結到金石堂網站。</li>
+		<ul>
+		<li>絕對網址：如 <code style='color:darkorange'>"https://www.bo...."</code> 之類。</li>
+		<li>相對網址：以本檔案為原點，往外一個資料夾則用一個 <code style='color:darkorange'>"../"</code>。</li>
+		</ul>
+	<li><code style='color:darkorange'>target="_blank"</code>：此參數為加開一個空網頁來承載標的網頁，若不加此參數則覆蓋原來檔案。</li>
+	</ul>
+</section>
+<section>
+	<h2>簡單修正功能介紹 (3)</h2>
+	<p><a target="_blank" href="https://doltegg.github.io/egg/demonstration.html">按我</a></p>
+</section>
+</section>
+-->
