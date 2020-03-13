@@ -25,6 +25,7 @@ html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal i
   padding: 0;
   border: 0;
   font-size: 100%;
+  font-family: 'Noto Sans TC', 微軟正黑體, sans-serif;
   font: inherit;
   vertical-align: baseline; }
 
@@ -489,7 +490,7 @@ body {
   z-index: 31;
   width: 130px;
   height: 40px;
- /** background-image: url("../img/logo.png"); ��i html �� CSS ��**/
+ /** background-image: url("../img/logo.png"); ©ñ¶i html ªº CSS ¤¤**/
   background-size: 130px;  /** cathay logo 120px **/
   background-position: 0% 100%;
   background-repeat: no-repeat; }
@@ -1283,7 +1284,7 @@ body {
 .reveal.rtl .slides h5,
 .reveal.rtl .slides h6 {
   direction: rtl;
-  font-family: sans-serif; }
+  font-family: 'Noto Sans TC', 微軟正黑體, sans-serif; }
 
 .reveal.rtl pre,
 .reveal.rtl code {
@@ -1542,7 +1543,7 @@ body {
   overflow: auto;
   box-sizing: border-box;
   text-align: left;
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif, 'Noto Sans TC', 微軟正黑體,;
   -webkit-overflow-scrolling: touch; }
   .reveal .speaker-notes .notes-placeholder {
     color: #ccc;
