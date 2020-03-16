@@ -31,116 +31,9 @@
 	body {
 		text-align: center;
 	}
-	section{
+	.reveal .slides section{
 		font-family: 'Noto Sans TC', 微軟正黑體, sans-serif; 
 	}
-	.result_box {
-		width: 700px;
-		text-align: center;
-		background: #333; 
-		color: #F7BE81;
-	}
-	.result_box #oknum {
-		width: 960px;
-		color: darkorange;
-		font-size: 36pt;
-		text-align: center;
-		border: 3px solid #888;
-		background: #333;
-	}
-	.button_box {
-		margin-top:50px;
-	}
-	.button_box .btn1 {
-		cursor: pointer;
-		padding: 5px 30px;
-		margin: 0 10px;
-		color: white;
-		font-size: 28px;
-		background: #4CAF50;
-	}
-	.button_box .btn2 {
-		cursor: pointer;
-		padding: 5px 30px;
-		margin: 0 10px;
-		color: white;
-		font-size: 28px;
-		background: #880000;
-	}
-	.button_box .btn3 {
-		cursor: pointer;
-		padding: 5px 30px;
-		margin: 0 10px;
-		color: white;
-		font-size: 28px;
-		background: #2E64FE;
-	}
-	.more_box {
-		width: 960px; 
-		overflow: hidden; 
-		text-align: left; 
-		font-size: 20px;
-	}
-	.more_form {
-		position: relative; 
-		clear: both; 
-		line-height: 36px;
-	}
-	.more_form input, .more_form button {
-		font-size: 22px;
-	}
-	.more_form input {
-		width: 835px; 
-		height: 36px; 
-		padding: 1px 55px 1px 5px; 
-		line-height: 36px; 
-		background: #CEF6D8
-	}
-	.more_form button {
-		right: 10; 
-		height: 42px;
-		background-color: #4CAF50;
-		color: white;
-		border: none;
-		text-align:center;
-	}
-	.more_box span.luck_select {
-		font-size: 24px; 
-		float: right; 
-		margin: 0;
-		line-height: 36px;
-	}
-	.name_list {
-		overflow: hidden; 
-		padding: 10px 1px 1px 1px; 
-		clear: both; 
-		border: 1px solid #40AA53;
-	}  /* {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  */
-	.name_list span, .luck_select {
-		font-size:24px; 
-		display: inline-block; 
-		padding: 2px 6px; 
-		white-space: nowrap;
-		background: #58FA82; 
-		color: #424242; 
-		float: left; 
-		height: 30px; 
-		line-height: 36px; 
-		margin: 0 7px 7px 0;
-		-webkit-user-select: none; 
-		-moz-user-select: none; 
-		-ms-user-select: none; 
-		-o-user-select: none; 
-		user-select: none; 
-		cursor: pointer;
-	}
-	.name_list span:hover {
-		background: #088A29;
-	}
-	.name_list span.select, .luck_select {
-		background: darkorange;
-	}
-
 	/** logo  **/
 	.reveal .logo { 
 		background-image: url("../../../demonstration/logo.png"); 
@@ -154,10 +47,7 @@
 		font-family: 'Noto Sans TC'; 
 		color: #4CAF50;
 		font-weight: 900; 
-	}   
-
-
-
+	} 
 	@keyframes slidein {
 	  from {
 	    padding-left: 100%;
@@ -249,14 +139,183 @@
 	.upx:hover{
 		transform: translateY(-12px);
 	}
-	
-	/* 滑動
-	h6 {
-	  animation-duration: 3s;
-	  animation-name: slidein;
-	  animation-iteration-count: infinite;
-	animation-direction: alternate;
-	} */
+	/* 大家都會排版？ */
+	section .wrapx{
+		display: flex; 
+		margin: auto;
+	}
+	section .itemx{
+		width: 298px; 
+		margin: 5px 10px; 
+		text-align: center; 
+		border; 1px solid #999; 
+		background-color: #fff;
+		border: 1px solid #ccc;
+	}
+	section .itemx .txtxx{
+		padding: 15px; 
+		position: relative;
+	}
+	section .itemx .txtxx:before{
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 0;
+		left: 0;
+		border-top: 51px solid transparent;
+		border-left: 149px solid #fff;
+		border-right: 149px solid #fff;
+		/*transform: translateY(-200%);*/
+		transform: translate(0%,-65px);
+	}
+
+	section .itemx h3{
+		font-family: 'Noto Sans TC';
+		font-size: 32px;
+		color: #002FA7;
+		border-bottom: 2px solid #4CAF50;
+		padding-bottom: .3em;
+		margin-bottom: .4em;
+		transition: .3s;
+	}
+	section .itemx p{
+		font-family: 'Noto Sans TC';
+		font-size: 20px;
+		color: #1E90FF;
+		transition: .3s;
+	}
+	.reveal section .itemx img{
+		border: none;
+		width: 100%;
+		vertical-align: top;
+	}
+	.itemx:hover{
+		transform: translateY(-10%);
+	}
+	.itemx:hover h3{
+		color: #222;
+		border-bottom-color:#444;
+	}
+	.itemx:hover p{
+		color: #666;
+	}
+	section .eggx1{
+		color: #F08080; 
+		font-size: 28px;
+	}
+
+	/*   用排版來分   */
+	.wrap2{
+		box-sizing:content-box;
+		display: flex;
+		/*width: 960px;*/
+		/*margin: 10px;*/
+	}
+	.wrap2 .item2{
+		box-sizing: content-box;
+		width: 300px;
+		margin: 95px 5px 0px 5px;
+		text-align: center;
+		border: 5px solid #999;
+		background-color: #fff;
+		border-radius: 15px;
+		box-shadow: 6px 3px 6px #555;
+	}
+	.item2 .icon2{
+		box-sizing: content-box;
+		font-size: 65px;		
+		width: 150px;
+		height: 150px;
+		background-color: #fff;
+		color: green;
+		border-radius: 100%;
+		line-height: 140px;
+		position: relative;
+		margin: -76px auto 0;
+		/*border: 5px #fff solid;*/
+	}
+	.item2 .icon2:before{
+		box-sizing: content-box;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: -5px;
+		left: -5px;
+		border-top: 5px solid #999;
+		border-right: 5px solid #999;
+		border-bottom: 5px solid transparent;
+		border-left: 5px solid transparent;
+		border-radius: 100%;
+		transform: rotate(-45deg);
+	}
+	.item2 .txt2{}
+	.item2 .txt2 h3{
+		box-sizing: content-box;
+		color: #111;
+		font-family: 'Noto Sans TC';
+		font-size: 32px;
+		font-weight: 700;
+		margin: 0 40px;
+		border-bottom: 2px solid #4CAF50;
+		padding-bottom: .4em;
+ 	}
+	.item2 .txt2 p{
+		font-family: 'Noto Sans TC';
+		font-size: 24px;
+		color: #888;
+		font-weight: 500;
+		padding: 8px 0 10px 0;
+	}
+	.item2:hover .fa, .item2:hover .fas{
+		animation: ss .2s linear infinite alternate;
+	}
+	@keyframes ss{
+		  0%{ transform: rotate(-10deg); }
+		100%{ transform: rotate(10deg); }
+	}
+
+	/* 隱藏備用xxxxxxxxxxxxxxx */
+	.wrap1{
+		display: flex; 
+		flex-direction: column; 
+		align-items: stretch;
+	}
+	.wrap1 .container1{
+		display: flex; 
+		justify-content: center; 
+		align-items: stretch;
+		align-content: center; 
+		margin-bottom: 0px;
+	}
+	.wrap1 .container1 item1{
+		width:500px; 
+		height:120px; 
+		overflow: hidden;
+		z-index:1;
+	}
+	section .wrap1 .container1 .item1x{
+		width: 35%; 
+		height: 170px; 
+		/*background: ;   #73E68C;  #edece1;*/
+		background: linear-gradient(-30deg,#90EE90,#A6FFCC,#7FFFD4);
+		padding-bottom: 0px; 
+		margin-left: -25px;
+	}
+	section .wrap1 .item1x p{
+		color: #111; 
+		vertical-algin: bottom; 
+		/*border: 1px solid #999; */
+		text-align: center;
+		font-size: 32px;
+		font-weight: 700;		
+	}
+	section .wrap1 .item1x .ppp{
+		font-size: 24px;
+		color: #888;
+		font-weight: 500;	
+	}
 </style>
 </head>
 
@@ -294,11 +353,28 @@
 
 <section>
 	<h2>CSS 大全</h2>
-	<ul>
-		<li>早期 HTML 的排版用的是 table</li>
-		<li>不會排版的人好像也只能用 table</li>
-		<li>排版原理</li>
-	</ul>
+	<div>
+		<div style="float: left;">
+			<img class="upx" src="css.png" width="250px">
+		</div>
+		<div style="float: right;">
+			<ul>
+				<li>CSS 推動者</li>
+				<li>早期 HTML 的排版用的是 table</li>
+						<pre><code data-trim data-noescape>
+							&lt;table&gt;
+								&lt;tr&gt;
+									&lt;td&gt;&lt;/td&gt;
+									&lt;td&gt;&lt;/td&gt;
+								&lt;/tr&gt;
+							&lt;/table&gt;
+						</code></pre>
+				<li>不會排版的人好像也只能用 table</li>
+				<li>CSS 崛起</li>
+				<li>排版原理</li>
+			</ul>
+		</div>
+	</div>
 </section>
 
 <section>
@@ -312,36 +388,131 @@
 	</ul>
 </section>
 
+
 <section>
 	<h2>大家都會排版？</h2>
-	<ul>
-		<li>醜</li>
-		<li>髒</li>		
-		<li>不入流</li>
-	</ul>
-	<p style="color:#F08080; font-size:28px;">(<i class="fas fa-skull-crossbones"></i>
+	<div class="wrapx">
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=10">
+			<div class="txtxx">
+				<h3>醜</h3>
+				<p>形貌陋劣、難看。惡劣的、不好的。汙穢。</p>
+			</div>
+		</div>
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=20">
+			<div class="txtxx">
+				<h3>髒</h3>
+				<p>汙穢不清潔。粗魯不文雅。</p>
+			</div>
+		</div>
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=30">
+			<div class="txtxx">
+				<h3>不入流</h3>
+				<p>不成材、不成氣候。比喻未達到一定的水準。</p>
+			</div>
+		</div>
+	</div>
+	<p class="eggx1">(<i class="fas fa-skull-crossbones"></i>
 	Pre Meeting Brief Format)</p>
 </section>
 
 <section>
-	<h2>用排版來分</h2>
-	<ul>
-		<li style="color:#aaa;">下等人</li>
-		<ul style="font-size: 30px;">
-			<li>不知道要排版</li>
-			<li>不入流</li>
-		</ul>
-		<li style="color:#aaa;">中等人</li>
-		<ul style="font-size: 30px;">
-			<li>用 Space、 Enter 來排版</li>
-			<li>醜、髒</li>
-		</ul>		
-		<li style="color:#aaa;">上等人</li>
-		<ul style="font-size: 30px;">
-			<li>專業排版人</li>
-		</ul>
-	</ul>
+<h2>用排版來分</h2>
+<div class="wrap2">
+	<div class="item2">
+		<div class="icon2">
+			<i class="fa fa-thumbs-up"></i>
+		</div>
+		<div class="txt2">
+			<h3>上等人</h3>
+			<p>專業排版人</p>
+		</div>
+	</div>
+
+	<div class="item2">
+		<div class="icon2">
+			<i class="fas fa-hand-middle-finger"></i>
+		</div>
+		<div class="txt2">
+			<h3>中等人</h3>
+			<p> Space、 Enter 來排版<br>醜、髒</p>
+		</div>
+	</div>
+
+	<div class="item2">
+		<div class="icon2">
+			<i class="fa fa-thumbs-up"></i>
+		</div>
+		<div class="txt2">
+			<h3>下等人</h3>
+			<p>不知道要排版<br>不入流</p>
+		</div>
+	</div>
+</div>
 </section>
+
+<!--   備用
+<section>
+<h2>用排版來分</h2>
+<div class="wrap1">
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=40" style="margin:0px; padding-bottom:-20px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p>上等人</p>
+			<p class="ppp">專業排版人</p>
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=50" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p>中等人</p>
+			<p class="ppp">用 Space、 Enter 來排版<br>
+				醜、髒</p>
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=60" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p>下等人</p>
+			<p class="ppp">不知道要排版<br>
+			不入流<p>
+		</div>
+	</div>
+</div>
+</section>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section>
 	<h2>最近的周報格式有些異樣</h2>
@@ -350,6 +521,23 @@
 		<li>用空行來凸顯段落</li>
 	</ul>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <section data-transition="slide" data-background-image="wordicon.png" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.15">
@@ -438,7 +626,19 @@
 	</ol>
 </section>
 
-<section data-transition="slide" data-background-image="covid19.png" data-background-size="15%" data-background-repeat="repeat" data-background-opacity="0.15">
+
+<!--
+<style>
+	.bgx{
+		background-image: url('covid192.png'), url('covid193.png');
+		background-size: 100px 100px;
+		background-position: 0px 0px, 25px 0px;
+	}
+</style>
+<section class="bgx" data-transition="slide">
+-->
+<section data-transition="slide" data-background-image='covid191.png'data-background-size="150px" data-background-repeat="repeat" data-background-opacity="0.15">
+
 	<section>
 		<h2>表</h2>
 	</section>
@@ -518,12 +718,48 @@
 		</div>
 	</div>
 </section>
+
+
+
+
+
 		
 </div>
 </div>
 
+<!----------------------- 備註掉 ------------------------->
+<!--
+<section>
+	<h2>大家都會排版？</h2>
+	<ul>
+		<li>醜</li>
+		<li>髒</li>		
+		<li>不入流</li>
+	</ul>
+	<p style="color:#F08080; font-size:28px;">(<i class="fas fa-skull-crossbones"></i>
+	Pre Meeting Brief Format)</p>
+</section>
 
-
+<section>
+	<h2>用排版來分</h2>
+	<ul>
+		<li style="color:#aaa;">下等人</li>
+		<ul style="font-size: 30px;">
+			<li>不知道要排版</li>
+			<li>不入流</li>
+		</ul>
+		<li style="color:#aaa;">中等人</li>
+		<ul style="font-size: 30px;">
+			<li>用 Space、 Enter 來排版</li>
+			<li>醜、髒</li>
+		</ul>		
+		<li style="color:#aaa;">上等人</li>
+		<ul style="font-size: 30px;">
+			<li>專業排版人</li>
+		</ul>
+	</ul>
+</section>
+-->
 	
 <script src="../../../lib/js/head.min.js"></script>
 <script src="../../../js/reveal.js"></script>
