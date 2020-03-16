@@ -153,14 +153,12 @@
 		width: 960px;
 		display: flex;
 		margin: 0 10px 15px;
-		border-radius: 100px;		
-		background: rgba(0,0,0,.3);
-	}
-	.more form{
-		width: 942px;
+		border-radius: 100px;
+		box-sizing: border-box;		
 	}
 	.result form{
-		border:1px solid rgba(255,255,255,.6);
+		border: 1px solid rgba(255,255,255,.6);
+		background: rgba(0,0,0,.3);
 	}
 	.more form{
 		padding: 5px 0px 5px 20px;
@@ -500,11 +498,11 @@
     </div>
     	<!-- <span class="luck_select">中籤者</span> -->
     <div class="name_list" id="name_list" style="font-size:32px;color:green;text-align:left; padding-left:50px;">
-    	我是假影請，你那來我就加了餅！
+    	我是假影請，你來我就加了餅！
 		<!--None! Not Ready! Please Add In.-->
 	</div>
 	<div style="margin-top: 50px;margin-bottom:10px;text-align:left;">
-    	<b>嘿！拜請，拜請：</b>
+    	<b>拜請，拜請：</b>
     		<span style="color:#AAAAAA;font-size:18px;">
     			(用逗號隔開)
     		</span>
@@ -517,6 +515,14 @@
 			</button>				
 		</form>
 	</div>
+
+	<iframe src="https://www.youtube.com/embed/mPRtVb0s81c?rel=0&autoplay=1&start=55&end=63" 
+		frameborder="0" 
+		allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+		allowfullscreen
+		style="display:none">
+	</iframe>
+
 </section>
 </section>
 
@@ -1771,14 +1777,14 @@
 
 
 
-<!-- 抽獎  -->
+<!-- ********** 抽獎 ********** -->
 <script type="text/javascript">
 var allData = {};
 function addData(){
     var input = document.getElementById("more_input");
     var data = input.value;
     input.value = '';
-    if(!data){alert('沒有參選人，是要加「鬼」膩？'); return;}
+    if(!data){alert('還沒拜請，是要加「鬼」膩？'); return;}
     data = data.replace("，",",").replace(",,",",").split(",");
     var d, i, s='';
     for (i=0;i<data.length;i++){
@@ -1837,12 +1843,8 @@ function GetRnd(min,max){
     return parseInt(Math.random()*(max-min+1));
 }
 </script>
-		
 <script src="lib/js/head.min.js"></script>
-		
 <script src="js/reveal.js"></script>
-
-		
 <script>
 			
 	// More info about config & dependencies:			
