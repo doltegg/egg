@@ -276,7 +276,7 @@
 		100%{ transform: rotate(10deg); }
 	}
 
-	/* 隱藏備用xxxxxxxxxxxxxxx */
+	/* 誠信當責創新 */
 	.wrap1{
 		display: flex; 
 		flex-direction: column; 
@@ -289,32 +289,58 @@
 		align-content: center; 
 		margin-bottom: 0px;
 	}
-	.wrap1 .container1 item1{
-		width:500px; 
-		height:120px; 
+	/* .wrap1 .container1 .item1{
+		width:400px; 
+		height:175px; 
+		align-content: center;
 		overflow: hidden;
 		z-index:1;
-	}
+	}*/
 	section .wrap1 .container1 .item1x{
 		width: 35%; 
 		height: 170px; 
 		/*background: ;   #73E68C;  #edece1;*/
-		background: linear-gradient(-30deg,#90EE90,#A6FFCC,#7FFFD4);
+		background: linear-gradient(170deg,#565,#aba,#676);
 		padding-bottom: 0px; 
-		margin-left: -25px;
+		margin-left: -12px; /*-25px;*/
 	}
 	section .wrap1 .item1x p{
-		color: #111; 
-		vertical-algin: bottom; 
+		color: #222; 
+		/*vertical-align: bottom; */
 		/*border: 1px solid #999; */
 		text-align: center;
 		font-size: 32px;
-		font-weight: 700;		
+		font-weight: 700;
+		/*position: relative;*/
+	}
+	.wrap1 .item1x .p2{
+		border-bottom: 1px dashed #555;
+		padding-bottom: 8px;
+		margin-left: 1.5em;
+		margin-right: 1.5em;
 	}
 	section .wrap1 .item1x .ppp{
 		font-size: 24px;
-		color: #888;
+		color: #fff;
 		font-weight: 500;	
+	}
+	/*   表的半透明背景  */
+	.bgx{
+		background-image: url('covid191.png'), url('covid191.png');
+		background-size: 120px 120px;
+		background-position: 0px 0px, 60px 60px;
+		/*filter: opacity(.5); 連字都會透明 */
+		/*position: relative;*/
+	}
+	.bgx:before{
+		content: '';
+		/*display: block;*/
+		left: 0;
+		top: 0;
+		background: rgb(15,15,15,.65);
+		width: 100%;
+		height: 100%;
+		position: absolute;
 	}
 </style>
 </head>
@@ -359,24 +385,86 @@
 		</div>
 		<div style="float: right;">
 			<ul>
+				<li>排版原理</li>
+				<li>code 運作原理</li>
 				<li>CSS 推動者</li>
 				<li>早期 HTML 的排版用的是 table</li>
-						<pre><code data-trim data-noescape>
-							&lt;table&gt;
-								&lt;tr&gt;
-									&lt;td&gt;&lt;/td&gt;
-									&lt;td&gt;&lt;/td&gt;
-								&lt;/tr&gt;
-							&lt;/table&gt;
-						</code></pre>
 				<li>不會排版的人好像也只能用 table</li>
 				<li>CSS 崛起</li>
-				<li>排版原理</li>
+				<li>瀏覽器</li>
+				
 			</ul>
 		</div>
 	</div>
 </section>
 
+<section>
+	<h2>table vs. div</h2>
+	<div style="width:50%; float=left;">
+		<pre><code data-trim data-noescape>
+			&lt;table&gt;
+			    &lt;tr&gt;
+			        &lt;td&gt;&lt;/td&gt;
+			        &lt;td&gt;&lt;/td&gt;
+			    &lt;/tr&gt;
+			&lt;/table&gt;
+		</code></pre>
+		<table>
+			<tr>
+				<td style="vertical-align: ;"><img src="css.png" width="100px"></td>
+				<td style="vertical-align: middle;">css 大全</td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="width:50%; float:right;">
+	</div>
+
+</section>
+
+<section>
+<h2>誠信、當責、創新？</h2>
+<div class="wrap1">
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=40" style="margin:0px; padding-bottom:-20px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p class="p2">PCX</p>
+			<p class="ppp">公文系統<br>
+				戰情室</p>
+			<!--
+			<div style="position: absolute; top:120px; left;:0;">
+				<img src="go.png" style="margin:0px; padding-bottom:0px; height:50px; vertical-align:center;">
+			</div>
+			-->
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=50" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">		
+			<p class="p2">UI/UX</p>
+			<p class="ppp">特別假遞延申請書<br>
+				Pre Meeting Brief Format</p>
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=60" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p class="p2">數位轉型</p>
+			<p class="ppp">誠信、當責、創新？<br>
+			說好的 what if 呢？<p>
+		</div>
+	</div>
+</div>
+</section>
+<!--   備用
 <section>
 	<h2>誠信、當責、創新？</h2>
 	<ul>
@@ -387,7 +475,7 @@
 		<li>當金控在「數位轉型」時</li>
 	</ul>
 </section>
-
+-->
 
 <section>
 	<h2>大家都會排版？</h2>
@@ -443,7 +531,7 @@
 
 	<div class="item2">
 		<div class="icon2">
-			<i class="fa fa-thumbs-up"></i>
+			<i class="fa fa-thumbs-down"></i>
 		</div>
 		<div class="txt2">
 			<h3>下等人</h3>
@@ -453,45 +541,7 @@
 </div>
 </section>
 
-<!--   備用
-<section>
-<h2>用排版來分</h2>
-<div class="wrap1">
-	<div class="container1">
-		<div class="item1">
-			<img src="https://picsum.photos/500/180?random=40" style="margin:0px; padding-bottom:-20px; height:170px;">
-		</div>
-		<div class="item1x">
-			<p>上等人</p>
-			<p class="ppp">專業排版人</p>
-		</div>
-	</div>
 
-	<div class="container1">
-		<div class="item1">
-			<img src="https://picsum.photos/500/180?random=50" style="margin:0px; padding:0px; height:170px;">
-		</div>
-		<div class="item1x">
-			<p>中等人</p>
-			<p class="ppp">用 Space、 Enter 來排版<br>
-				醜、髒</p>
-		</div>
-	</div>
-
-	<div class="container1">
-		<div class="item1">
-			<img src="https://picsum.photos/500/180?random=60" style="margin:0px; padding:0px; height:170px;">
-		</div>
-		<div class="item1x">
-			<p>下等人</p>
-			<p class="ppp">不知道要排版<br>
-			不入流<p>
-		</div>
-	</div>
-</div>
-</section>
-
--->
 
 
 
@@ -627,20 +677,13 @@
 </section>
 
 
-<!--
-<style>
-	.bgx{
-		background-image: url('covid192.png'), url('covid193.png');
-		background-size: 100px 100px;
-		background-position: 0px 0px, 25px 0px;
-	}
-</style>
-<section class="bgx" data-transition="slide">
--->
-<section data-transition="slide" data-background-image='covid191.png'data-background-size="150px" data-background-repeat="repeat" data-background-opacity="0.15">
 
+<!--
+<section data-transition="slide" data-background-image='covid191.png'data-background-size="150px" data-background-repeat="repeat" data-background-opacity="0.15">
+-->
+<section class="bgx" data-transition="slide">
 	<section>
-		<h2>表</h2>
+		<h2 style="filter:opacity(1);">表</h2>
 	</section>
 
 	<section>
