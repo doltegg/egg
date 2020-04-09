@@ -258,7 +258,7 @@
 	}
 	/* 以上抽籤CSS */
 	/*   egg's   */
-	ol li .showtime{
+	ol li .showtime, ul li .showtime{
 		font-size: .55em;
 		font-style: italic;
 		color: #AA2234;
@@ -295,8 +295,8 @@
 <!--                                          館藏                                         -->
 <!-- ************************************************************************************* -->
 
-<section data-menu-title="館藏(149)">
-	<h2 id="dkmom">館藏 (149)</h2>
+<section data-menu-title="館藏(150)">
+	<h2 id="dkmom">館藏 (150)</h2>
 	<ul><small>
 	<li><a href="#/ben">錦棠</a> (9)</li>
 	<li><a href="#/na">芷儀</a> (22)</li>
@@ -387,7 +387,7 @@
 			<td>6/6</td>
 			<td>9/12</td>
 			<td>11/7</td>
-			<td></td>
+			<td style="color: tomato;">4/16</td>
 		</tr>
 		<tr>
 			<td>慎淇</td>
@@ -411,7 +411,7 @@
 			<td>5/23</td>
 			<td>9/19</td>
 			<td>2/6</td>
-			<td></td>
+			<td style="color: tomato;">4/23</td>
 		</tr>
 		<tr>
 			<td>昱宏</td>
@@ -519,7 +519,7 @@
     </div>
     <div class="more">
 		<form><!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
-			<input id="more_input" value="瑞宏, 芝萱," />
+			<input id="more_input" value="瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇," />
 			<button onclick="addData()">
 				<i class="fas fa-user-plus"></i>
 			</button>				
@@ -766,25 +766,58 @@
 	</small></ol>
 </section>
 
-
 <section id="csstype" data-transition="slide">
 	<h2 style="color:#F08080;">排版</h2>
-	<!--<h4 style="color:#ffcccc;">Eric A. Meyer & Estelle Weyl</h3>-->
-		<img class="upx" src="others/egg/2020/css.png" height="300px">&nbsp;
-		<img class="upx" src="others/egg/2020/word.jpg" height="300px">&nbsp;
-		<img class="upx" src="others/egg/2020/cwtex.jpg" height="300px"><br>
-		<!-- <ul style="font-size: 30px">
-			<li>
-				<a href="https://pjchender.blogspot.com/2014/10/blog-post_14.html" target="_blank">表的製作</a> <small>(APA 規範)</small>
-			</li>
-			<li>
-				<a href="http://homepage.ntu.edu.tw/~ntut019/cwtex/Write-typeset.pdf" target="_blank">寫作與排版</a>
-			</li>
-			<li>
-				<a href="http://www.econ.ntu.edu.tw/ter/TER_%E8%AB%96%E6%96%87%E8%A6%8F%E7%AF%84_2019.pdf" target="_blank">《經濟論文叢刊》 文稿規範</a>
-			</li>			
-		</ul><br> -->
-		<a href="others/egg/2020/typecss.html" target="_blank"><i class="far fa-hand-point-up" style="color:#F08080"></i></a>
+	<h4 style="color:#ffcccc;">Eric A. Meyer & Estelle Weyl</h3>
+	<div class="parent">
+		<div class="left">
+			<pre><code data-trim data-noescape>
+			&lt;html&gt;
+			&lt;head&gt;
+				&lt;link rel="stylesheet" href="css/reveal.css"&gt;
+				&lt;link rel="stylesheet" href="css/theme/black.css" id="theme"&gt;
+
+				&lt;style type="text/css"&gt;
+					.parent{
+				  	position:absolute;
+					}
+					.left{
+					  position: relative;
+					  float: left;
+					  height: 350px;
+					  width: 750px;
+					}
+					.right{
+					  position: relative;
+					  float: right;
+					  height: 350px;
+					  width: 180px;	
+					}
+				&lt;/style&gt;
+			&lt;/head&gt;
+
+			&lt;body&gt;
+				&lt;div class="parent"&gt;
+			    	&lt;div class="left"&gt;
+			    		左側內容
+				    &lt;/div&gt;
+				    &lt;div class="right"&gt;
+			    		&lt;img class="upx" src="others/egg/2020/css.png" height="220px"&gt;
+			    		&lt;a href="others/egg/2020/typecss.html" target="_blank"&gt;
+			    			&lt;i class="far fa-hand-point-up" style="color:#F08080"&gt;&lt;/i&gt;
+			    		&lt;/a&gt;
+			    	&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/body&gt;
+			&lt;/html&gt;
+			</code></pre>
+		</div>				
+		<div class="right">
+			<img class="upx" src="others/egg/2020/css.png" height="220px">
+			<a href="others/egg/2020/typecss.html" target="_blank"><i class="far fa-hand-point-up" style="color:#F08080"></i></a>
+		</div>
+	</div>
+		
 </section>	
 
 
@@ -793,6 +826,7 @@
 		<h5 style="font-size:32px; color:#aaa;">朴信英</h5>
 	<div class="parent">
 		<div class="left">
+			<p style="text-align:left;line-height:40px; font-size:28px;">假如現在是 3020 年，我要講一個 2020 年的歷史故事：</p>
 			<p style="text-align:left;line-height:40px; font-size:28px;">英國首相 Boris Johnson 操作疫情的做法：</p>
 			<ul style="line-height:40px; font-size:28px;">
 				<li>壞消息方面，在這一場疫情當中，我們將失去不少親友，大家先要有心理準備。</li>
@@ -1260,7 +1294,7 @@
 <!-- ************************************************************************************* -->
 <!--                                        智超                                           -->
 <!-- ************************************************************************************* -->
-<section id="mcw" data-menu-title="許智超(12)">
+<section id="mcw" data-menu-title="許智超(13)">
 	<h2 style="animation-duration: 3s; animation-name: slidein; animation-iteration-count: infinite; animation-direction: alternate;">許智超
 		<sapn style="font-size:14px; color:gray;"> 他說不要靜態，所以我讓他一直搖...</span></h2>
 	<ul><small>
@@ -1270,6 +1304,7 @@
 		<li><a target="_blank" href="others/mcw/badblood.pdf">惡血</a></li>
 		<li><a target="_blank" href="others/mcw/chungking.pdf">重慶大廈</a></li>
 		<li><a target="_blank" href="others/mcw/circus.pptx">奧運的詛咒</a></li>
+		<li title="方鳳美"><a target="_blank" href="others/mcw/onechild.pdf">獨生</a><span class="showtime"> (Apr. 9, 2020)</span></li>
 		<li title="nicholas carr">網路讓我們變笨?</li>
 		<li title="劉海永">餐桌上的宋朝</li>
 		<li title="石澤良昭">亦近亦遠的東南亞</li>
@@ -1619,7 +1654,57 @@
 </section>
 </section>
 
+<section data-menu-title="演出表">
+	<h2>演出表</h2>
+	<table class="bottomBorder" style="line-height:27px;font-size:22px;">
+		<tr>
+			<th>#</th>
+			<th>4/6</th>
+			<th>4/7</th>
+		</tr>
+		<tr>
+			<td>錦棠</td>
+			<td>假</td>
+			<td></td>
+		<tr>
+			<td>瑞宏</td>
+			<td>36.4</td>
+			<td>36.5</td>
+		</tr>
+		<tr>
+			<td>慎淇</td>
+			<td>假</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>芝萱</td>
+			<td>假</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>昱宏</td>
+			<td>─</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>筱婷</td>
+			<td>─</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>宛霖</td>
+			<td>─</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>黃薇</td>
+			<td>─</td>
+			<td></td>
+		</tr>
 
+	
+	</table>
+</section>
 
 
 
