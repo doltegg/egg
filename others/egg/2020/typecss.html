@@ -358,7 +358,7 @@
 <section>
 	<h1 style="font-family: 'Noto Sans TC'; font-size:3em; font-weight: 900;">閒談排版</h1>
 	<p style="font-size:36pt;color:#FF88C2;">egg</p>
-	<p style="color:khaki">Mar. 7, 2020</p>
+	<p style="color:khaki">Jun. 11, 2020</p>
 </section>
 
 <section>
@@ -400,7 +400,7 @@
 
 <section>
 	<h2>table vs. div</h2>
-	<div style="width:50%; float=left;">
+	<div style="float:left; width:49%;">
 		<pre><code data-trim data-noescape>
 			&lt;table&gt;
 			    &lt;tr&gt;
@@ -409,15 +409,17 @@
 			    &lt;/tr&gt;
 			&lt;/table&gt;
 		</code></pre>
-		<table>
-			<tr>
-				<td style="vertical-align: ;"><img src="css.png" width="100px"></td>
-				<td style="vertical-align: middle;">css 大全</td>
-			</tr>
-		</table>
 	</div>
 
-	<div style="width:50%; float:right;">
+	<div style="float:right; width:49%;">
+		<pre><code data-trim data-noescape>
+			&lt;div&gt;
+			    &lt;div&gt;
+			        &lt;p&gt;&lt;/p&gt;
+			        &lt;p&gt;&lt;/p&gt;
+			    &lt;/div&gt;
+			&lt;/div&gt;
+		</code></pre>
 	</div>
 
 </section>
@@ -615,7 +617,7 @@
 		<h2>行、段傻傻分不清楚</h2>
 		<ul>
 			<li>Enter: 段落標記</li>
-			<li>Shift+Enter: 手動方行符號</li>
+			<li>Shift + Enter: 手動方行符號</li>
 			<li>行只有行高</li>
 			<li>段卻是前段距、後段距</li>
 		</ul>
@@ -627,7 +629,7 @@
 			<li>段與行的格式是不一的</li>
 			<li>空行是空一個行高</li>
 			<li>段落標記帶著段格式 (前段距 + 行高 + 後段距)</li>
-			<li>也不要用 Shift+Enter 來空行 (醜)</li>			
+			<li>也不要用 Shift + Enter 來空行 (醜)</li>			
 		</ul>
 	</section>
 
