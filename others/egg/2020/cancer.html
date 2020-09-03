@@ -1,0 +1,887 @@
+﻿<!doctype html>
+
+<html lang="zh-Hant-TW">
+
+<head>
+	<link rel="icon" type="image/png" href="../../favicon.ico" />	
+	<title>萬病之王</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,500,700,900&display=swap" rel="stylesheet">	
+	
+	<link rel="stylesheet" href="../../../css/reveal.css">
+	<link rel="stylesheet" href="../../../css/theme/black.css" id="theme"> <!--black, white, league, sky, beige, simple, serif, blood, night, moon, solarized -->
+	
+	<!-- 文字搖晃 -->
+	<link rel="stylesheet" type="text/css" href="../../../css/csshake.min.css">
+	
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+		
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../css/print/pdf.css' : '../../../css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+<style type="text/css">
+	body {
+		text-align: center;
+	}
+	.reveal .slides section{
+		font-family: 'Noto Sans TC', 微軟正黑體, sans-serif; 
+	}
+	/** logo  **/
+	.reveal .logo { 
+		background-image: url("../../../demonstration/logo.png"); 
+	}  
+	/* 去圖片框 */
+	.reveal section img { 
+		background:none; border:none; box-shadow:none; 
+	}  
+	/* h2 標題改為綠色 */
+	.reveal section h2 {
+		font-family: 'Noto Sans TC'; 
+		color: #4CAF50;
+		font-weight: 900; 
+	} 
+	@keyframes slidein {
+	  from {
+	    padding-left: 100%;
+	    width: 300%;
+	  }
+	  to {
+	    padding-left: 0%;
+	    width: 100%;
+	  }
+	}
+	/* 移動 */
+	pps {
+	    width: 100px;
+	    position: relative;
+	    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+	    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+	    animation-name: example;
+		animation-iteration-count: infinite;
+	    animation-duration: 4s;
+	}
+	
+	/* Safari 4.0 - 8.0 */
+	@-webkit-keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* Standard syntax */
+	@keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* 二欄 */
+	.parent{
+		position:absolute;
+	}
+	.left{
+		position: relative;
+		float: left;
+		height: 350px;
+		width: 750px;
+	}
+	.right{
+		position: relative;
+		float: right;
+		height: 350px;
+		width: 180px;	
+	}
+	.dropdown {
+	    position: relative;
+	    display: inline-block;
+	}
+	.dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #AA2234;
+	    color: MediumSeaGreen;
+	    min-width: 360px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    padding: 10px 16px;
+	    z-index: 1;
+	}
+	.dropdown:hover .dropdown-content {
+	    display: block;
+	}
+
+	/*表格*/
+	table.bottomBorder { 
+    	border-collapse: collapse; 
+    	border-top: 2px solid;
+    	border-bottom: 2px solid;
+	}
+	table.bottomBorder tfoot { 
+		border-top: 1px solid; 
+	}
+	table.bottomBorder td { 
+		padding: 5px; 
+		border: 0px; 
+		text-align: center; 
+		font-size: 18px; 
+	}
+	table.bottomBorder th { 
+    	border-bottom: 1px solid; 
+    	padding: 5px; 
+    	text-align: center;
+    	vertical-align: middle;
+	}
+	.upx:hover{
+		transform: translateY(-12px);
+	}
+	/* 大家都會排版？ */
+	section .wrapx{
+		display: flex; 
+		margin: auto;
+	}
+	section .itemx{
+		width: 298px; 
+		margin: 5px 10px; 
+		text-align: center; 
+		border; 1px solid #999; 
+		background-color: #fff;
+		border: 1px solid #ccc;
+	}
+	section .itemx .txtxx{
+		padding: 15px; 
+		position: relative;
+	}
+	section .itemx .txtxx:before{
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 0;
+		left: 0;
+		border-top: 51px solid transparent;
+		border-left: 149px solid #fff;
+		border-right: 149px solid #fff;
+		/*transform: translateY(-200%);*/
+		transform: translate(0%,-65px);
+	}
+
+	section .itemx h3{
+		font-family: 'Noto Sans TC';
+		font-size: 32px;
+		color: #002FA7;
+		border-bottom: 2px solid #4CAF50;
+		padding-bottom: .3em;
+		margin-bottom: .4em;
+		transition: .3s;
+	}
+	section .itemx p{
+		font-family: 'Noto Sans TC';
+		font-size: 20px;
+		color: #1E90FF;
+		transition: .3s;
+	}
+	.reveal section .itemx img{
+		border: none;
+		width: 100%;
+		vertical-align: top;
+	}
+	.itemx:hover{
+		transform: translateY(-10%);
+	}
+	.itemx:hover h3{
+		color: #222;
+		border-bottom-color:#444;
+	}
+	.itemx:hover p{
+		color: #666;
+	}
+	section .eggx1{
+		color: #F08080; 
+		font-size: 28px;
+	}
+
+	/*   用排版來分   */
+	.wrap2{
+		box-sizing:content-box;
+		display: flex;
+		/*width: 960px;*/
+		/*margin: 10px;*/
+	}
+	.wrap2 .item2{
+		box-sizing: content-box;
+		width: 300px;
+		margin: 95px 5px 0px 5px;
+		text-align: center;
+		border: 5px solid #999;
+		background-color: #fff;
+		border-radius: 15px;
+		box-shadow: 6px 3px 6px #555;
+	}
+	.item2 .icon2{
+		box-sizing: content-box;
+		font-size: 65px;		
+		width: 150px;
+		height: 150px;
+		background-color: #fff;
+		color: green;
+		border-radius: 100%;
+		line-height: 140px;
+		position: relative;
+		margin: -76px auto 0;
+		/*border: 5px #fff solid;*/
+	}
+	.item2 .icon2:before{
+		box-sizing: content-box;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: -5px;
+		left: -5px;
+		border-top: 5px solid #999;
+		border-right: 5px solid #999;
+		border-bottom: 5px solid transparent;
+		border-left: 5px solid transparent;
+		border-radius: 100%;
+		transform: rotate(-45deg);
+	}
+	.item2 .txt2{}
+	.item2 .txt2 h3{
+		box-sizing: content-box;
+		color: #111;
+		font-family: 'Noto Sans TC';
+		font-size: 32px;
+		font-weight: 700;
+		margin: 0 40px;
+		border-bottom: 2px solid #4CAF50;
+		padding-bottom: .4em;
+ 	}
+	.item2 .txt2 p{
+		font-family: 'Noto Sans TC';
+		font-size: 24px;
+		color: #888;
+		font-weight: 500;
+		padding: 8px 0 10px 0;
+	}
+	.item2:hover .fa, .item2:hover .fas{
+		animation: ss .2s linear infinite alternate;
+	}
+	@keyframes ss{
+		  0%{ transform: rotate(-10deg); }
+		100%{ transform: rotate(10deg); }
+	}
+
+	/* 誠信當責創新 */
+	.wrap1{
+		display: flex; 
+		flex-direction: column; 
+		align-items: stretch;
+	}
+	.wrap1 .container1{
+		display: flex; 
+		justify-content: center; 
+		align-items: stretch;
+		align-content: center; 
+		margin-bottom: 0px;
+	}
+	/* .wrap1 .container1 .item1{
+		width:400px; 
+		height:175px; 
+		align-content: center;
+		overflow: hidden;
+		z-index:1;
+	}*/
+	section .wrap1 .container1 .item1x{
+		width: 35%; 
+		height: 170px; 
+		/*background: ;   #73E68C;  #edece1;*/
+		background: linear-gradient(170deg,#565,#aba,#676);
+		padding-bottom: 0px; 
+		margin-left: -12px; /*-25px;*/
+	}
+	section .wrap1 .item1x p{
+		color: #222; 
+		/*vertical-align: bottom; */
+		/*border: 1px solid #999; */
+		text-align: center;
+		font-size: 32px;
+		font-weight: 700;
+		/*position: relative;*/
+	}
+	.wrap1 .item1x .p2{
+		border-bottom: 1px dashed #555;
+		padding-bottom: 8px;
+		margin-left: 1.5em;
+		margin-right: 1.5em;
+	}
+	section .wrap1 .item1x .ppp{
+		font-size: 24px;
+		color: #fff;
+		font-weight: 500;	
+	}
+	/*   表的半透明背景  */
+	.bgx{
+		background-image: url('covid191.png'), url('covid191.png');
+		background-size: 120px 120px;
+		background-position: 0px 0px, 60px 60px;
+		/*filter: opacity(.5); 連字都會透明 */
+		/*position: relative;*/
+	}
+	.bgx:before{
+		content: '';
+		/*display: block;*/
+		left: 0;
+		top: 0;
+		background: rgb(15,15,15,.65);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+</style>
+</head>
+
+
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+
+<body>
+	<div class="reveal">			
+	<div class="slides">
+
+
+<section>
+	<h1 style="font-family: 'Noto Sans TC'; font-size:3em; font-weight: 900;">萬病之王</h1>
+	<h4 style="color:gray;">一部癌症的傳記，以及我們與它搏鬥的故事</h4>
+	<p style="font-size:36pt; color:#FF88C2; padding-top:10px;">egg</p>
+	<p style="color:khaki">Sep. 10, 2020</p>
+</section>
+
+<!--
+<section>
+	<h2>排版</h2>
+	<h4 style="color:#ffcccc;">Eric A. Meyer & Estelle Weyl</h3>
+		<img class="upx" src="css.png" height="260px">&nbsp;
+		<img class="upx" src="word.jpg" height="260px">&nbsp;
+		<img class="upx" src="cwtex.jpg" height="260px">
+		<ul style="font-size: 30px">
+			<li>
+				<a href="http://homepage.ntu.edu.tw/~ntut019/cwtex/Write-typeset.pdf" target="_blank">寫作與排版</a>
+			</li>
+			<li>
+				<a href="http://www.econ.ntu.edu.tw/ter/TER_%E8%AB%96%E6%96%87%E8%A6%8F%E7%AF%84_2019.pdf" target="_blank">《經濟論文叢刊》 文稿規範</a>
+			</li>			
+		</ul><br>
+</section>
+-->
+
+<section>
+	<h2>萬病之王</h2>
+	<!--<h4 style="color:#4CAF50;">一部癌症的傳記，以及我們與它搏鬥的故事</h4>-->
+	<h4 style="font-size:32px; color:orange;">辛達塔‧穆克吉</h4>
+	<div>		
+		<div style="width: 68%; float: left;">
+			<ul>
+				<li>2010 年《紐約時報》年度好書</li>
+				<li>2011 年普立茲獎非文學類</li>
+				<li>2011 年英國《衛報》新人獎</li>
+				<li>《時代雜誌》評選為最具影響力的 100 本書</li>
+				<li>美國亞馬遜讀者 4.7 顆星推薦</li>
+			</ul>
+		</div>
+		<div style="float: right;">
+			<img class="upx" src="https://doltegg.github.io/book/images/biographycancer.jpg" width="250px">
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>辛達塔‧穆克吉</h2>
+	<div>	
+		<div style="width:70%; float: left;">
+			<ul>
+				<li>生於 1970 年</li>
+				<li>哥倫比亞大學醫學中心癌症醫師</li>
+				<li>哥倫比亞大學醫學院副教授</li>
+				<li>畢業於史丹福大學、牛津大學和哈佛醫學院</li>
+				<li>目前他妻女定居於紐約。</li>
+			</ul>		
+		</div>
+		<div style="float: right;">
+			<img class="upx" src="cancer/Siddhartha.jpg" width="200px">
+			<!--<img class="upx" src="https://doltegg.github.io/egg/others/egg/gene.jpg" width="200px">-->
+			
+		</div>
+	</div>
+</section>
+
+<section>
+	為什麼人類愈來愈多癌症？
+
+	它肯定不是現代病，醫學日漸發達，其他疾病不再使我們感到威脅，隨著平均死亡年齡穩定增長的高齡化社會，癌症漸漸浮上檯面，乃至於變成國民病——「問題不再是我們會不會得到這種不死的疾病，而是我們何時會罹病了。」，沒有人是局外人。
+</section>
+
+<section>
+	本書的故事始於一九四八年法柏診所的白血病，也必須回到白血病。 (p.507)
+</section>
+
+<section>
+	
+	到一九四○年代初，如果質疑香菸和癌症之間的關聯，就好像質疑坐下與癌症之間的關係一樣莫名其妙。(p.295)
+</section>
+
+
+
+
+<section>
+<section>
+	<h1>警語</h1>
+</section>
+
+<section>
+	<h2>菸害防制法</h2>
+	<p>菸品容器最大外表面積明顯位置處，每年應平均輪流標示下列五則警語，並加註「行政院衛生署警告」字樣：</p>
+	<ol>
+		<li>吸菸有害健康</li>
+		<li>吸菸會導致癌症</li>
+		<li>吸菸能導致肺癌、心臟血管疾病及肺氣腫」</li>
+		<li>孕婦吸菸易導致胎兒早產及體重不足</li>
+		<li>吸菸害人害己</li>
+		<li style="color:gray;">戒菸可減少健康的危害 (95 年刪除)</li>
+	</ol>
+</section>
+
+<section>
+	<h2>警語之標示</h2>
+	<ol>
+		<li>警語應以黑色或深色中文 5 號字體（英文打字點數 10.5）直接印於菸品容器最大表面積。</li>
+		<li>警語應印在淺底色，加黑色或深色框之區域內。</li>
+		<li> 整個警語加框之區域，長寬各不得小於 2 公分，且總面績不得小於 10 平方公分。</li>
+		<li>框內除警語外，不得再印其他文字或圖示。</li>
+		<li>一年內進口總量未達一千箱之菸品，應標示第三則之警語。</li>
+	</ol>
+</section>
+
+<section>
+	<h2>警示圖文</h2>
+	菸品容器設計為廣告行銷的途徑之一，世界衛生組織菸草控制框架公約第11 條要求締約方應在菸品包裝標示健康危害警示，且面積不應少於主要可見部分的30%（建議占50%）。
+</section>
+
+<!--
+<section>
+	實證研究指出，菸品包裝上的文字或圖片訊息會直接影響吸菸者及潛在吸菸者，所以加拿大(雙面50%)、巴西(單面 100%)、新加坡(雙面50%)、泰國(雙面50%)、澳洲(正面30%，反面90%)、歐盟(非雙語國家正面30%，背面40%。雙語國家則正面32%，背面45%)等國家，也立法規範能更有效地提醒民眾吸菸危害健康的警告標示圖文。
+</section>
+-->
+
+<section>
+	<h2>警示圖文，十年比較</h2>
+	<img class="upx" src="cancer/tenyear.jpg">
+</section>
+
+<section>
+	<h2>未來</h2>
+	為順應國際趨勢潮流，並要求業者善盡告知義務，目前積極推動的「菸害防制法修正案」，也增列菸品包裝正反面應標示不得少於百分之五十面積之警示圖文及戒菸資訊之規定，以更明確的文字與圖示，提升民眾對吸菸危害健康之認知。
+</section>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<section>
+	<h2>CSS 大全</h2>
+	<div>
+		<div style="float: left;">
+			<img class="upx" src="css.png" width="250px">
+		</div>
+		<div style="float: right;">
+			<ul>
+				<li>排版原理</li>
+				<li>code 運作原理</li>
+				<li>CSS 推動者</li>
+				<li>早期 HTML 的排版用的是 table</li>
+				<li>不會排版的人好像也只能用 table</li>
+				<li>CSS 崛起</li>
+				<li>瀏覽器</li>
+				
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>table vs. div</h2>
+	<div style="float:left; width:49%;">
+		<pre><code data-trim data-noescape>
+			&lt;table&gt;
+			    &lt;tr&gt;
+			        &lt;td&gt;&lt;/td&gt;
+			        &lt;td&gt;&lt;/td&gt;
+			    &lt;/tr&gt;
+			&lt;/table&gt;
+		</code></pre>
+	</div>
+
+	<div style="float:right; width:49%;">
+		<pre><code data-trim data-noescape>
+			&lt;div&gt;
+			    &lt;div&gt;
+			        &lt;p&gt;&lt;/p&gt;
+			        &lt;p&gt;&lt;/p&gt;
+			    &lt;/div&gt;
+			&lt;/div&gt;
+		</code></pre>
+	</div>
+
+</section>
+
+<section>
+<h2>誠信、當責、創新？</h2>
+<div class="wrap1">
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=40" style="margin:0px; padding-bottom:-20px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p class="p2">PCX</p>
+			<p class="ppp">喜歡哪一個？<br>
+				公文系統 (戰情室)</p>
+			
+			<div style="position: absolute; top:120px; left;:0;">
+				<img src="go.png" style="margin:0px; padding-bottom:0px; height:50px; vertical-align:center;">
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=50" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">		
+			<p class="p2">UI/UX</p>
+			<p class="ppp"><a href="vacationapply.pdf" target="_blank" style="color:#666;">特別假遞延申請書</a><br>
+				<a href="meetingformat.docx" target="_blank" style="color:#666;">Pre Meeting Brief Format</a></p>
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=60" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p class="p2">數位轉型</p>
+			<p class="ppp">誠信、當責、創新？<br>
+			說好的 what if 呢？<p>
+		</div>
+	</div>
+</div>
+</section>
+
+
+<section>
+	<h2>大家都會排版？</h2>
+	<div class="wrapx">
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=10">
+			<div class="txtxx">
+				<h3>醜</h3>
+				<p>形貌陋劣、難看。惡劣的、不好的。汙穢。</p>
+				<p>理解的成本好高。</p>
+			</div>
+		</div>
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=20">
+			<div class="txtxx">
+				<h3>髒</h3>
+				<p>汙穢不清潔。粗魯不文雅。</p>
+				<p>當你手中只有一把錘子的時候，你往往會把一切問題都看成釘子。</p>
+			</div>
+		</div>
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=30">
+			<div class="txtxx">
+				<h3>不入流</h3>
+				<p>不成材、不成氣候。比喻未達到一定的水準。</p>
+				<p>硬幹幹得出東西來就好。</p>
+			</div>
+		</div>
+	</div>
+	<p class="eggx1"><a href="meetingformat.docx" target="_blank">(<i class="fas fa-skull-crossbones"></i>
+	Pre Meeting Brief Format)</a></p>
+</section>
+
+<section>
+<h2>用排版來分</h2>
+<div class="wrap2">
+	<div class="item2">
+		<div class="icon2">
+			<i class="fa fa-thumbs-up"></i>
+		</div>
+		<div class="txt2">
+			<h3>上等人</h3>
+			<p>專業排版人</p>
+		</div>
+	</div>
+
+	<div class="item2">
+		<div class="icon2">
+			<i class="fas fa-hand-middle-finger"></i>
+		</div>
+		<div class="txt2">
+			<h3>中等人</h3>
+			<p> Space、 Enter 來排版<br>不入流</p>
+		</div>
+	</div>
+
+	<div class="item2">
+		<div class="icon2">
+			<i class="fa fa-thumbs-down"></i>
+		</div>
+		<div class="txt2">
+			<h3>下等人</h3>
+			<p>不知道排版<br>醜、髒</p>
+		</div>
+	</div>
+</div>
+</section>
+
+<section data-transition="slide" data-background-image="wordicon.png" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.15">
+	<section>
+		<h2>使用 Word 的不入流手法</h2>
+	</section>
+
+	<section>
+		<h2>常見的錯誤</h2>
+		<ul>
+			<li>Enter 與 Shift + Enter</li>
+			<li>用 Enter 來空行</li>		
+			<li>列項編號自己打</li>	
+			<li>沒有使用縮排</li>
+			<li>沒有使用定位點</li>
+			<li>沒有用分頁符號</li>	
+			
+		</ul>
+	</section>
+
+	<section>
+		<h2>行、段傻傻分不清楚</h2>
+		<ul>
+			<li>Enter: 段落標記</li>			
+			<li>段除了有前段距，還有後段距</li>
+			<li>Shift + Enter: 手動換行符號</li>
+			<li>行卻只有行高</li>			
+		</ul>
+	</section>
+
+	<section>
+		<h2>孤單的段落標記</h2>
+		<ul>
+			<li>段與行的格式是不一的</li>
+			<li>空行是空一個行高</li>
+			<li>段落標記帶著段格式 (前段距 + 行高 + 後段距)</li>
+			<li>也不要用 Shift + Enter 來空行 (醜)</li>			
+		</ul>
+	</section>
+
+	<section>
+		<h2>整行的段落標記</h2>
+		<ul>
+			<li>修改前頁會跑版</li>
+			<li>醜 & 髒</li>
+			<ol>
+				<li>一整行都只是段落標記 (髒)</li>
+				<li>每行一個段落標記還是孤單 (醜)</li>
+				<li>不入流</li>
+			</ol>
+		</ul>
+	</section>
+
+	<section>
+		<h2>數數能力要很好</h2>
+		<ul>
+			<li>條列式多少會帶縮排格式 (醜)</li>
+			<li>千萬不要妄想用 space 鍵排版 (髒)</li>
+			<li>人工數數 v.s. 計數器 (不入流)</li>
+			<li>條列式：</li>
+			<ol>
+				<li>尺規</li>
+				<li>首行縮排按鈕</li>
+				<li>首行凸排按鈕</li>
+			</ol>
+		</ul>
+	</section>
+
+	<section>
+		<h2>空白鍵非萬能</h2>
+		<ul>
+			<li>排列整齊一是種技能</li>
+			<li>定位點準確、簡單、快速</li>
+			<li>別老想劃格子 <small style="color:#aaa;">已經 HTML5 & CSS3 的時代了</small></li>
+		</ul>
+	</section>	
+</section>
+
+<section>
+	<h2>醜、髒、不入流</h2>
+	<ol>
+		<li>超連結</li>
+		<li>邊界</li>
+		<li>表</li>
+		<li>對齊</li>
+		<li>一致</li>
+	</ol>
+</section>
+
+
+
+<section class="bgx" data-transition="slide">
+	<section>
+		<h2 style="filter:opacity(1);">表</h2>
+	</section>
+
+	<section>
+		<h2>畫表的要訣 
+			<sup title="表的排版">
+				<a target="_blank" href="../design.ppsx" title="powerpoint about tables"><i class="fas fa-file-powerpoint" style="font-size:24px;color:#F5A9A9"></i></a>
+			</sup>
+		</h2>
+		<ul>
+			<li>能不劃線，就別劃；</li>
+			<li>就算要劃也別劃縱線；</li>
+			<li>太多橫線只是徒增干擾而已！</li>
+		</ul>
+		<p style="color:#888;">但似乎還沒說表的功能。</p>
+	</section>
+
+	<section>
+		<h2>表的功能</h2>
+		<ul>
+			<li>上下比較，<span style="color:#F08080;font-family: 'Noto Sans TC'; font-weight: 900;">短</span>；</li>
+			<li>上下對照，<span style="color:#F08080;font-family: 'Noto Sans TC'; font-weight: 900;">簡</span>；</li>
+			<li>絕無他用。</li>
+		</ul>
+		<p><a href="https://pjchender.blogspot.com/2014/10/blog-post_14.html" target="_blank">表的製作</a> <small>(APA 規範)</small></p>
+	</section>
+
+	<section>
+		<h2>表的誤用</h2>
+		<ul>
+			<li>週報、雙週報，</li>
+			<li>開會通知單，</li>
+			<li>履歷表，</li>
+			<li>表中表，</li>
+			<li>純粹只為了表，</li>
+			<li>不知道為何要表...</li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section>
+	<h2>其他議題</h2>
+	<div style="display:flex; justify-content:center;">
+		<div style="width:35%;">
+			<ol>
+				<li>字體</li>
+				<li>中英文字並用</li>	
+				<li>標點符號</li>	
+				<li>避頭點</li>
+				<li>頁碼</li>
+			</ol>
+		</div>
+		<div style="width:35%;">
+			<ol start="6">
+				<li>目錄</li>
+				<li>註腳</li>
+				<li>多欄</li>
+				<li>圖</li>
+				<li>簡報須知</li>
+			</ol>
+		</div>
+	</div>
+</section>
+
+
+
+<section>
+	<h2>圖書館改版</h2>
+	<a href="https://doltegg.github.io/library/#"><img src="newpath.png" alt=""></a>
+</section>
+
+-->
+		
+</div>
+</div>
+
+
+	
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+<script>
+			
+	// More info about config & dependencies:			
+	// - https://github.com/hakimel/reveal.js#configuration			
+	// - https://github.com/hakimel/reveal.js#dependencies
+			
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				logo: true,
+				defaultTiming: 60,
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+				math: { 
+					config: 'TeX-AMS_HTML-full', //mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				      },
+	
+				menu: {
+					numbers: false,
+					useTextContentForMissingTitles: false,
+					hideMissingTitles: true,
+					themes: true,
+					themesPath: 'css/theme/',
+					transitions: true,
+					titleSelector: 'h1',
+			        	custom: [
+			            		{ title: 'Custom', icon: '<i class="fa fa-bookmark">', src: 'others/links.html' },
+			        		]
+					},
+				dependencies: [
+					{ src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../../plugin/search/search.js', async: true },
+					{ src: '../../../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../../plugin/notes/notes.js', async: true },
+					{ src: '../../../plugin/math/math.js', async: true },
+					//{ src: '../../../plugin/reveal.js-menu/menu.js', async: true },
+					]
+			});
+</script>
+</body>
+</html>
