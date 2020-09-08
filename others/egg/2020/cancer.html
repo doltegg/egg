@@ -41,6 +41,10 @@
 	/* 去圖片框 */
 	.reveal section img { 
 		background:none; border:none; box-shadow:none; 
+	}
+	.reveal section h1 {
+		font-family: 'Noto Sans TC'; 
+		font-weight: 900;
 	}  
 	/* h2 標題改為綠色 */
 	.reveal section h2 {
@@ -114,234 +118,6 @@
 	.dropdown:hover .dropdown-content {
 	    display: block;
 	}
-
-	/*表格*/
-	table.bottomBorder { 
-    	border-collapse: collapse; 
-    	border-top: 2px solid;
-    	border-bottom: 2px solid;
-	}
-	table.bottomBorder tfoot { 
-		border-top: 1px solid; 
-	}
-	table.bottomBorder td { 
-		padding: 5px; 
-		border: 0px; 
-		text-align: center; 
-		font-size: 18px; 
-	}
-	table.bottomBorder th { 
-    	border-bottom: 1px solid; 
-    	padding: 5px; 
-    	text-align: center;
-    	vertical-align: middle;
-	}
-	.upx:hover{
-		transform: translateY(-12px);
-	}
-	/* 大家都會排版？ */
-	section .wrapx{
-		display: flex; 
-		margin: auto;
-	}
-	section .itemx{
-		width: 298px; 
-		margin: 5px 10px; 
-		text-align: center; 
-		border; 1px solid #999; 
-		background-color: #fff;
-		border: 1px solid #ccc;
-	}
-	section .itemx .txtxx{
-		padding: 15px; 
-		position: relative;
-	}
-	section .itemx .txtxx:before{
-		content: '';
-		position: absolute;
-		width: 0;
-		height: 0;
-		top: 0;
-		left: 0;
-		border-top: 51px solid transparent;
-		border-left: 149px solid #fff;
-		border-right: 149px solid #fff;
-		/*transform: translateY(-200%);*/
-		transform: translate(0%,-65px);
-	}
-
-	section .itemx h3{
-		font-family: 'Noto Sans TC';
-		font-size: 32px;
-		color: #002FA7;
-		border-bottom: 2px solid #4CAF50;
-		padding-bottom: .3em;
-		margin-bottom: .4em;
-		transition: .3s;
-	}
-	section .itemx p{
-		font-family: 'Noto Sans TC';
-		font-size: 20px;
-		color: #1E90FF;
-		transition: .3s;
-	}
-	.reveal section .itemx img{
-		border: none;
-		width: 100%;
-		vertical-align: top;
-	}
-	.itemx:hover{
-		transform: translateY(-10%);
-	}
-	.itemx:hover h3{
-		color: #222;
-		border-bottom-color:#444;
-	}
-	.itemx:hover p{
-		color: #666;
-	}
-	section .eggx1{
-		color: #F08080; 
-		font-size: 28px;
-	}
-
-	/*   用排版來分   */
-	.wrap2{
-		box-sizing:content-box;
-		display: flex;
-		/*width: 960px;*/
-		/*margin: 10px;*/
-	}
-	.wrap2 .item2{
-		box-sizing: content-box;
-		width: 300px;
-		margin: 95px 5px 0px 5px;
-		text-align: center;
-		border: 5px solid #999;
-		background-color: #fff;
-		border-radius: 15px;
-		box-shadow: 6px 3px 6px #555;
-	}
-	.item2 .icon2{
-		box-sizing: content-box;
-		font-size: 65px;		
-		width: 150px;
-		height: 150px;
-		background-color: #fff;
-		color: green;
-		border-radius: 100%;
-		line-height: 140px;
-		position: relative;
-		margin: -76px auto 0;
-		/*border: 5px #fff solid;*/
-	}
-	.item2 .icon2:before{
-		box-sizing: content-box;
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: -5px;
-		left: -5px;
-		border-top: 5px solid #999;
-		border-right: 5px solid #999;
-		border-bottom: 5px solid transparent;
-		border-left: 5px solid transparent;
-		border-radius: 100%;
-		transform: rotate(-45deg);
-	}
-	.item2 .txt2{}
-	.item2 .txt2 h3{
-		box-sizing: content-box;
-		color: #111;
-		font-family: 'Noto Sans TC';
-		font-size: 32px;
-		font-weight: 700;
-		margin: 0 40px;
-		border-bottom: 2px solid #4CAF50;
-		padding-bottom: .4em;
- 	}
-	.item2 .txt2 p{
-		font-family: 'Noto Sans TC';
-		font-size: 24px;
-		color: #888;
-		font-weight: 500;
-		padding: 8px 0 10px 0;
-	}
-	.item2:hover .fa, .item2:hover .fas{
-		animation: ss .2s linear infinite alternate;
-	}
-	@keyframes ss{
-		  0%{ transform: rotate(-10deg); }
-		100%{ transform: rotate(10deg); }
-	}
-
-	/* 誠信當責創新 */
-	.wrap1{
-		display: flex; 
-		flex-direction: column; 
-		align-items: stretch;
-	}
-	.wrap1 .container1{
-		display: flex; 
-		justify-content: center; 
-		align-items: stretch;
-		align-content: center; 
-		margin-bottom: 0px;
-	}
-	/* .wrap1 .container1 .item1{
-		width:400px; 
-		height:175px; 
-		align-content: center;
-		overflow: hidden;
-		z-index:1;
-	}*/
-	section .wrap1 .container1 .item1x{
-		width: 35%; 
-		height: 170px; 
-		/*background: ;   #73E68C;  #edece1;*/
-		background: linear-gradient(170deg,#565,#aba,#676);
-		padding-bottom: 0px; 
-		margin-left: -12px; /*-25px;*/
-	}
-	section .wrap1 .item1x p{
-		color: #222; 
-		/*vertical-align: bottom; */
-		/*border: 1px solid #999; */
-		text-align: center;
-		font-size: 32px;
-		font-weight: 700;
-		/*position: relative;*/
-	}
-	.wrap1 .item1x .p2{
-		border-bottom: 1px dashed #555;
-		padding-bottom: 8px;
-		margin-left: 1.5em;
-		margin-right: 1.5em;
-	}
-	section .wrap1 .item1x .ppp{
-		font-size: 24px;
-		color: #fff;
-		font-weight: 500;	
-	}
-	/*   表的半透明背景  */
-	.bgx{
-		background-image: url('covid191.png'), url('covid191.png');
-		background-size: 120px 120px;
-		background-position: 0px 0px, 60px 60px;
-		/*filter: opacity(.5); 連字都會透明 */
-		/*position: relative;*/
-	}
-	.bgx:before{
-		content: '';
-		/*display: block;*/
-		left: 0;
-		top: 0;
-		background: rgb(15,15,15,.65);
-		width: 100%;
-		height: 100%;
-		position: absolute;
-	}
 </style>
 </head>
 
@@ -357,7 +133,6 @@
 
 <section>
 	<h1 style="font-family: 'Noto Sans TC'; font-size:3em; font-weight: 900;">萬病之王</h1>
-	<h4 style="color:gray;">一部癌症的傳記，以及我們與它搏鬥的故事</h4>
 	<p style="font-size:36pt; color:#FF88C2; padding-top:10px;">egg</p>
 	<p style="color:khaki">Sep. 10, 2020</p>
 </section>
@@ -427,7 +202,7 @@
 
 <section>
 	<h2>癌症消失 2000 年</h2>
-	<p>西元前 440 年，希臘史學家希羅多德著《歷史》：</p>
+	<p>西元前 440 年，希臘史學家<u>希羅多德</u>著《歷史》：</p>
 	<ul>
 		<li>波斯皇后阿托莎的疾病，她發現自己的乳房上有流血的腫塊，很可能由特別惡性的乳癌早成的發炎。</li>
 		<li>最後由戴莫西狄斯奴隸幫她切除腫塊，</li>
@@ -439,7 +214,7 @@
 	<h2>實物發現</h2>
 	<p>祕魯南部奇利力巴亞布木乃伊部落</p>
 	<ul>
-		<li>1990 年，140 具屍骸引起明尼蘇達大學亞瑟‧奧福德海得教授病理學家的興趣。</li>
+		<li>1990 年，140 具屍骸引起明尼蘇達大學<u>亞瑟‧奧福德海得</u>教授病理學家的興趣。</li>
 		<li>其中一具 30 多歲女性，奧教授摸到左上臂有一塊「圓凸的硬塊」。</li>
 	</ul>
 </section>
@@ -450,7 +225,7 @@
 
 <section>
 	<h2>文明病？</h2>
-	<p>Q: 什麼造成癌症？</p>
+	<p>Q: 什麼造成 20 世紀癌症普及？</p>
 	<div class="fragment">
 	<p style="color:#fe9;">A: 長壽</p>
 	<p style="font-size:22px; padding:18px; color:#F5F5DC;">十九世紀的醫師常把癌症和文明連結在一起，認為是因現代生活忙碌所造成，引發了身體的病態生長。這個連結是對，但因果關係卻不然：文明並沒有造成癌症，而是「延長了人類的壽命」──文明揭露了癌症。</p>
@@ -481,7 +256,7 @@
 </section>
 <section>
 	<h2>最早的提醒</h2>
-	約翰‧希爾<br>
+	<u>約翰‧希爾</u><br>
 	是藥劑師、業餘科學家<br>
 	在 1761 年,《濫用鼻煙的提醒》指出，<br>
 	鼻煙是一種口嚼菸草，<br>可能會使唇、嘴和喉嚨罹癌。
@@ -522,22 +297,22 @@
 
 <section>
 	<h2>溫德</h2>
-	<p>醫學院學生恩斯特‧溫德<br>對於癌細胞由菸染黑的肺長出來的影像難以磨滅。</p>
+	<p>醫學院學生<u>恩斯特‧溫德</u><br>對於癌細胞由菸染黑的肺長出來的影像難以磨滅。</p>
 	<p class="fragment" style="color:#fe9;padding-top:18px;">但大部分外科醫師看兩者關聯就像是隱形一樣。</p>
 </section>
 
 <section>
 	<h2>一勞永逸</h2>
 	<p>溫德向衛生署長要經費，未果。</p>
-	<p>轉向導師葛蘭姆求救。</p>
+	<p>轉向導師<u>葛蘭姆</u>求救。</p>
 </section>
 
 <section>
 	<h2>兩篇殺傷力極大的報告</h2>
 	1948 年
 	<ul>
-		<li>5 月，溫德、葛蘭姆投稿《美國醫學協會期刊》。</li>
-		<li>9 月，杜爾、希爾〈吸菸與肺的致癌物〉發表在《英國醫學期刊》。</li>
+		<li>5 月，<u>溫德</u>、<u>葛蘭姆</u>投稿《美國醫學協會期刊》。</li>
+		<li>9 月，<u>杜爾</u>、<u>希爾</u>〈吸菸與肺的致癌物〉發表在《英國醫學期刊》。</li>
 	</ul>
 </section>
 
@@ -551,12 +326,12 @@
 </section>
 
 <section>
-	<h2>杜爾、希爾</h2>
+	<h2><u>杜爾</u>、<u>希爾</u></h2>
 	<p>英國想把醫療中心國有化，要醫生都註冊，</p>
 	<ul>
-		<li>1951 年，杜爾、希爾向 59600 醫師祭出問卷信，詢問吸菸習慣、數量。41024 回信。</li>
+		<li>1951 年，<u>杜爾</u>、<u>希爾</u>向 59600 醫師祭出問卷信，詢問吸菸習慣、數量。41024 回信。</li>
 		<li>1954 年，789 死亡，其中 36 人死於肺癌。全都吸菸。</li>
-		<li>1956 年，杜、希發表肺癌的研究。美國成人吸菸人口達 45%。戰爭會刺激兩種產業：武器、菸。</li>
+		<li>1956 年，<u>杜</u>、<u>希</u>發表肺癌的研究。美國成人吸菸人口達 45%。戰爭會刺激兩種產業：武器、菸。</li>
 	</ul>
 </section>
 </section>
@@ -582,29 +357,34 @@
 	<h2>菸商的反擊</h2>
 	<ul>
 		<li>濾嘴</li>
-		<li>〈對吸菸者的坦白聲明〉廣告</li>
+		<li>〈對吸菸者的坦白聲明〉廣告：</li>
+		<ul>
+			<li>老鼠實驗跟人類的肺部，</li>
+			<li>質疑統計數字，</li>
+			<li>協助科學家再研究。</li>
+		</ul>
 		<li>組成「菸草業研究委員會」</li>
 	</ul>
 </section>
 
 <section>
-	<h2>克蘭倫斯‧庫克‧李多</h2>
+	<h2><u>克蘭倫斯‧庫克‧李多</u></h2>
 	<ul>
 		<li>輕優生學</li>
-		<li>因此把肺癌的成因怪罪香菸，就像責怪雨傘帶來下雨一樣。</li>
-		<li>關係不等於原因。</li>
+		<li>因此把肺癌的成因怪罪香菸，就像責怪雨傘帶來下雨一樣。</li>		
 		<li>1956 年《癌症研究》：如果菸草業因為科學上不誠實而挨罵，反菸團體也因在科學上無誠意而受到指責。</li>
+		<li>關係不等於原因。</li>
 	</ul>
 	<aside class="notes">
 		輕優生學：吸菸只是開啟了天生的異常，使壞細菌在人體內發展。因此把肺癌的成因怪罪香菸，就像責怪雨傘帶來下雨一樣。
 		杜、希、恩、葛建立了吸菸和肺癌的關係，但關係不等於原因。
-		1956《癌症研究》：如果菸草業因為科學上不誠實而挨罵，反菸團體也因在科學上無誠意而受到指責。合併因果？
+		1956 《癌症研究》：如果菸草業因為科學上不誠實而挨罵，反菸團體也因在科學上無誠意而受到指責。合併因果？
 	</aside>
 </section>
 
 <section>
 	<h2>流行病學理困境</h2>
-	<p>微生物學者羅勃‧柯霍，某種細菌是導致疾病的「原因」，滿足三個條件：</p>
+	<p>微生物學者<u>羅勃‧柯霍</u>，某種細菌是導致疾病的「原因」，滿足三個條件：</p>
 	<ol>
 		<li>病原體出現在生病動物體內, (關聯、)</li>
 		<li>可由動物身上分離，(分離、)</li>
@@ -621,7 +401,7 @@
 
 <section>
 	<h2>人之將死，其言也善</h2>
-	<p>1957 年，葛蘭姆死於肺癌，得年 74 歲。</p>
+	<p>1957 年，<u>葛蘭姆</u>死於肺癌，得年 74 歲。</p>
 	<p>5 年前戒菸，吸了 50 年。</p>
 	1954 年《吸菸與癌症》：身為人民健康守護者的美國衛生署，難道不該至少發個警語？
 	<aside class="notes">
@@ -632,7 +412,7 @@
 <section>
 	<h2>美國總統被動介入</h2>
 	<p>1961 年，美國癌症協會、心臟協會和全美肺結核協會發函給甘迺迪總統，要求指派全國委員會調查吸菸與健康個關係。</p>
-	<p>總統將任務交給衛生署長路德‧泰瑞。泰瑞指派十名委員，委員會每個成員帶來獨特的層面，全面向研究。</p>
+	<p>總統將任務交給衛生署長<u>路德‧泰瑞</u>。<u>泰瑞</u>指派十名委員，委員會每個成員帶來獨特的層面，全面向研究。</p>
 	<aside class="notes">
 		委員會應尋求「這個健康問題的解決辦法，而盡量少干預產業的自由或個人的快樂。」(兩難)
 		測試資料共涵蓋了 112 萬名男女。
@@ -659,7 +439,7 @@
 <section>
 	<h2>但</h2>
 	<p>菸商認為與其受 FTC 管制，<br>他們寧可自願受國會管轄。</p>
-	<p style="padding-top:20px; color:#fe9;">伊莉莎白‧德魯在《大西洋月刊》：<br>
+	<p style="padding-top:20px; color:#fe9;"><u>伊莉莎白‧德魯</u>在《大西洋月刊》：<br>
 		「政府毫不害臊地保障私有企業並不予控管。」<br>
 		「香菸業者不必費心發明保護吸菸者的濾嘴，因為國會已經成了『最佳濾嘴』。」</p>
 </section>
@@ -679,15 +459,15 @@
 
 <section>
 	<h2>公平原則</h2>
-	<p>一名剛出法學院律師約翰‧班薩夫試著用「公平原則」對付香菸廣告。</p>
+	<p>一名剛出法學院律師<u>約翰‧班薩夫</u>試著用「公平原則」對付香菸廣告。</p>
 	<p style="color:gray;font-size:28px;padding-top:24px;">廣電媒體是公共資源，對爭議課題提供平衡資訊，公平的播放時間。</p>
 </section>
 
 <section>
 	<h2>勝訴</h2>
-	<p>1967 年，班薩夫控向法院控告電視台。</p>
-	<p>1968 年，班薩夫一人面對沒每最高薪的一群律師，<br>
-		班薩夫獲得勝訴。</p>
+	<p>1967 年，<u>班薩夫</u>控向法院控告電視台。</p>
+	<p>1968 年，<u>班薩夫</u>一人面對沒每最高薪的一群律師，<br>
+		<u>班薩夫</u>獲得勝訴。</p>
 	<p>菸草業者上訴，遭駁回，定讞。</p>
 </section>
 
@@ -713,7 +493,7 @@
 
 <section>
 	<h2>重點是什麼？</h2>
-	1983 年，律師馬克‧艾德爾控告煙草公司，主張她讀了盒上的警語，她丈夫為她剪了雜誌文章，但她上癮，無法改掉吸菸習慣。重要的不是她對香菸之害瞭解多少，而是香菸商瞭解多少，以及對消費者透露多少。要求檢視三大菸商的內部檔案。
+	1983 年，律師<u>馬克‧艾德爾</u>控告煙草公司，主張她讀了盒上的警語，她丈夫為她剪了雜誌文章，但她上癮，無法改掉吸菸習慣。重要的不是她對香菸之害瞭解多少，而是香菸商瞭解多少，以及對消費者透露多少。要求檢視三大菸商的內部檔案。
 </section>
 
 <section>
@@ -724,7 +504,7 @@
 <section>
 	<h2>州政府控告菸商</h2>
 	<p>1994 年，密西西比州控告數家菸商，要求償還該州民吸菸致病的十億美元醫療費用。</p>
-	<p>州檢察長麥可‧摩爾：「健康的危機是你們造成的，因此你們得付出代價。」其它幾州跟進。</p>
+	<p>州檢察長<u>麥可‧摩爾</u>：「健康的危機是你們造成的，因此你們得付出代價。」其它幾州跟進。</p>
 </section>
 
 <section>
@@ -742,7 +522,7 @@
 </section>
 
 <section>
-	<h2>庇護所</h2>
+	<h2>協議後所建造的庇護所</h2>
 	<p>大和解協議：</p>
 	<ul>
 		<li>重擬 1970 年代警語法、</li>
