@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html lang="zh-Hant-TW">
 
@@ -960,9 +960,9 @@
 			</a>		
 		</li>
 		<li title="漢娜‧鄂蘭">平凡的邪惡
-			<!--<a target="_blank" href="others/egg/2020/BetweenUs.pdf" title="notes">
+			<a target="_blank" href="others/egg/2020/banalityofevil.pdf" title="notes">
 				<i class="fa fa-file-pdf supicon"></i>	
-			</a>-->	
+			</a>	
 		</li>
 		<li title="史蒂芬‧金">史蒂芬金的故事販賣機
 			<!--<a target="_blank" href="others/egg/2020/SkeletonCrew.pdf" title="notes">
@@ -2186,20 +2186,24 @@ function addData(){
     var input = document.getElementById("more_input");
     var data = input.value;
     input.value = '';
-    if(!data){alert('還沒拜請，是要加「鬼」膩？'); return;}
-    data = data.replace("，",",").replace(",,",",").split(",");
-    var d, i, s='';
-    for (i=0;i<data.length;i++){
-        d = data[i].replace(/(^\s*)|(\s*$)/g, '');
-        if(d && !allData[d]) {
-            allData[d]=-1;
-            s+='<span ondblclick="removeData(this)" title="雙擊刪除">' + d + '</span>';
-        }
-    }
-    var name_list = document.getElementById("name_list");
-    if(name_list.getElementsByTagName('span').length<1)name_list.innerHTML='';
-    name_list.innerHTML+=s;
-    timer && start();
+    if(!data){
+    	alert('還沒拜請，是要加「鬼」膩？'); return;
+	}
+
+	data = data.replace("，",",").replace(",,",",").split(",");
+	var d, i, s='';
+	for (i=0;i<data.length;i++){
+	    d = data[i].replace(/(^\s*)|(\s*$)/g, '');
+	    if(d && !allData[d]) {
+	        allData[d]=-1;
+	        s+='<span ondblclick="removeData(this)" title="雙擊刪除">' + d + '</span>';
+	    }
+	}
+	var name_list = document.getElementById("name_list");
+	if(name_list.getElementsByTagName('span').length<1)
+		name_list.innerHTML='';
+	    name_list.innerHTML+=s;
+	    timer && start();
 }
 function removeData(obj){
     delete allData[obj.innerHTML];
