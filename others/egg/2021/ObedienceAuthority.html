@@ -1,0 +1,879 @@
+﻿<!doctype html>
+
+<html lang="zh-Hant-TW">
+
+<head>
+	<link rel="icon" type="image/png" href="../../favicon.ico" />	
+	<title>服從權威</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,500,700,900&display=swap" rel="stylesheet">	
+	
+	<link rel="stylesheet" href="../../../css/reveal.css">
+	<link rel="stylesheet" href="../../../css/theme/black.css" id="theme"> <!--black, white, league, sky, beige, simple, serif, blood, night, moon, solarized -->
+	
+	<!-- 文字搖晃 -->
+	<link rel="stylesheet" type="text/css" href="../../../css/csshake.min.css">
+	
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../../../lib/css/zenburn.css">
+		
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../css/print/pdf.css' : '../../../css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+<style type="text/css">
+	body {
+		text-align: center;
+	}
+	.reveal .slides section{
+		font-family: 'Noto Sans TC', 微軟正黑體, sans-serif; 
+	}
+	/** logo  **/
+	.reveal .logo { 
+		background-image: url("../../../demonstration/logo.png"); 
+	}  
+	/* 去圖片框 */
+	.reveal section img { 
+		background:none; border:none; box-shadow:none; 
+	}  
+	/* h2 標題改為綠色 */
+	.reveal section h2 {
+		font-family: 'Noto Sans TC'; 
+		color: #4CAF50;
+		font-weight: 900; 
+	} 
+	@keyframes slidein {
+	  from {
+	    padding-left: 100%;
+	    width: 300%;
+	  }
+	  to {
+	    padding-left: 0%;
+	    width: 100%;
+	  }
+	}
+	/* 移動 */
+	pps {
+	    width: 100px;
+	    position: relative;
+	    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+	    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+	    animation-name: example;
+		animation-iteration-count: infinite;
+	    animation-duration: 4s;
+	}
+	
+	/* Safari 4.0 - 8.0 */
+	@-webkit-keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* Standard syntax */
+	@keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* 二欄 */
+	.parent{
+		position:absolute;
+	}
+	.left{
+		position: relative;
+		float: left;
+		height: 350px;
+		width: 750px;
+	}
+	.right{
+		position: relative;
+		float: right;
+		height: 350px;
+		width: 180px;	
+	}
+	.dropdown {
+	    position: relative;
+	    display: inline-block;
+	}
+	.dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #AA2234;
+	    color: MediumSeaGreen;
+	    min-width: 360px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    padding: 10px 16px;
+	    z-index: 1;
+	}
+	.dropdown:hover .dropdown-content {
+	    display: block;
+	}
+
+	/*表格*/
+	table.bottomBorder { 
+    	border-collapse: collapse; 
+    	border-top: 2px solid;
+    	border-bottom: 2px solid;
+	}
+	table.bottomBorder tfoot { 
+		border-top: 1px solid; 
+	}
+	table.bottomBorder td { 
+		padding: 5px; 
+		border: 0px; 
+		text-align: center; 
+		font-size: 18px; 
+	}
+	table.bottomBorder th { 
+    	border-bottom: 1px solid; 
+    	padding: 5px; 
+    	text-align: center;
+    	vertical-align: middle;
+	}
+	.upx:hover{
+		transform: translateY(-12px);
+	}
+	/* 大家都會排版？ */
+	section .wrapx{
+		display: flex; 
+		margin: auto;
+	}
+	section .itemx{
+		width: 298px; 
+		margin: 5px 10px; 
+		text-align: center; 
+		border; 1px solid #999; 
+		background-color: #fff;
+		border: 1px solid #ccc;
+	}
+	section .itemx .txtxx{
+		padding: 15px; 
+		position: relative;
+	}
+	section .itemx .txtxx:before{
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 0;
+		left: 0;
+		border-top: 51px solid transparent;
+		border-left: 149px solid #fff;
+		border-right: 149px solid #fff;
+		/*transform: translateY(-200%);*/
+		transform: translate(0%,-65px);
+	}
+
+	section .itemx h3{
+		font-family: 'Noto Sans TC';
+		font-size: 32px;
+		color: #002FA7;
+		border-bottom: 2px solid #4CAF50;
+		padding-bottom: .3em;
+		margin-bottom: .4em;
+		transition: .3s;
+	}
+	section .itemx p{
+		font-family: 'Noto Sans TC';
+		font-size: 20px;
+		color: #1E90FF;
+		transition: .3s;
+	}
+	.reveal section .itemx img{
+		border: none;
+		width: 100%;
+		vertical-align: top;
+	}
+	.itemx:hover{
+		transform: translateY(-10%);
+	}
+	.itemx:hover h3{
+		color: #222;
+		border-bottom-color:#444;
+	}
+	.itemx:hover p{
+		color: #666;
+	}
+	section .eggx1{
+		color: #F08080; 
+		font-size: 28px;
+	}
+
+	/*   用排版來分   */
+	.wrap2{
+		box-sizing:content-box;
+		display: flex;
+		/*width: 960px;*/
+		/*margin: 10px;*/
+	}
+	.wrap2 .item2{
+		box-sizing: content-box;
+		width: 300px;
+		margin: 95px 5px 0px 5px;
+		text-align: center;
+		border: 5px solid #999;
+		background-color: #fff;
+		border-radius: 15px;
+		box-shadow: 6px 3px 6px #555;
+	}
+	.item2 .icon2{
+		box-sizing: content-box;
+		font-size: 65px;		
+		width: 150px;
+		height: 150px;
+		background-color: #fff;
+		color: green;
+		border-radius: 100%;
+		line-height: 140px;
+		position: relative;
+		margin: -76px auto 0;
+		/*border: 5px #fff solid;*/
+	}
+	.item2 .icon2:before{
+		box-sizing: content-box;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: -5px;
+		left: -5px;
+		border-top: 5px solid #999;
+		border-right: 5px solid #999;
+		border-bottom: 5px solid transparent;
+		border-left: 5px solid transparent;
+		border-radius: 100%;
+		transform: rotate(-45deg);
+	}
+	.item2 .txt2{}
+	.item2 .txt2 h3{
+		box-sizing: content-box;
+		color: #111;
+		font-family: 'Noto Sans TC';
+		font-size: 32px;
+		font-weight: 700;
+		margin: 0 40px;
+		border-bottom: 2px solid #4CAF50;
+		padding-bottom: .4em;
+ 	}
+	.item2 .txt2 p{
+		font-family: 'Noto Sans TC';
+		font-size: 24px;
+		color: #888;
+		font-weight: 500;
+		padding: 8px 0 10px 0;
+	}
+	.item2:hover .fa, .item2:hover .fas{
+		animation: ss .2s linear infinite alternate;
+	}
+	@keyframes ss{
+		  0%{ transform: rotate(-10deg); }
+		100%{ transform: rotate(10deg); }
+	}
+
+	/* 誠信當責創新 */
+	.wrap1{
+		display: flex; 
+		flex-direction: column; 
+		align-items: stretch;
+	}
+	.wrap1 .container1{
+		display: flex; 
+		justify-content: center; 
+		align-items: stretch;
+		align-content: center; 
+		margin-bottom: 0px;
+	}
+	/* .wrap1 .container1 .item1{
+		width:400px; 
+		height:175px; 
+		align-content: center;
+		overflow: hidden;
+		z-index:1;
+	}*/
+	section .wrap1 .container1 .item1x{
+		width: 35%; 
+		height: 170px; 
+		/*background: ;   #73E68C;  #edece1;*/
+		background: linear-gradient(170deg,#565,#aba,#676);
+		padding-bottom: 0px; 
+		margin-left: -12px; /*-25px;*/
+	}
+	section .wrap1 .item1x p{
+		color: #222; 
+		/*vertical-align: bottom; */
+		/*border: 1px solid #999; */
+		text-align: center;
+		font-size: 32px;
+		font-weight: 700;
+		/*position: relative;*/
+	}
+	.wrap1 .item1x .p2{
+		border-bottom: 1px dashed #555;
+		padding-bottom: 8px;
+		margin-left: 1.5em;
+		margin-right: 1.5em;
+	}
+	section .wrap1 .item1x .ppp{
+		font-size: 24px;
+		color: #fff;
+		font-weight: 500;	
+	}
+	/*   表的半透明背景  */
+	.bgx{
+		background-image: url('covid191.png'), url('covid191.png');
+		background-size: 120px 120px;
+		background-position: 0px 0px, 60px 60px;
+		/*filter: opacity(.5); 連字都會透明 */
+		/*position: relative;*/
+	}
+	.bgx:before{
+		content: '';
+		/*display: block;*/
+		left: 0;
+		top: 0;
+		background: rgb(15,15,15,.65);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+</style>
+</head>
+
+
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+
+<body>
+	<div class="reveal">			
+	<div class="slides">
+
+
+<section>
+	<h1 style="font-family: 'Noto Sans TC'; font-size:3em; font-weight: 900;">服從權威</h1>
+	<p style="font-size:36pt;color:#FF88C2;">egg</p>
+	<p style="color:khaki">Jan. 7, 2021</p>
+</section>
+
+<section>
+	<h2>緣由</h2>
+	<!--<h4 style="color:#ffcccc;">Eric A. Meyer & Estelle Weyl</h3>-->
+		<img class="upx" src="https://doltegg.github.io/book/images/BetweenUs.jpg" height="300px">&nbsp;
+		<img class="upx" src="https://doltegg.github.io/book/images/banalityofevil.jpg" height="300px">&nbsp;
+		<img class="upx" src="https://doltegg.github.io/book/images/ObedienceAuthority.jpg" height="300px">
+</section>
+
+<section>
+	<h2>服從權威</h2>
+	<h4 style="color:gray;">有多少罪惡，假服從之名而行？</h4>
+	<div>
+		<div style=" float: left; width:40%">
+			<img class="upx" src="https://doltegg.github.io/book/images/ObedienceAuthority.jpg" width="250px">
+		</div>
+		<div style="width: 60%; float: right;">
+			<ul>
+				<li>史丹利‧米爾格蘭 (1933/8/15 ─ 1984/12/20)</li>
+				<li>六度分隔理論</li>
+				<li>米爾格蘭實驗</li>
+				
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section>
+	<section>
+		<h2>米爾格蘭實驗</h2>
+	</section>
+	<section>
+		<h2>實驗設定</h2>
+	</section>
+	<section>
+		<h2>實驗設定</h2>
+		<img src="img/6.jpg" width="750px">
+	</section>
+	<section>
+		<h2>實驗進行</h2>
+		<img src="img/p4.jpg" width="750px">
+	</section>
+</section>
+
+
+<section>
+	<h2>專家預測</h2>
+	<ul>
+		<li>依照道德判斷，甚麼樣的行為才叫適當，大家會異口同聲地說，不服從權威才叫適當。</li>
+		<li>預測結果</li>
+	</ul>
+</section>
+
+<section>
+	<h2>實驗結果</h2>
+</section>
+
+
+<section>
+	<section>
+		<h2>服從</h2>
+	</section>
+	<section>
+		<ol>
+			<li>服從的本質，在於一個人把自己視為他人期望的工具，因此不再認為自己要為自己的行為負責。(思想上的調整)</li>
+			<li>服從是社會生活結構的基本元素。權威系統是共同生活的要件，唯有離群索居的人才不需要理會 (無論違逆還是順從) 他人的命令。</li>
+			<li>個人道德感產生的力量，遠不如社會迷思的力量更讓我們信服。</li>
+			<li>服從的受試者最常見的想法調整，就是認為自己不用為自己的行為負責。</li>
+		</ol>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2>代理人</h2>
+	</section>
+	<section>
+		
+		 
+	</section>
+	<section>
+		<h2>服從的過程</h2>
+		<ol>
+			<li>轉變成代理人心態的第一個條件是察覺到具正當性的權威。</li>
+			<li>轉變成代理人心態的第二個條件是把人定義為權威系統的一部分。</li>
+			<li>轉變成代理人心態最大的影響是，人只對指揮他的權威負責，而不對權威下令的行為內容負責。道德感並未消失，只是換了一個焦點：下屬感到羞恥或自豪，完全取決於自己是否適當執行權威交代的行為。</li>
+		</ol>
+	</section>	
+</section>
+
+<section>
+<h2>誠信、當責、創新？</h2>
+<div class="wrap1">
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=40" style="margin:0px; padding-bottom:-20px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p class="p2">PCX</p>
+			<p class="ppp">喜歡哪一個？<br>
+				公文系統 (戰情室)</p>
+			<!--
+			<div style="position: absolute; top:120px; left;:0;">
+				<img src="go.png" style="margin:0px; padding-bottom:0px; height:50px; vertical-align:center;">
+			</div>
+			-->
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=50" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">		
+			<p class="p2">UI/UX</p>
+			<p class="ppp"><a href="vacationapply.pdf" target="_blank" style="color:#666;">特別假遞延申請書</a><br>
+				<a href="meetingformat.docx" target="_blank" style="color:#666;">Pre Meeting Brief Format</a></p>
+		</div>
+	</div>
+
+	<div class="container1">
+		<div class="item1">
+			<img src="https://picsum.photos/500/180?random=60" style="margin:0px; padding:0px; height:170px;">
+		</div>
+		<div class="item1x">
+			<p class="p2">數位轉型</p>
+			<p class="ppp">誠信、當責、創新？<br>
+			說好的 what if 呢？<p>
+		</div>
+	</div>
+</div>
+</section>
+<!--   備用
+<section>
+	<h2>誠信、當責、創新？</h2>
+	<ul>
+		<li>當數數發在 UI/UX 時</li>
+		<li>當行政管理部在 PCX 時</li>
+		<li>當人資在教育訓練時</li>
+		<li>當公文系統在戰情室時</li>
+		<li>當金控在「數位轉型」時</li>
+	</ul>
+</section>
+-->
+
+<section>
+	<h2>大家都會排版？</h2>
+	<div class="wrapx">
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=10">
+			<div class="txtxx">
+				<h3>醜</h3>
+				<p>形貌陋劣、難看。惡劣的、不好的。汙穢。</p>
+				<p>理解的成本好高。</p>
+			</div>
+		</div>
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=20">
+			<div class="txtxx">
+				<h3>髒</h3>
+				<p>汙穢不清潔。粗魯不文雅。</p>
+				<p>當你手中只有一把錘子的時候，你往往會把一切問題都看成釘子。</p>
+			</div>
+		</div>
+		<div class="itemx">
+			<img src="https://picsum.photos/400/300?random=30">
+			<div class="txtxx">
+				<h3>不入流</h3>
+				<p>不成材、不成氣候。比喻未達到一定的水準。</p>
+				<p>硬幹幹得出東西來就好。</p>
+			</div>
+		</div>
+	</div>
+	<p class="eggx1"><a href="meetingformat.docx" target="_blank">(<i class="fas fa-skull-crossbones"></i>
+	Pre Meeting Brief Format)</a></p>
+</section>
+
+<section>
+<h2>用排版來分</h2>
+<div class="wrap2">
+	<div class="item2">
+		<div class="icon2">
+			<i class="fa fa-thumbs-up"></i>
+		</div>
+		<div class="txt2">
+			<h3>上等人</h3>
+			<p>專業排版人</p>
+		</div>
+	</div>
+
+	<div class="item2">
+		<div class="icon2">
+			<i class="fas fa-hand-middle-finger"></i>
+		</div>
+		<div class="txt2">
+			<h3>中等人</h3>
+			<p> Space、 Enter 來排版<br>不入流</p>
+		</div>
+	</div>
+
+	<div class="item2">
+		<div class="icon2">
+			<i class="fa fa-thumbs-down"></i>
+		</div>
+		<div class="txt2">
+			<h3>下等人</h3>
+			<p>不知道排版<br>醜、髒</p>
+		</div>
+	</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<section>
+	<h2>最近的周報格式有些異樣</h2>
+	<ul>
+		<li>統一成標楷體 <small style="color:#aaa">(特別是數字部分)</small></li>
+		<li>用空行來凸顯段落</li>
+	</ul>
+</section> 
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-transition="slide" data-background-image="wordicon.png" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.15">
+	<section>
+		<h2>使用 Word 的不入流手法</h2>
+	</section>
+
+	<section>
+		<h2>常見的錯誤</h2>
+		<ul>
+			<li>Enter 與 Shift + Enter</li>
+			<li>用 Enter 來空行</li>		
+			<li>列項編號自己打</li>	
+			<li>沒有使用縮排</li>
+			<li>沒有使用定位點</li>
+			<li>沒有用分頁符號</li>	
+			<!--  要不要用  -->
+		</ul>
+	</section>
+
+	<section>
+		<h2>行、段傻傻分不清楚</h2>
+		<ul>
+			<li>Enter: 段落標記</li>			
+			<li>段除了有前段距，還有後段距</li>
+			<li>Shift + Enter: 手動換行符號</li>
+			<li>行卻只有行高</li>			
+		</ul>
+	</section>
+
+	<section>
+		<h2>孤單的段落標記</h2>
+		<ul>
+			<li>段與行的格式是不一的</li>
+			<li>空行是空一個行高</li>
+			<li>段落標記帶著段格式 (前段距 + 行高 + 後段距)</li>
+			<li>也不要用 Shift + Enter 來空行 (醜)</li>			
+		</ul>
+	</section>
+
+	<section>
+		<h2>整行的段落標記</h2>
+		<ul>
+			<li>修改前頁會跑版</li>
+			<li>醜 & 髒</li>
+			<ol>
+				<li>一整行都只是段落標記 (髒)</li>
+				<li>每行一個段落標記還是孤單 (醜)</li>
+				<li>不入流</li>
+			</ol>
+		</ul>
+	</section>
+
+	<section>
+		<h2>數數能力要很好</h2>
+		<ul>
+			<li>條列式多少會帶縮排格式 (醜)</li>
+			<li>千萬不要妄想用 space 鍵排版 (髒)</li>
+			<li>人工數數 v.s. 計數器 (不入流)</li>
+			<li>條列式：</li>
+			<ol>
+				<li>尺規</li>
+				<li>首行縮排按鈕</li>
+				<li>首行凸排按鈕</li>
+			</ol>
+		</ul>
+	</section>
+
+	<section>
+		<h2>空白鍵非萬能</h2>
+		<ul>
+			<li>排列整齊一是種技能</li>
+			<li>定位點準確、簡單、快速</li>
+			<li>別老想劃格子 <small style="color:#aaa;">已經 HTML5 & CSS3 的時代了</small></li>
+		</ul>
+	</section>	
+</section>
+
+<section>
+	<h2>醜、髒、不入流</h2>
+	<ol>
+		<li>超連結</li>
+		<li>邊界</li>
+		<li>表</li>
+		<li>對齊</li>
+		<li>一致</li>
+	</ol>
+</section>
+
+
+
+<!--
+<section data-transition="slide" data-background-image='covid191.png'data-background-size="150px" data-background-repeat="repeat" data-background-opacity="0.15">
+-->
+<section class="bgx" data-transition="slide">
+	<section>
+		<h2 style="filter:opacity(1);">表</h2>
+	</section>
+
+	<section>
+		<h2>畫表的要訣 
+			<sup title="表的排版">
+				<a target="_blank" href="../design.ppsx" title="powerpoint about tables"><i class="fas fa-file-powerpoint" style="font-size:24px;color:#F5A9A9"></i></a>
+			</sup>
+		</h2>
+		<ul>
+			<li>能不劃線，就別劃；</li>
+			<li>就算要劃也別劃縱線；</li>
+			<li>太多橫線只是徒增干擾而已！</li>
+		</ul>
+		<p style="color:#888;">但似乎還沒說表的功能。</p>
+	</section>
+
+	<section>
+		<h2>表的功能</h2>
+		<ul>
+			<li>上下比較，<span style="color:#F08080;font-family: 'Noto Sans TC'; font-weight: 900;">短</span>；</li>
+			<li>上下對照，<span style="color:#F08080;font-family: 'Noto Sans TC'; font-weight: 900;">簡</span>；</li>
+			<li>絕無他用。</li>
+		</ul>
+		<p><a href="https://pjchender.blogspot.com/2014/10/blog-post_14.html" target="_blank">表的製作</a> <small>(APA 規範)</small></p>
+	</section>
+
+	<section>
+		<h2>表的誤用</h2>
+		<ul>
+			<li>週報、雙週報，</li>
+			<li>開會通知單，</li>
+			<li>履歷表，</li>
+			<li>表中表，</li>
+			<li>純粹只為了表，</li>
+			<li>不知道為何要表...</li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section>
+	<h2>其他議題</h2>
+	<div style="display:flex; justify-content:center;">
+		<div style="width:35%;">
+			<ol>
+				<li>字體</li>
+				<li>中英文字並用</li>	
+				<li>標點符號</li>	
+				<li>避頭點</li>
+				<li>頁碼</li>
+			</ol>
+		</div>
+		<div style="width:35%;">
+			<ol start="6">
+				<li>目錄</li>
+				<li>註腳</li>
+				<li>多欄</li>
+				<li>圖</li>
+				<li>簡報須知</li>
+			</ol>
+		</div>
+	</div>
+</section>
+
+
+
+<section>
+	<h2>圖書館改版</h2>
+	<a href="https://doltegg.github.io/library/#"><img src="newpath.png" alt=""></a>
+</section>
+
+
+		
+</div>
+</div>
+
+<!----------------------- 備註掉 ------------------------->
+<!--
+<section>
+	<h2>大家都會排版？</h2>
+	<ul>
+		<li>醜</li>
+		<li>髒</li>		
+		<li>不入流</li>
+	</ul>
+	<p style="color:#F08080; font-size:28px;">(<i class="fas fa-skull-crossbones"></i>
+	Pre Meeting Brief Format)</p>
+</section>
+
+<section>
+	<h2>用排版來分</h2>
+	<ul>
+		<li style="color:#aaa;">下等人</li>
+		<ul style="font-size: 30px;">
+			<li>不知道要排版</li>
+			<li>不入流</li>
+		</ul>
+		<li style="color:#aaa;">中等人</li>
+		<ul style="font-size: 30px;">
+			<li>用 Space、 Enter 來排版</li>
+			<li>醜、髒</li>
+		</ul>		
+		<li style="color:#aaa;">上等人</li>
+		<ul style="font-size: 30px;">
+			<li>專業排版人</li>
+		</ul>
+	</ul>
+</section>
+-->
+	
+<script src="../../../lib/js/head.min.js"></script>
+<script src="../../../js/reveal.js"></script>
+<script>
+			
+	// More info about config & dependencies:			
+	// - https://github.com/hakimel/reveal.js#configuration			
+	// - https://github.com/hakimel/reveal.js#dependencies
+			
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				logo: true,
+				defaultTiming: 60,
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+				math: { 
+					config: 'TeX-AMS_HTML-full', //mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				      },
+	
+				menu: {
+					numbers: false,
+					useTextContentForMissingTitles: false,
+					hideMissingTitles: true,
+					themes: true,
+					themesPath: 'css/theme/',
+					transitions: true,
+					titleSelector: 'h1',
+			        	custom: [
+			            		{ title: 'Custom', icon: '<i class="fa fa-bookmark">', src: 'others/links.html' },
+			        		]
+					},
+				dependencies: [
+					{ src: '../../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../../plugin/search/search.js', async: true },
+					{ src: '../../../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../../plugin/notes/notes.js', async: true },
+					{ src: '../../../plugin/math/math.js', async: true },
+					//{ src: '../../../plugin/reveal.js-menu/menu.js', async: true },
+					]
+			});
+</script>
+</body>
+</html>
