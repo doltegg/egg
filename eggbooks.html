@@ -1,0 +1,1247 @@
+<!doctype html>
+
+<html lang="zh-Hant-TW">
+
+<head>
+	<link rel="icon" type="image/png" href="others/favicon.ico" />	
+	<title>Books</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<!--google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,500,700,900&display=swap" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme"> <!--black, white, league, sky, beige, simple, serif, blood, night, moon, solarized -->
+	
+	<!-- 文字搖晃 -->
+	<link rel="stylesheet" type="text/css" href="css/csshake.min.css">
+	
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+			
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->	
+
+<style type="text/css">
+	/*body {text-align: center;}*/
+	/** logo  **/
+	.reveal .logo { 
+		background-image: url("demonstration/logo.png"); 
+	}  
+	/* 去圖片框 */
+	.reveal section img { 
+		background:none; border:none; box-shadow:none; 
+	}  
+	/* h2 標題改為綠色 */
+	.reveal section h2 {
+		font-family: 'Noto Sans TC';
+		color: #4CAF50;
+		font-weight: 900;
+		position: relative; 
+	}
+	@keyframes slidein {
+	  from {
+	    padding-left: 100%;
+	    width: 300%;
+	  }
+	  to {
+	    padding-left: 0%;
+	    width: 100%;
+	  }
+	}
+	/* 移動 */
+	pps {
+	    width: 100px;
+	    position: relative;
+	    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+	    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+	    animation-name: example;
+		animation-iteration-count: infinite;
+	    animation-duration: 4s;
+	}
+	
+	/* Safari 4.0 - 8.0 */
+	@-webkit-keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* Standard syntax */
+	@keyframes example {
+	    0%   {left:0px; top:0px;}
+	    50%  {left:375px; top:0px;}
+	    100% {left:0px; top:0px;}
+	}
+	/* 二欄 */
+	.parent{
+		position:absolute;
+	}
+	.left{
+		position: relative;
+		float: left;
+		height: 350px;
+		width: 750px;
+	}
+	.right{
+		position: relative;
+		float: right;
+		height: 350px;
+		width: 180px;	
+	}
+	.dropdown {
+	    position: relative;
+	    display: inline-block;
+	}
+	.dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #AA2234;
+	    color: MediumSeaGreen;
+	    min-width: 360px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    padding: 10px 16px;
+	    z-index: 1;
+	}
+	.dropdown:hover .dropdown-content {
+	    display: block;
+	}
+
+	/*表格*/
+	table.bottomBorder { 
+    	border-collapse: collapse; 
+    	border-top: 2px solid;
+    	border-bottom: 2px solid;
+	}
+	table.bottomBorder tfoot { 
+		border-top: 1px solid; 
+	}
+	table.bottomBorder td { 
+		padding: 5px; 
+		border: 0px; 
+		text-align: center; 
+		font-size: 28px;
+		line-height: 1.2;
+	}
+	table.bottomBorder th { 
+    	border-bottom: 1px solid; 
+    	padding: 5px; 
+    	text-align: center;
+    	vertical-align: middle;
+    	font-size: 28px;
+	}
+	.upx:hover{
+		transform: translateY(-12px);
+	}
+	/* 滑動
+	h6 {
+	  animation-duration: 3s;
+	  animation-name: slidein;
+	  animation-iteration-count: infinite;
+	animation-direction: alternate;
+	} */
+	/* 以下為抽籤 CSS */
+	.result, .more{}
+	.more form{
+		width: 960px;
+		display: flex;
+		margin: 0 10px 15px;
+		border-radius: 100px;
+		box-sizing: border-box;		
+	}
+	.result form{
+		width: 760px;
+		display: flex;
+		margin: 0 10px 15px;
+		border-radius: 100px;
+		box-sizing: border-box;		
+	}
+	.result form{
+		border: 1px solid rgba(255,255,255,.6);
+		background: rgba(0,0,0,.3);
+	}
+	.more form{
+		padding: 5px 0px 5px 20px;
+		background: rgba(238,255,187,.8);
+	}
+	.result form .pray{
+		color: #f08;
+		padding: 10px 10px 5px 25px;
+	}
+	.result form input,	.more form input, .more form button{
+		border: none;
+		background-color: transparent;
+		color: #fff;
+		padding: 8px 10px;
+		font-size: 30px;
+		text-align: center;
+		font-family: 'Noto Sans TC';
+		font-weight: 900;
+	}
+	.result form input, .more form input{ 
+		width: 860px;
+		height: 110%;
+	}
+	.result form input{
+		margin-left:-40px;
+	}
+	.more form input{
+		text-align:left;
+		color: #222;
+	}
+	.more form button{
+		cursor: pointer;
+		width: 60px;
+		color: green;
+		margin-left: -15px;
+	}
+	section .bubox{
+		margin-bottom: 60px;
+	}
+	.bubox .btn1, .bubox .btn2,	.bubox .btn3{
+		cursor: pointer;
+		padding: 10px 40px;
+		margin: 0 10px;
+		border-radius: 6px;
+		border: none;
+		color: white;
+		font-size: 28px;
+		box-shadow: 0 5px 10px 0 rgba(255,255,255,.2), 0 3px 10px 0 rgba(255,255,255,.25);
+	}
+	.bubox .btn1:hover, .bubox .btn2:hover, .bubox .btn3:hover{
+    	box-shadow: 0 12px 16px 0 rgba(99,99,99,.8),0 17px 50px 0 rgba(99,99,99,.75);		
+	}
+	.bubox .btn1{
+		background: #4CAF50;
+	}
+	.bubox .btn2{
+		background: #880000;
+	}
+	.bubox .btn3{
+		background: #2E64FE;
+	}
+	.name_list {
+		overflow: hidden; 
+		padding: 10px 1px 1px 1px; 
+		clear: both; 
+		border: 1px solid #40AA53;
+	}  /* {overflow: hidden; padding:10px; clear:both; border: 10px solid #40AA53; color:gray;}  */
+	.name_list span, .luck_select {
+		font-size:24px; 
+		display: inline-block; 
+		padding: 2px 6px 6px 6px; 
+		white-space: nowrap;
+		background: #58FA82; 
+		color: #424242; 
+		float: left; 
+		height: 30px; 
+		line-height: 40px; 
+		margin: 0 7px 7px 0;
+		-webkit-user-select: none; 
+		-moz-user-select: none; 
+		-ms-user-select: none; 
+		-o-user-select: none; 
+		user-select: none; 
+		cursor: pointer;
+	}
+	.name_list span:hover {
+		background: #088A29;
+	}
+	.name_list span.select, .luck_select {
+		background: #f08; /*darkorange;*/
+		font-family: 'Noto Sans TC';
+		font-weight: 700;
+		color: #fff;
+	}
+	.bubox .btn1, .bubox .btn2, .bubox .btn3, .result form input:focus, .more form input:focus,	.more form button:focus{
+		outline: none;
+	}
+	/* 以上抽籤CSS */
+	/*   egg's   */
+	ol li .showtime, ul li .showtime{
+		font-size: .55em;
+		font-style: italic;
+		color: #AA2234;
+	}
+	ol li a .supicon{
+		font-size: 16px;
+		color: #F5A9A9;
+	}
+	.pic-p{
+		width: 100px;
+		height: 100px;
+		border-radius: 100%;
+		position: relative;
+		top: 30px;
+		right: 15px;
+		/*top: 30px;*/
+		/*left: 0;*/
+	}
+</style>
+</head>
+
+
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+<!-- *************************************************************************************************************** -->
+
+<body>
+	<div class="reveal">			
+	<div class="slides">
+
+<section data-menu-title="整合行銷部圖書館">
+	<h1 style="font-family: 'Noto Sans TC'; font-size:4em; font-weight: 900;">閱物<h1>
+	<h3 style="font-family: 微軟正黑體; color: #C0C0C0;">egg</h3>
+	<h5 id="dddate" style="color: #999999;"></h5>
+		<script>
+			var d = new Date();
+			document.getElementById("dddate").innerHTML = d.getFullYear() + "." + (d.getMonth()+1)+ "." + d.getDate();
+		</script>
+</section>
+
+
+
+
+
+
+
+<!-- ************************************************************************************* -->
+<!--                                        瑞宏                                           -->
+<!-- ************************************************************************************* -->
+<section>
+<section data-menu-title="目錄" id="egg">
+	<h2>許瑞宏</h2>
+	<ol style='list-style-type:lower-roman;'><small>
+		<li title="東野圭吾">
+			惡意
+		</li>
+		<li title="東野圭吾">
+			解憂雜貨店
+		</li>
+		<li title="李洛克">
+			寫作革命<span style="font-size:14px;">：散文、小說、文案、社群貼文輕鬆進階的 40 道練習題</span>
+		</li>
+		<li title="大衛．威廉斯">穿裙子的男孩
+			<a target="_blank" href="others/egg/2019/skirtboy.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>	
+		</li>
+		<li title="約翰．凱瑞魯">惡血
+			<a target="_blank" href="others/egg/2019/badblood.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>	
+		</li>
+		<li><a href="#/gene" title="辛達塔．穆克吉">基因</a> 
+		    <a target="_blank" href="others/egg/gene.pdf" title="note">
+		    	<i class="fa fa-file-pdf supicon"></i>
+		    </a>
+		    <span class="showtime"> (Oct. 4, 2018)</span>
+		</li>
+		<li title="莉莎．潔諾娃"><a href="#/obriens">因為愛，我們呼吸</a>
+		    <a target="_blank" href="others/egg/obriens.pdf" title="note">
+		    	<i class="fa fa-file-pdf supicon"></i>
+		    </a>
+			<span class="showtime"> (Oct. 18, 2018)</span>
+		</li>
+		<li title="Susan M. Weinschenk"><a href="#/design">了解「人」，你才知道怎麼設計！</a>
+			<a target="_blank" href="others/egg/design.ppsx" title="powerpoint about tables">
+				<i class="fas fa-file-powerpoint supicon"></i>
+			</a>
+			<span class="showtime"> (Jan. 10, 2019)</span>
+		</li>
+		<li title="馬克．海登"><a href="#/dog">深夜小狗神祕習題</a>
+			<a target="_blank" href="others/egg/dog.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<span class="showtime"> (Jan. 31, 2019)</span>
+		</li>
+		<li title="許榮哲"><a href="#/noveli">小說課 I ─ 折磨讀者的祕密</a>
+			<a target="_blank" href="others/egg/2019/novel1.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>	
+			<span class="showtime"> (Apr. 18, 2019)</span>
+		</li>
+		<li title="許榮哲"><a href="#/novelii">小說課 II ─ 偷故事的人</a>
+			<a target="_blank" href="others/egg/2019/novel2.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<span class="showtime"> (Apr. 18, 2019)</span>	
+		</li>			
+		<li title="許榮哲"><a href="#/noveliii">小說課 III ─ 偷電影的故事賊</a>
+			<a target="_blank" href="others/egg/2019/novel3.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>	
+			<span class="showtime"> (Apr. 18, 2019)</span>	
+		</li>
+		<li title="張翎"><a href="#/earthquake">餘震</a>
+			<a target="_blank" href="others/egg/2019/earthquake.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<span class="showtime"> (Jun. 6, 2019)</span>
+		</li>
+		<li title="莉莎．潔諾娃"><a href="#/anthony">這就是我來到這世界的理由</a>
+		    <a target="_blank" href="others/egg/scream.pdf" title="尖叫">
+		    	<i class="fa fa-file-pdf supicon"></i>
+		    </a>
+		</li>
+		<li title="吳曉樂"><a href="#/child">你的孩子不是你的孩子</a>
+			<a target="_blank" href="others/egg/child.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+	</small></ol><br />
+	<a href="#/egg2"><i class="fa fa-chevron-circle-down" style="font-size:20px;"></i></a>
+</section>
+
+<section id="egg2">
+	<h2>目錄<small>(續 1)</small></h2>
+	<ol start="16" style='list-style-type:lower-roman;'><small>
+		<li title="許榮哲">
+			<a href="#/story1">故事1：3分鐘說18萬個故事，打造影響力</a>
+			<a target="_blank" href="others/egg/2019/story1.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="許榮哲">
+			<a href="#/story2">故事2：99%有效的故事行銷，創造品牌力</a>
+			<a target="_blank" href="others/egg/2019/brand.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<a href="others/egg/brand.html" target="_blank">
+				<i class="fas fa-file-code supicon"></i>
+			</a>
+			<span class="showtime"> (Sep. 12, 2019)</span>
+		</li>
+		<li title="莎莉．潔諾娃">
+			<a href="#/noteplayed">當最後一個音符輕柔落下</a>
+			<a target="_blank" href="others/egg/2019/noteplayed.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="理查．賽勒">
+			<a href="#/misbehaving">不當行為</a>
+			<a target="_blank" href="others/egg/2019/misbehaving.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<a href="others/egg/2019/misbehaving.html" target="_blank">
+				<i class="fas fa-file-code supicon"></i>
+			</a>
+			<span class="showtime"> (Nov. 7, 2019)</span>
+		</li>
+		<li title="池井戶潤"><a href="#/meetings">七個會議</a>
+			<a target="_blank" href="others/egg/2019/7meetings.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="朴信英"><a href="#/princeeverywhere">童話裡隱藏的世界史</a>
+			<a target="_blank" href="others/egg/2019/princeeverywhere.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<a target="_blank" href="others/egg/2020/legend.html">
+				<i class="fas fa-file-code supicon"></i>
+			</a>
+			<span class="showtime"> (Apr. 16, 2020)</span>
+		</li>
+		<li title="東野圭吾"><a href="#/newone">新參者</a>
+		</li>
+		<li title="提姆．哈福特">親愛的臥底經濟學家
+			<a target="_blank" href="others/egg/2019/deareconomist.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="東野圭吾">禁忌的魔術
+			<a target="_blank" href="others/egg/2019/magic.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="Mitch Albom">在天堂遇見的五個人
+			<a target="_blank" href="others/egg/2019/inheaven.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="Mitch Albom">在天堂遇見的下一個人
+			<a target="_blank" href="others/egg/2020/nextinheaven.pdf" title="note">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="Eric A. Meyer & Estelle Weyl">
+			<a href="#/csstype">CSS 大全</a>
+			<a target="_blank" href="others/egg/2020/css.pdf" title="contents">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<a target="_blank" href="others/egg/2020/typecss.html">
+				<i class="fas fa-file-code supicon"></i>
+			</a>
+			<span class="showtime"> (Jun. 18, 2020)</span>
+		</li>
+		<li title="李洛克">故事行銷
+			<a target="_blank" href="others/egg/2020/storymarketing.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		</li>
+		<li title="朱敬一">牧羊人讀書筆記
+			<a target="_blank" href="others/egg/2020/readingnotes.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		</li>
+		<li title="辛達塔．穆克吉">萬病之王
+			<a target="_blank" href="others/egg/2020/cancer.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<a target="_blank" href="others/egg/2020/cancer.html">
+				<i class="fas fa-file-code supicon"></i>
+			</a>
+			<span class="showtime"> (Sep. 10, 2020)</span>
+		</li>
+	</small></ol><br />
+	<a href="#/egg3"><i class="fa fa-chevron-circle-down" style="font-size:20px;"></i></a>
+</section>
+
+<section id="egg3">
+	<h2>目錄<small>(續 2)</small></h2>
+	<ol start="31" style='list-style-type:lower-roman;'><small>
+		<li title="詹姆斯．傅瑞">超棒小說這樣寫
+			<a target="_blank" href="others/egg/2020/writedamnnovel.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="余華">我只要寫作，就是回家
+			<a target="_blank" href="others/egg/2020/whenwriting.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="李維菁">我是許涼涼
+			<a target="_blank" href="others/egg/2020/hsuliangliang.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="余華">活著
+			<a target="_blank" href="others/egg/2020/tolive.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="余華">兄弟
+			<a target="_blank" href="others/egg/2020/brother.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="余華">第七天
+			<a target="_blank" href="others/egg/2020/7thday.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="茱迪．皮考特">家規
+			<a target="_blank" href="others/egg/2020/houserules.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="余華">呼喊與細雨
+			<a target="_blank" href="others/egg/2020/shoutdrizzle.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="余華">許三觀賣血記
+			<a target="_blank" href="others/egg/2020/sellblood.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="史蒂芬‧霍金">霍金大見解
+			<a target="_blank" href="others/egg/2020/bigquestions.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="侯文詠">沒有神的所在
+			<a target="_blank" href="others/egg/2020/nogod.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="東野圭吾">白夜行
+			<a target="_blank" href="others/egg/2020/whitenight.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="盧基揚年科">雪舞者
+			<a target="_blank" href="others/egg/2020/snowdancer.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="周慕姿">情緒勒索
+			<a target="_blank" href="others/egg/2020/fog.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="余老詩">破百萬點閱文案寫作大解密
+			<a target="_blank" href="others/egg/2020/getmillion.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>		
+	</small></ol><br />
+	<a href="#/egg4"><i class="fa fa-chevron-circle-down" style="font-size:20px;"></i></a>
+</section>
+
+<section id="egg4">
+	<h2>目錄<small>(續 3)</small></h2>
+	<ol start="46" style='list-style-type:lower-roman;'><small>
+		<li title="馬克斯‧巴金漢 & 艾希利‧古德">關於工作的九大謊言
+			<a target="_blank" href="others/egg/2020/9lies.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+		</li>
+		<li title="莫言">蛙
+			<a target="_blank" href="others/egg/2020/frog.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>		
+		</li>
+		<li title="陳文茜">終於，還是愛了
+			<a target="_blank" href="others/egg/2020/finallove.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>			
+		</li>
+		<li title="呂蒔媛">我們與惡的距離
+			<a target="_blank" href="others/egg/2020/BetweenUs.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>	
+		</li>
+		<li title="史丹利‧米爾格蘭">服從權威
+			<a target="_blank" href="others/egg/2020/ObedienceAuthority.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>
+			<a target="_blank" href="others/egg/2021/ObedienceAuthority.html">
+				<i class="fas fa-file-code supicon"></i>
+			</a>
+			<span class="showtime"> (Jan. 7, 2021)</span>		
+		</li>
+		<li title="漢娜‧鄂蘭">平凡的邪惡
+			<a target="_blank" href="others/egg/2020/banalityofevil.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>	
+			</a>	
+		</li>
+		<li title="莫言">蒼蠅・門牙
+			<a target="_blank" href="others/egg/2020/fly.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>	
+			</a>	
+		</li>
+		<li title="莫言">晚熟的人
+			<a target="_blank" href="others/egg/2020/LateMature.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>	
+			</a>	
+		</li>		
+		<li title="史蒂芬‧金">史蒂芬金的故事販賣機
+			<!--<a target="_blank" href="others/egg/2020/SkeletonCrew.pdf" title="notes">
+				<i class="fa fa-file-pdf supicon"></i>
+			</a>-->
+		</li>
+	</small></ol>
+</section>
+</section>
+
+
+
+<section>
+	<h2>保險業的無接觸服務</h2>
+	<a href="https://doltegg.github.io/egg/others/egg/2020/zerotouch.html#/"><img src="https://doltegg.github.io/egg/others/egg/2020/zerotouch.png"></a>
+</section>
+
+<section>
+	<section id="story2" data-transition="slide" data-background-image="others/egg/story2.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+			<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+		<h3 style="color:#65BB44;">99% 有效的故事行銷，創造品牌力</h3>
+		<h5 style="font-size:32px; color:orange;">許榮哲</h5>
+		<div class="parent">
+			<div class="left">
+				<iframe width="735" height="552" src="https://www.youtube.com/embed/L9jiPQAuTBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="right">
+				<img src="others/egg/story2.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+				<br />
+			<a href="others/egg/brand.html" target="_blank"><i class="fas fa-file-code"></i></a>
+			</div>
+		</div>
+	</section>
+
+	<section data-transition="slide" data-background-image="others/egg/story2.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<h3 style="color:#65BB44;">99% 有效的故事行銷，創造品牌力</h3>
+		<div class="parent" style="font-size: 32px; text-align: left; line-height: 1.5;">
+		<div class="left">
+			<ul>			
+				<li>飢荒、戰爭下，小麥當主食不夠吃</li>
+				<li>推廣馬鈴薯當主食</li>
+				<ul>
+					<li>三好：營養高、產量豐富、容易種植</li>
+				</ul>
+				<li class="fragment">俄國彼得大帝、法國路易十六相繼失敗</li>
+				<ul class="fragment">
+					<li>三壞：鬼影幢幢、染毒陰影、聖經沒說</li>
+				</ul>
+				<li class="fragment">腓特列大帝的馬鈴薯</li>
+				<ul class="fragment">
+					<li>定為「皇家蔬菜」，皇親國戚才能吃</li>
+					<li>國王才能種，老百姓不准種</li>
+				</ul>
+			</ul>
+			<!--<p class="fragment" style="color: yellow;">老百姓好奇，偷來吃、種來黑市賣。</p>-->
+		</div>
+		<div class="right">
+			<img src="others/egg/story2.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		</div>
+		</div>
+	</section>	
+</section>
+
+<section id="princeeverywhere" data-transition="slide" data-background-image="others/egg/2020/princeeverywhere.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.15">
+	<h2 style="color:#F08080;">童話裡隱藏的世界史</h2>
+		<h5 style="font-size:32px; color:#aaa;">朴信英</h5>
+	<div class="parent">
+		<div class="left" style="font-size: 32px; text-align: left; line-height: 1.5;">
+			<p><span style="color:#FFB7DD">《小紅帽》</span><span class="fragment"><br/>很久很久很久以前...</span></p>
+			<ol>
+				<li class="fragment">大野狼吃掉了奶奶、之後也吃掉了小紅帽</li>
+				<li class="fragment">大野狼吃掉了奶奶、之後也吃掉了小紅帽，後來獵人把大野狼的肚子切開</li>
+			</ol>
+			<p class="fragment" style="color: #FF88C2;">1812 年最早的版本根本不是這樣。<br>
+			<span class="fragment" style="color: yellow;">原來童話就是用謊言來編造一個警惕小孩的故事。</span></p>		
+		</div>
+		<div class="right">
+			<img src="others/egg/2020/princeeverywhere.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover"><br>
+			<a href="https://www.facebook.com/yupupin/posts/3516114768404262" target="_blank" style="padding:10px;">
+				<i class="fab fa-facebook"></i>
+			</a><br>
+			<a href="others/egg/2020/legend.html" target="_blank" style="padding:10px;">
+				<i class="fas fa-file-code"></i>
+			</a>
+		</div>
+	</div>	
+</section>
+
+
+<section id="csstype" data-transition="slide">
+	<h2 style="color:#F08080;">CSS 大全</h2>
+	<h4 style="color:#ffcccc;">Eric A. Meyer & Estelle Weyl</h3>
+	<div class="parent">
+		<div class="left">
+			<pre><code data-trim data-noescape>
+			&lt;html&gt;
+			&lt;head&gt;
+				&lt;link rel="stylesheet" href="css/reveal.css"&gt;
+				&lt;link rel="stylesheet" href="css/theme/black.css" id="theme"&gt;
+
+				&lt;style type="text/css"&gt;
+					.parent{
+				  	  position:absolute;
+					}
+					.left{
+					  position: relative;
+					  float: left;
+					  height: 350px;
+					  width: 750px;
+					}
+					.right{
+					  position: relative;
+					  float: right;
+					  height: 350px;
+					  width: 180px;	
+					}
+				&lt;/style&gt;
+			&lt;/head&gt;
+
+			&lt;body&gt;
+				&lt;div class="parent"&gt;
+					&lt;div class="left"&gt;			      
+			    		左側內容
+				    &lt;/div&gt;
+				    &lt;div class="right"&gt;
+			    		&lt;img class="upx" src="others/egg/2020/css.png" height="220px"&gt;
+			    		&lt;a href="others/egg/2020/typecss.html" target="_blank"&gt;
+			    			&lt;i class="far fa-hand-point-up" style="color:#F08080"&gt;&lt;/i&gt;
+			    		&lt;/a&gt;
+			    	&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/body&gt;
+			&lt;/html&gt;
+			</code></pre>
+		</div>				
+		<div class="right">
+			<img class="upx" src="others/egg/2020/css.png" style="height:200px">
+			<a href="https://doltegg.github.io/library/" target="_blank"><img src="others/egg/2020/qr_library.png" style="width:140px; margin-top:-10px;"></a>
+			<div style="margin-top:-10px;"><a href="others/egg/2020/typecss.html" target="_blank"><i class="far fa-hand-point-up" style="color:#F08080;"></i></a></div>
+		</div>
+	</div>
+		
+</section>	
+
+
+
+
+
+<section id="misbehaving" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+	<h2 style="color:#F08080;">不當行為</h2>
+	<h4 style="color:#ffcccc;">理查‧塞勒</h3>
+		<a href="others/egg/2019/misbehaving.html" target="_blank" class="badge shake-constant shake-chunk">
+			<img src="https://doltegg.github.io/book/images/misbehaving.jpg" width="300px" /></a><br />
+		<a href="others/egg/2019/misbehaving.html" target="_blank"><i class="far fa-hand-point-up" style="color:#FFB7DD"></i></a>
+</section>	
+
+<section id="child" data-menu-title="你的孩子不是你的孩子" data-transition="slide" data-background-image="others/egg/child.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+	<h2 style="color:#F08080;">你的孩子不是你的孩子</h2>
+	<h5 style="font-size:32px; color:blue;">吳曉樂</h5>
+	<div class="parent">
+		<div class="left">
+			<ul style="line-height:40px; font-size:28px;">
+				<!-- fragment 為分段顯示  -->
+				<li>把孩子帶來人世間的男女自然能勝任父母的角色 , 這實在是很<span style="color:red;">天真</span>的幻想。</li>
+				<li>每一個小孩，有其存在的<span style="color:red;">獨特性</span>。有太多父母執意要小孩去臨摹其他人的行為，複製類似的成功經驗，去追求他們眼中的理想人生，圓滿他們年輕時未竟的夢，甚至是驅策小孩成為「第二個自己」。<br />
+								<div style="line-height:35px; color:blue; font-size:24px;">就小孩立場來說，「為了達成某個目的，自己才被生下來」，也是很可悲的一件事。</div></li>
+				<li>妳若執意給她做決定， 這在某種程度上也是一種<span style="color:red;">溺愛</span>。</li>
+				<li>這些故事之所以存在，是期待我們去凝視一個初衷，靜下來，好好想想，把小孩帶到這世界上的<span style="color:red;">初衷</span>。<br />
+					<div style="line-height:35px; color:blue; font-size:24px;">曾經，我們光是觸摸小孩柔軟的掌心就滿足不已。</div></li>
+			</ul>
+		</div>
+		<div class="right">
+			<img src="others/egg/child.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		</div>
+	</div>	
+</section>
+	
+
+<section id="newone" data-transition="slide" data-background-image="others/egg/newone.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1"-->
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h2 style="color:#65BB44;">新參者</h2>
+	<h5 style="font-size:32px; color:blue;">東野圭吾</h5>
+	<div class="parent">
+		<div class="left">
+			<a target="_blank" href="https://www.google.com/maps/d/viewer?ie=UTF8&hl=zh-TW&msa=0&ll=35.686590141808466%2C139.79047374078368&spn=0.0061%2C0.00912&z=16&source=embed&mid=1_y2Ur1b5OGJs2glpIdkqzLHihsI"><img src="others/egg/newmap.jpg"></a>
+		</div>
+		<div class="right">
+			<img src="others/egg/newone.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		</div>
+	</div>
+</section>
+
+<section id="meetings" data-transition="slide" data-background-image="others/egg/2019/meetingsb.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1"-->
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h2 style="color:#65BB44;">七個會議</h2>
+	<h5 style="font-size:32px; color:blue;">池井戶潤</h5>
+	<a target="_blank" href="others/egg/2019/7meetings.pdf"><img src="others/egg/2019/meetings4.png" width="750px"></a>
+</section>
+
+<section id="story1" data-transition="slide" data-background-image="others/egg/story1.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h3 style="color:#65BB44;">3 分鐘說 18 萬個故事，打造影響力</h3>
+	<h5 style="font-size:32px; color:orange;">許榮哲</h5>
+	<div class="parent">
+	<div class="left">
+		<ul style="line-height:48px; font-size:28px;">
+			<!-- fragment 為分段顯示  -->
+			<li>「我我我在你老婆床上等等等...... 火車經過。」</li>
+			<li>史上第二厲害的故事類型</li>
+				<ul>
+				<li>賽局理論</li>
+				<li>第十三封情書： <span style="font-size:22px">$r=a(1-\sin\theta)$</span> </li>
+				</ul>
+			<li>史上最厲害的故事</li>
+				<ul>
+				<li>賽局理論的故事再發展</li>
+				</ul>
+		</ul>
+	</div>
+	<div class="right">
+		<img src="others/egg/story1.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+	</div>
+	</div>
+</section>
+
+
+
+<section id="noteplayed" data-menu-title="當最後一個音符輕柔落下"  data-transition="slide" data-background-image="https://doltegg.github.io/egg/others/egg/played.png" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1"-->
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h2 style="color:#ff0080;">當最後一個音符輕柔落下</h2>
+	<h5 style="font-size:32px; color:#eee;">莎莉‧潔諾娃</h5>
+	<div class="parent">
+	<div class="left">
+	</div>
+	<div class="right">
+		<img src="https://doltegg.github.io/egg/others/egg/played.png" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">		
+	</div>
+	</div>
+</section>
+
+
+
+<section id="earthquake" data-transition="slide" data-background-image="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+		<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+	<h3 style="color:#65BB44;">餘震 (唐山大地震)</h3>
+	<h5 style="font-size:32px; color:orange;">張翎 (馮小剛)</h5>
+	<div class="parent">
+		<div class="left">
+			<iframe width="962" height="541" src="https://www.youtube.com/embed/EqdQ1wjrTDU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<div class="right">
+			<img src="https://doltegg.github.io/blog/assets/images/2019/earthquake.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		</div>
+	</div>
+</section>
+
+<section>
+	<section id="noveli" data-transition="slide" data-background-image="others/egg/noveli.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+			<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+		<h2 style="color:#65BB44;">小說課 I ─ 折磨讀者的祕密</h2>
+		<h5 style="font-size:32px; color:#ffcccc;">許榮哲</h5>
+		<div class="parent">
+			<div class="left">
+			<ul style="line-height:40px; font-size:28px;">
+				<!-- fragment 為分段顯示  -->
+				<li>馬奎斯說的極好，每篇好小說都是這個世界上的一個<span style="color:yellow;">謎</span>。有了謎，就帶來了<span style="color:yellow;">折磨</span>。</li>
+				<li>此處的場景和一開始的場景幾乎一模一樣，但讀者這時的心情已經和當初看到這個場景時的心情完全不一樣了，...</li>
+				<li>人物的<span style="color:yellow;">性格</span>決定了人物的命運，而不是小說家決定了人物的命運。</li>
+				<li>有一種說法是這樣，當小說寫到三分之一處時，小說就會<span style="color:yellow;">脫離</span>作家的手，自己接力寫下去。</li>
+				<!--<li>壞詩人用『借』的，好詩人用『偷』的。</li>
+				<li>現在的範圍極小而明確，但過去和未來卻時無邊無際。</li>
+				<li>過去，雖然已經發生了，但人們常常因著各種理由，而將之扭曲變形，以便捏塑成符合自己需求的記憶。</li>-->
+				<li>所以請記得創作 (或虛構) 小說的你，擁有至高無上的訂定<span style="color:yellow;">規則權力</span>，千萬別被現實這個可怕的敵人牽著鼻子走，</li>
+				<!--<li><a target="_blank" href="others/egg/blackheart.pdf">「黑暗之心」</a></li>-->
+			</ul>			
+			</div>
+			<div class="right">
+				<img src="others/egg/noveli.jpg" width="120px">
+				<img src="others/egg/novelii.jpg" width="120px">
+			</div>
+		</div>
+	</section>
+
+	<section id="novelii" data-transition="slide" data-background-image="others/egg/novelii.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+			<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+		<h2 style="color:#65BB44;">小說課 II ─ 偷故事的人</h2>
+		<h5 style="font-size:32px; color:#ffcccc;">許榮哲</h5>
+		<div class="parent">
+		<div class="left" style="text-align:left">
+		<p style="font-size:32px;"><b><u>史上最準的心理測驗</u></b>&nbsp;  <sup title="note"><a target="_blank" href="others/egg/2019/novel22.pdf"><i class="fa fa-file-pdf" style="font-size:16px;color:pink"></i></a></sup></p>
+			<p style="font-size:28px;">有個旅人因為迷路，再加上三天三夜沒有進食、喝水，即將倒下之前，意外發現前面有間小木屋。旅人用盡最後一口氣，好不容易爬進小木屋。屋裡空蕩蕩的，什麼也沒有。正當絕望之際，赫然發現桌上有三種水果：
+		<ul style="line-height:40px; font-size:28px;">
+			<!-- fragment 為分段顯示  -->
+			<li>西瓜</li>
+			<li>香蕉</li>
+			<li>蘋果</li>
+		</ul>
+		<p style="font-size:28px;">如果你只能選擇一種水果，你會選哪一種？</p>
+		</div>
+		<div class="right">
+			<img src="others/egg/novelii.jpg" width="120px">
+			<img src="others/egg/noveliii.jpg" width="120px">
+		</div>
+		</div>
+	</section>
+
+	<section id="noveliii" data-transition="slide" data-background-image="others/egg/noveliii.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.1">
+			<!-- data-transition="slide" data-background="#ffffff" data-background-transition="zoom">-->
+		<h2 style="color:#65BB44;">小說課 III ─ 偷電影的故事賊</h2>
+		<h5 style="font-size:32px; color:#ffcccc;">許榮哲</h5>
+		<p style="font-size:32px; text-align:left;"><b><u>隧道</u></b></p>
+		<ul style="font-size:28px;">
+		<li>隧道非常具有<span style="color:yellow;">象徵性</span>，入口與出口之間，隔著不知道多久才會結束的黑暗。</li>
+		<li>隧道裡， 一片全然的黑，最無助的人物走在最無助的空間裡，沒有人知道<span style="color:yellow;">前方</span>等著他們的是什麼。</li>
+		</ul>
+			<img src="others/egg/No7.jpg" height="250px"> 
+			<img src="others/egg/train.jpg" height="250px">
+			<img src="others/egg/noveli.jpg" height="250px">
+			<img src="others/egg/novelii.jpg" height="250px">
+			<img src="others/egg/noveliii.jpg" height="250px">
+	</section>
+
+	<section data-transition="slide" data-background-image="others/egg/train.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.2">
+		<h2>屍速列車的結局應該停在哪裡？</h2>
+		<ol>
+			<li>三人新世界<span style="color:yellow; font-size:18pt"><em> (75%)</em></span></span></li>
+			<li>悲劇英雄<span style="color:yellow; font-size:18pt"><em> (80%)</em></span></li>
+			<li>開放隧道<span style="color:yellow; font-size:18pt"><em> (85%)</em></span></li>
+			<li>貫穿頭尾的伏筆<span style="color:yellow; font-size:18pt"><em> (原劇)</em></span></li>
+			<li>角色性格的伏筆<span style="color:yellow; font-size:18pt"><em> (性格)</em></span></li>
+			<li>重複的禮物<span style="color:yellow; font-size:18pt"><em> ...</em></span></li>
+		</ol>
+	</section>
+</section>
+
+<section id="dog" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+	<h2 style="color:#F08080;">深夜小狗神祕習題</h2>
+	<h5 style="font-size:32px; color:#ffcccc;">馬克‧海登</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li>三門問題 (蒙特霍問題、蒙提霍爾悖論)</li>
+		    假設你正在參加一個遊戲節目，你被要求在三扇門中選擇一扇：其中一扇後面有一輛車；其餘兩扇後面則是山羊。你選擇了一道門，假設是一號門，然後<span style="color:yellow;" class="preview-item small shake-little shake-constant shake-constant--hover"><b>知道</b></span>門後面有什麼的主持人，<span style="color:yellow;" class="preview-item small shake-little shake-constant shake-constant--hover"><b>開啟</b></span>了另一扇後面有山羊的門，假設是三號門。他然後問你：「你想選擇二號門嗎？」
+  		<li>瑪麗蓮·沃斯·莎凡特</li>
+		    在1980年代中期因躋身《金氏世界紀錄》中的智商紀錄保持人而成名（結果為228）。當時她的答覆在《大觀雜誌》刊出之後引起舉世關注。她的解答徹底<span style="color:yellow;" class="badge shake-constant shake-chunk"><b>違反直覺</b></span>，並引起眾多數學家的<a target="_blank" href="others/egg/doors.pdf">質疑</a>。但隨後的闡釋讓質疑者顏面無光。</li>
+	</ul>
+	</div>
+	<div class="right">
+		<img src="others/egg/dog.png" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		<img src="others/egg/Marilyn.jpg" width="168px">
+	</div>
+	</div>	
+</section>
+
+
+<section id="design" data-transition="slide" data-background="#ffffff" data-background-transition="zoom">
+	<h2 style="color:#F08080;">了解人你才知道怎麼設計</h2>
+	<div class="parent">
+	<div class="left">
+		<ul style="line-height:40px; font-size:28px;">
+			<!-- fragment 為分段顯示  -->
+			<li>你的腦部不斷在解釋你眼睛看到的所有事物。</li>
+		</ul>
+		<p><a target="_blank" href="others/egg/design.ppsx"><img src="others/egg/design2.png" width="400" /></a></p>
+	</div>
+	<div class="right">
+		<img src="others/egg/design1.jpg" width="175px" class="preview-item small shake-slow shake-constant shake-constant--hover">
+	</div>
+	</div>	
+</section>
+
+<section id="gene" data-transition="slide" data-background-image="others/egg/gene.jpg" data-background-size="12%" data-background-repeat="repeat" data-background-opacity="0.125">
+	<h2 style="color:#F08080;">基因<span style="font-size:32px">：人類最親密的歷史</span></h2>
+	<h5 style="font-size:32px; color:#ffcccc;">辛達塔‧穆克吉 (The Gene)</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:40px; font-size:28px;">
+		<!-- fragment 為分段顯示  -->
+		<li class="fragment">你的爹娘，把你搞得<pps><span style="color:yellow;" class="shake-chunk shake-constant shake-constant--hover dib">一蹋糊塗</span></pps>。<br />
+						<div style="line-height:35px; color:#A9F5BC; font-size:24px;">他們未必有心如此，卻依舊這麼做了。他們把自己的缺點，一股腦兒塞給你，還特別為你，<u>附贈</u>更多。</div></li>
+		<li class="fragment">疾病不是絕對的殘疾，而是基因型和環境之間的<span style="color:yellow;" class="shake shake-opacity">不一致</span>。</li></span>
+		<li class="fragment">女性的隱私權「範圍足以涵蓋她是否決定<span style="color:yellow;" class="preview-item small shake-little shake-constant shake-constant--hover">終止</span>懷孕」。</li>
+		<li class="fragment">法官認為「在可以合理確定孩子會畸形時，準父母<span style="color:yellow;" class="shake shake-slow">有權</span>選擇不要生孩子。」</li>
+		<li class="fragment">法庭認為孩子擁有天生不帶有<span style="color:yellow;" class="shake-constant shake">遺傳異常</span>的權利，這是一種基本的權利。</li>
+		<li class="fragment">人類史上舉世最大的「消極優生學」計畫，並不是 1930 年代在納粹德國或奧地利有系統地處決猶太人，這項恐怖的殊榮落在<span style="color:yellow;" class="badge shake-constant shake-chunk">印度</span>和<span style="color:yellow;" class="badge shake-constant shake-chunk">中國</span>，在這兩個國家，...</li>
+  	</ul>
+	</div>
+	<div class="right">
+		<img src="others/egg/gene.jpg" class="preview-item small shake-slow shake-constant shake-constant--hover">
+		<img src="others/egg/gene2.jpg">
+	</div>
+	</div>	
+</section>
+<section id="obriens" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+	<h2 style="color:#F08080;">因為愛，我們呼吸</h2>
+	<h4 style="font-size:32px; color:#ffcccc;">莉莎‧潔諾娃 (Inside the O'Briens)</h3>
+	<h5 style="font-size:28px; color:#f7e1e1;">亨丁頓舞蹈症</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:50px; font-size:32px;">
+		<!-- fragment 為分段顯示 <span class="fragment">  -->
+		<li>他伸進前口袋，拿出零錢。他找出四個二十五分硬幣...。每個孩子都有<span style="color:black" class="shake shake-constant shake-constant-hover">百分之五十</span>的機率。</li>
+		<li>至今，有超過<span style="color: black;">百分之九十</sapn>可能患有 HD 的人選擇保持未知。</li>
+		<li>寶寶一出生，就只有她自己才能決定要不要知道自己基因，而最早的檢驗法定年齡是<span style="color:black">十八歲</span>。</li>
+		<!--<li>我們需要你，爸。拜託，我們需要學會怎麼跟 HD 共處。</li>-->
+		<li>自 1993 年起知道造成 HD 的單一因素是基因突變，但至今仍<span style="color:black">無</span>有效預防或減緩病程的療法。</li>
+	</ul>
+	</div>
+	<div class="right">
+		<img src="others/egg/obriens.jpg" class="preview-item shake sheake-chunk shake-constant">
+	</div>
+	</div>	
+</section>
+<section id="anthony" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+	<h2 style="color:#F08080;">這就是我來到這世界的理由</h2>
+	<h4 style="font-size:32px; color:#ffcccc;">莉莎‧潔諾娃 (Love Anthony)</h3>
+	<h5 style="font-size:28px; color:#f7e1e1;">自閉症</h5>
+	<div class="parent">
+	<div class="left">
+	<ul style="line-height:50px; font-size:32px;">
+		<!-- fragment 為分段顯示  -->
+		<li>自閉症患者只是和別人不同，而不是不如人。</li>
+		<li>討厭碰觸、不與人有眼神接觸，但還是有想法，同每個人一樣，他有他喜歡的<span class="shake-constant shake" style="color:black">邏輯</span>，與思考模式。</li>
+		<li>高鐵上<b><a target="_blank" href="others/egg/scream.pdf">尖叫</a></b>
+			<ul style="list-style-type:lower-roman;">
+			<li>永遠如此規則</li>
+			<li>情狀規則</li>
+			</ul>
+		</li>
+		<li>我來到這個世界只有一個簡單的目的，而自閉症就是我的<span color="black">工具</span></li>
+	</ul>
+	</div>
+	<div class="right">
+		<img src="others/egg/anthony.jpg" class="badge shake-constant shake-chunk">
+	</div>
+	</div>	
+</section>
+
+
+
+		
+</div>
+</div>
+
+
+
+<!-- ********** 抽獎 ********** -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+
+
+var allData = {};
+function addData(){
+    var input = document.getElementById("more_input");
+    var data = input.value;
+    input.value = '';
+    if(!data){
+    	alert('還沒拜請，是要加「鬼」膩？'); return;
+	}
+
+	data = data.replace("，",",").replace(",,",",").split(",");
+	var d, i, s='';
+	for (i=0;i<data.length;i++){
+	    d = data[i].replace(/(^\s*)|(\s*$)/g, '');
+	    if(d && !allData[d]) {
+	        allData[d]=-1;
+	        s+='<span ondblclick="removeData(this)" title="雙擊刪除">' + d + '</span>';
+	    }
+	}
+	var name_list = document.getElementById("name_list");
+	if(name_list.getElementsByTagName('span').length<1)
+		name_list.innerHTML='';
+	    name_list.innerHTML+=s;
+	    timer && start();
+}
+function removeData(obj){
+    delete allData[obj.innerHTML];
+    obj.parentNode.removeChild(obj);
+}
+var timer;
+var dataarr = [];
+function change(){
+    document.getElementById("oknum").value = dataarr[GetRnd(0,dataarr.length-1)];
+}
+function clear(){
+    clearInterval(timer);
+    timer='';
+    document.getElementById("oknum").value='';
+}
+function start(){
+    clear();
+    dataarr = [];
+    for(var d in allData) {
+        if(allData[d]===-1) dataarr.push(d);
+    }
+    if(dataarr.length<1){
+        alert('啊，沒有候選人，是要抽「鬼」膩？');
+        return;
+    }
+    timer = setInterval('change()',46);
+}
+function ok(){
+    clearInterval(timer);
+    timer='';
+    var lucky=document.getElementById("oknum").value;
+    if(!lucky)return;
+	var spans = document.getElementById("name_list").getElementsByTagName('span');
+    if(spans.length<1)return;
+    for (i=0;i<spans.length;i++){
+        if(spans[i].innerHTML == lucky){
+            spans[i].className='select';
+            allData[spans[i].innerHTML]=1;
+        }
+    }
+    // 試著寫<!-- 芷儀, 瑞宏, 慎淇, 芝萱, 筱婷, 智超, 昱宏, 宛霖, 黃薇, -->
+            var app = new Vue({
+              el: '#app',
+              data: {
+                y: lucky,
+                // x: '',
+                // xx: "img/" + x + "01.jpg"
+              },
+              computed: {
+                yy: function () {
+                  if(this.y==="芷儀"){
+                    return "https://doltegg.github.io/library/img/na01.jpg"
+                  }else if(this.y==="瑞宏"){
+                    return "https://doltegg.github.io/library/img/egg01.jpg"
+                  }else if(this.y==="慎淇"){
+                    return "https://doltegg.github.io/library/img/shenchi01.jpg"
+                  }else if(this.y==="芝萱"){
+                    return "https://doltegg.github.io/library/img/susan01.jpg"
+                  }else if(this.y==="筱婷"){
+                    return "https://doltegg.github.io/library/img/amal01.jpg"
+                  }else if(this.y==="智超"){
+                    return "https://doltegg.github.io/library/img/mcw01.jpg"
+                  }else if(this.y==="昱宏"){
+                    return "https://doltegg.github.io/library/img/yulin01.jpg"
+                  }else if(this.y==="宛霖"){
+                    return "https://doltegg.github.io/library/img/astrid01.jpg"
+                  }else if(this.y==="黃薇"){
+                    return "https://doltegg.github.io/library/img/vivien01.jpg"
+                  }else {
+                    return "https://doltegg.github.io/library/img/f01.jpg"
+                  }	
+                }
+              }  
+            })
+          // 試著寫 
+
+
+
+
+
+}
+function GetRnd(min,max){
+    return parseInt(Math.random()*(max-min+1));
+}
+</script>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+			
+	// More info about config & dependencies:			
+	// - https://github.com/hakimel/reveal.js#configuration			
+	// - https://github.com/hakimel/reveal.js#dependencies
+			
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				logo: true,
+				defaultTiming: 60,
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+				math: { 
+					config: 'TeX-AMS_HTML-full', //mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				      },
+	
+				menu: {
+					numbers: false,
+					useTextContentForMissingTitles: false,
+					hideMissingTitles: true,
+					themes: true,
+					themesPath: 'css/theme/',
+					transitions: true,
+					titleSelector: 'h1',
+			        	custom: [
+			            		{ title: 'Custom', icon: '<i class="fa fa-bookmark">', src: 'others/links.html' },
+			        		]
+					},
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'plugin/reveal.js-menu/menu.js', async: true },
+					]
+			});
+</script>
+</body>
+</html>
