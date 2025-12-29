@@ -99,9 +99,11 @@
     }
     header.sticky .logo{
         color: #011056;
+        text-shadow: 0px 0px 0px #011056;
     }
     header.sticky .logo span{
         color: #ff0157;
+        text-shadow: 0px 0px 0px #ff0157;
     }
     header .navigation{
         position: relative;
@@ -203,8 +205,8 @@
         top: 20px;
         left: 50%;  
         transform: translateX(-50%);      
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         background: url("imgs/nine.jpg") no-repeat center / cover;
         z-index: 10;
         border: 2px solid #eee;
@@ -226,8 +228,8 @@
         top: 20px;
         left: 50%;  
         transform: translateX(-50%);      
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         background: url("imgs/white.jpg") no-repeat center / cover;
         z-index: 10;
         border: 2px solid #eee;
@@ -267,6 +269,12 @@
         content: '加蛋\A加小白菜';
         background: url("imgs/white.jpg") no-repeat center / cover;
     } */
+    .menu .content .box:hover .imgBx.nine img{
+        content: url("imgs/menu05.jpg");
+    }
+    .menu .content .box:hover .imgBx.white img{
+        content: url("imgs/menuxy.jpg");
+    }
     .menu .content .box .text{
         padding: 15px 0 5px;
     }
@@ -509,7 +517,7 @@
             </div>
             <div class="box">
                 <div class="imgBx nine">
-                    <img src="imgs/menu05.jpg" alt="">
+                    <img src="imgs/menuxx.jpg" alt="">
                 </div>
                 <div class="text">
                     <h3>蔥抓餅加蛋加九層塔</h3>
