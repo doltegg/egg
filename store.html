@@ -56,9 +56,11 @@
         font-size: 1em;
         color: #333;
     }
-    .banner .content a{
-        display: inline-block;
-        margin: 20px 5px;
+    .banner .content div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
     .btn{
         font-size: 1em;
@@ -67,13 +69,10 @@
         display: inline-block;
         padding: 10px 30px;
         margin-top: 20px;
-        text-transform: uppercase;
         text-decoration: none;
-        letter-spacing: 2px;
         transition: .5s;
     }
     .btn:hover{
-        letter-spacing: 4px;
         font-weight: 900;
         font-size: 1.2em;
     }
@@ -472,8 +471,11 @@
             <p class="street">金門街</p>
             <h2>鹹粥蔥抓餅</h2>
             <p class="note">主要餐點為古早味鹹粥、蔥抓餅。</p>
-            <a href="#menu" class="btn">菜單</a>
-            <a href="imgs/menuall.jpg" class="btn">菜單下載</a>
+            <div>
+                <a href="#menu" class="btn">菜單</a>
+                <a href="imgs/menuall.jpg" class="btn">菜單 jpg</a>
+                <a href="imgs/menu_pdf.pdf" class="btn">菜單 pdf</a>                
+            </div>
         </div>        
     </section>
 
