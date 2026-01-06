@@ -304,12 +304,14 @@
         gap: 25px;
         padding-top: 20px;
     }
-    .location .container .box{
+    .location .container .box,
+    .order .container .box{
         border: #aaa solid 2px;
         border-radius: 10px;
         margin-bottom: 20px;
     }
-    .location .container .box .subtitle{
+    .location .container .box .subtitle,
+    .order .container .box .subtitle{
         font-size: 1.5em;
         margin: 10px auto;
         text-align: center;
@@ -337,11 +339,12 @@
         align-items: flex-start;
         flex-direction: column;
     }
-    .location .container .box .order{
+    .container .box .ordernote{
         font-size: 0.85em;
         color: #888;
     }
-    .location .container .box .contact a{
+    .location .container .box .contact a,
+    .order .container .box a{
         text-decoration: none; /* 移除底線 */
         color: #111;           /* 統一文字顏色 */
         transition: 0.3s;
@@ -363,6 +366,33 @@
         margin-right: 10px; /* 與文字的間距 */
         display: inline-block;
         transition: 0.5s;
+    }
+    .order .container{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .order .container .orderleft{        
+        display: flex;
+        flex-direction: column;
+    }
+    .order .container .subbox{
+        width: 280px;
+    }
+    .order .container .subbox .contact{
+        padding: 0px 20px;
+        margin-bottom: 20px;
+        line-height: 1.65;
+    }
+    .qr{
+        padding: 0 20px 20px 20px;
+        text-align: center;
+    }
+    .qr img{
+        width: 85%;
     }
 
     @media(max-width: 991px){
@@ -444,6 +474,9 @@
         .title{
             text-align: center;
         }
+        .order .container .orderleft{
+            margin-bottom: -20px;
+        }
     }
     @media(max-width: 480px){
         .banner .content h2{
@@ -457,12 +490,13 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">金門街<span>鹹粥蔥抓餅</span></a>
+        <a href="#home" class="logo">金門街<span>鹹粥蔥抓餅</span></a>
         <div class="menuToggle" onclick="toggleMenu();"></div>
         <ul class="navigation">
             <li><a href="#banner">首頁</a></li>
             <li><a href="#menu">菜單</a></li>
             <li><a href="#location">營業時間地點</a></li>
+            <li><a href="#order">點餐</a></li>
             <li><a href="#about">關於</a></li>
         </ul>
     </header>
@@ -588,15 +622,45 @@
                 </ul>
             </div>
             <div class="box">
-                <h3 class="subtitle">聯絡方式 <span class="order"> (歡迎電話訂餐)</span></h3>
+                <h3 class="subtitle">聯絡方式 <span class="ordernote"> (歡迎電話訂餐)</span></h3>
                 <div class="contact">
                     <div><i class="fa-solid fa-phone"></i> <a href="tel:0226817583">(02) 2681-7583</a></div>
-                    <div><i class="fa-solid fa-mobile"></i> <a href="tel:0963314119">0963-314-119</a></div>
+                    <div><i class="fa-solid fa-mobile"></i> <a href="tel:0909995111">0909-995-111</a></div>
                     <div><i class="fa-solid fa-location-dot"></i> <a href="https://maps.app.goo.gl/Cs9uD4oNB6JSjHZd7">新北市板橋區金門街 137 巷 5 號</a></div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="order" id="order">
+        <div class="title">
+            <h2 class="titleText"><span>點</span>餐</h2>
+        </div>
+        <div class="container">
+            <div class="orderleft">
+                <div class="box subbox">
+                    <h3 class="subtitle">線上點餐<span class="ordernote"> (自取)</span></h3>
+                    <div class="contact">
+                        <div><i class="fa-solid fa-phone"></i> <a href="tel:0226817583">(02) 2681-7583</a></div>
+                        <div><i class="fa-solid fa-mobile"></i> <a href="tel:0909995111">0909-995-111</a></div>
+                    </div>
+                </div>
+                <div class="box subbox">
+                    <h3 class="subtitle">外送平台</h3>
+                    <div class="contact">
+                        Coming soon...
+                    </div>
+                </div>
+            </div>
+            <div class="box subbox">
+                <h3 class="subtitle">加入 LINE <span class="ordernote">(點餐自取)</span></h3>
+                <div class="qr">
+                    <img src="imgs/10729.jpg" alt="">                    
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
 
