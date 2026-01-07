@@ -55,6 +55,8 @@
         margin: 15px auto;
         font-size: 1em;
         color: #333;
+        line-height: 1.85;
+        text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
     }
     .banner .content div{
         display: flex;
@@ -345,12 +347,12 @@
     }
     .location .container .box .contact a,
     .order .container .box a{
-        text-decoration: none; /* 移除底線 */
-        color: #111;           /* 統一文字顏色 */
+        text-decoration: none; 
+        color: #111;
         transition: 0.3s;
     }
     .location .container .box .contact a:hover {
-        color: #ff0157;        /* 滑鼠移過時變色 */
+        color: #ff0157;
         font-weight: 900;
     }
     .location .container .box .contact::before{
@@ -394,6 +396,18 @@
     .qr img{
         width: 85%;
     }
+    img.panda{
+        width: 60%;
+        margin: 10px 0;
+    }
+    .foodpandaColor{
+        color: rgb(232,29,117);
+        font-weight: 600;
+    }
+    .storename{
+        font-weight: 900;
+    }
+
 
     @media(max-width: 991px){
         header,
@@ -504,12 +518,14 @@
         <div class="content">
             <p class="street">金門街</p>
             <h2>鹹粥蔥抓餅</h2>
-            <p class="note">主要餐點為古早味鹹粥、蔥抓餅。</p>
+            <p class="note">主要餐點為古早味鹹粥、蔥抓餅。<br>
+            自 2026/1/8 起加入 <span class="foodpandaColor">foodpanda</span> 外送平台。</p>
             <div>
                 <a href="#menu" class="btn">菜單 <i class="fa-regular fa-file-code"></i></a>
                 <a href="imgs/menu_pdf.pdf" class="btn">菜單 <i class="fa-regular fa-file-pdf"></i></a>   
                 <a href="imgs/menu_jpg.jpg" class="btn">菜單 <i class="fa-regular fa-file-image"></i></a>                             
             </div>
+            
         </div>        
     </section>
 
@@ -646,18 +662,25 @@
                     </div>
                 </div>
                 <div class="box subbox">
-                    <h3 class="subtitle">外送平台</h3>
-                    <div class="contact">
-                        Coming soon...
-                    </div>
-                </div>
-            </div>
-            <div class="box subbox">
-                <h3 class="subtitle">加入 LINE <span class="ordernote">(點餐自取)</span></h3>
-                <div class="qr">
+                    <h3 class="subtitle">LINE 點餐 <span class="ordernote"> (自取)</span></h3>
+                    <div class="qr">
                     <a href="https://line.me/ti/g2/e21x4rbowDi5JxMsTC0ztvqOqsMK56vWBQo6iA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">
                         <img src="imgs/10729.jpg" alt="">
                     </a>                  
+                </div>
+                </div>
+            </div>
+            <div class="box subbox">
+                
+                <h3 class="subtitle">外送平台</h3>                    
+                <div class="qr">
+                    <img class="panda" src="imgs/foodpanda_logo.png">
+                    <a href="https://www.foodpanda.com.tw/restaurant/szh5/jin-men-jie-xian-zhou?preview=c3poNURlbGl2ZXJ5MjAyNi0wMS0wNlQxNToxMzowMy40MjBa">
+                        <img src="imgs/foodpanda_qr.png" alt="">
+                    </a>                  
+                </div>
+                <div class="contact">
+                    或在 <span class="foodpandaColor";>foodpanda</span> 中搜尋「<span class="storename">金門街鹹粥</span>」、「鹹粥」、「蔥抓餅」等關鍵字，請認明「<span class="storename">金門街鹹粥</span>」。
                 </div>
             </div>
         </div>
